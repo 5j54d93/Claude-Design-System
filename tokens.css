@@ -1,0 +1,1120 @@
+/* ============================================================
+   claude.ai Design Tokens — 完整實作版
+   來源：claude.ai production CSS（2026-01 主題版本）逆向整理
+   用法：<html data-theme="claude" data-mode="auto|light|dark">
+   顏色一律以 hsl(var(--token) / alpha) 取用
+   ============================================================ */
+
+/* ---------- 0. 全域不變色 ---------- */
+:root {
+  --always-white: 0 0% 100%;
+  --always-black: 0 0% 0%;
+
+  /* z-index 語意刻度 */
+  --z-header: 20;
+  --z-sidebar: 30;
+  --z-modal: 40;
+  --z-dropdown: 50;
+  --z-overlay: 50;
+  --z-tooltip: 50;
+  --z-toast: 60;
+
+  /* 陰影 */
+  --shadow-sm: 0 1px 2px 0 hsl(var(--always-black) / 5%);
+  --shadow-md: 0 2px 8px 0 hsl(var(--always-black) / 8%);
+  --shadow-soft: 0 2px 12px hsl(var(--always-black) / 5%);
+  --shadow-card: 0 4px 20px 0 hsl(var(--always-black) / 4%);
+  --shadow-elevated: 0 6px 22px 0 hsl(var(--always-black) / 5%);
+  --shadow-pop: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --shadow-huge: 0 40px 80px hsl(var(--always-black) / 10%);
+
+  /* 緩動曲線 */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-hero: cubic-bezier(0.165, 0.85, 0.45, 1);
+  --ease-curtain: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-toast: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-overshoot: cubic-bezier(0, 0.9, 0.5, 1.35);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ---------- 0.5 Primitive 色板層（2026-06 live，10 條色階 × ~33 階） ----------
+   語意 token 一律引用此層；自訂主題時改語意層映射即可 */
+:root {
+  /* brand-clay */
+  --_brand-clay: 14.8 63.1% 59.6%;
+
+  /* brand-clay-emphasized */
+  --_brand-clay-emphasized: 15.1 54.2% 51.2%;
+
+  /* gray */
+  --_gray-0: 0 0% 100%;
+  --_gray-10: 60 14% 99%;
+  --_gray-20: 60 14% 97%;
+  --_gray-30: 60 10% 96%;
+  --_gray-40: 60 11% 95%;
+  --_gray-50: 45 12% 93%;
+  --_gray-60: 48 12% 92%;
+  --_gray-70: 50 12% 91%;
+  --_gray-80: 50 11% 89%;
+  --_gray-90: 51 11% 88%;
+  --_gray-100: 53 12% 87%;
+  --_gray-150: 55 11% 80%;
+  --_gray-200: 55 9% 74%;
+  --_gray-250: 55 7% 68%;
+  --_gray-300: 55 6% 63%;
+  --_gray-350: 48 5% 57%;
+  --_gray-400: 45 3% 52%;
+  --_gray-450: 43 3% 47%;
+  --_gray-500: 40 3% 42%;
+  --_gray-550: 48 3% 36%;
+  --_gray-600: 45 3% 31%;
+  --_gray-650: 40 2% 26%;
+  --_gray-700: 60 3% 21%;
+  --_gray-750: 60 2% 17%;
+  --_gray-800: 60 2% 12%;
+  --_gray-810: 60 2% 12%;
+  --_gray-820: 60 2% 11%;
+  --_gray-830: 60 2% 10%;
+  --_gray-840: 60 2% 9%;
+  --_gray-850: 0 0% 8%;
+  --_gray-860: 0 0% 7%;
+  --_gray-870: 0 0% 7%;
+  --_gray-880: 0 0% 6%;
+  --_gray-890: 0 0% 5%;
+  --_gray-900: 0 0% 4%;
+
+  /* red */
+  --_red-0: 0 0% 100%;
+  --_red-10: 0 100% 99%;
+  --_red-20: 0 78% 98%;
+  --_red-30: 0 85% 97%;
+  --_red-40: 0 78% 96%;
+  --_red-50: 0 67% 95%;
+  --_red-60: 0 66% 94%;
+  --_red-70: 0 70% 94%;
+  --_red-80: 0 73% 93%;
+  --_red-90: 0 76% 92%;
+  --_red-100: 0 78% 91%;
+  --_red-150: 0 77% 86%;
+  --_red-200: 0 77% 81%;
+  --_red-250: 0 75% 76%;
+  --_red-300: 0 74% 71%;
+  --_red-350: 0 72% 65%;
+  --_red-400: 0 73% 59%;
+  --_red-450: 0 61% 52%;
+  --_red-500: 0 55% 47%;
+  --_red-550: 0 57% 41%;
+  --_red-600: 0 58% 35%;
+  --_red-650: 0 60% 30%;
+  --_red-700: 0 60% 25%;
+  --_red-750: 0 64% 19%;
+  --_red-800: 0 62% 15%;
+  --_red-810: 0 62% 14%;
+  --_red-820: 0 63% 13%;
+  --_red-830: 0 63% 12%;
+  --_red-840: 0 64% 11%;
+  --_red-850: 0 60% 10%;
+  --_red-860: 2 56% 9%;
+  --_red-870: 3 49% 8%;
+  --_red-880: 5 35% 7%;
+  --_red-890: 10 21% 5%;
+  --_red-900: 0 0% 4%;
+
+  /* orange */
+  --_orange-0: 0 0% 100%;
+  --_orange-10: 15 67% 99%;
+  --_orange-20: 15 67% 98%;
+  --_orange-30: 20 67% 96%;
+  --_orange-40: 17 58% 95%;
+  --_orange-50: 17 60% 94%;
+  --_orange-60: 19 61% 93%;
+  --_orange-70: 18 62% 92%;
+  --_orange-80: 19 67% 91%;
+  --_orange-90: 17 70% 89%;
+  --_orange-100: 18 73% 88%;
+  --_orange-150: 18 73% 83%;
+  --_orange-200: 16 81% 77%;
+  --_orange-250: 16 80% 71%;
+  --_orange-300: 17 79% 64%;
+  --_orange-350: 17 82% 56%;
+  --_orange-400: 17 70% 50%;
+  --_orange-450: 17 69% 45%;
+  --_orange-500: 17 72% 40%;
+  --_orange-550: 17 72% 35%;
+  --_orange-600: 17 77% 30%;
+  --_orange-650: 17 77% 25%;
+  --_orange-700: 18 79% 20%;
+  --_orange-750: 17 81% 16%;
+  --_orange-800: 16 77% 12%;
+  --_orange-810: 16 76% 12%;
+  --_orange-820: 16 78% 11%;
+  --_orange-830: 15 76% 10%;
+  --_orange-840: 15 74% 9%;
+  --_orange-850: 14 67% 8%;
+  --_orange-860: 16 59% 8%;
+  --_orange-870: 18 49% 7%;
+  --_orange-880: 16 35% 6%;
+  --_orange-890: 12 19% 5%;
+  --_orange-900: 0 0% 4%;
+
+  /* yellow */
+  --_yellow-0: 0 0% 100%;
+  --_yellow-10: 40 75% 98%;
+  --_yellow-20: 38 65% 97%;
+  --_yellow-30: 39 68% 95%;
+  --_yellow-40: 40 64% 94%;
+  --_yellow-50: 39 72% 92%;
+  --_yellow-60: 40 81% 89%;
+  --_yellow-70: 40 85% 87%;
+  --_yellow-80: 39 87% 85%;
+  --_yellow-90: 39 86% 83%;
+  --_yellow-100: 40 88% 81%;
+  --_yellow-150: 40 92% 69%;
+  --_yellow-200: 41 96% 54%;
+  --_yellow-250: 41 100% 46%;
+  --_yellow-300: 40 100% 43%;
+  --_yellow-350: 40 100% 39%;
+  --_yellow-400: 39 100% 36%;
+  --_yellow-450: 38 100% 33%;
+  --_yellow-500: 38 100% 29%;
+  --_yellow-550: 37 100% 26%;
+  --_yellow-600: 36 100% 23%;
+  --_yellow-650: 35 100% 19%;
+  --_yellow-700: 34 100% 16%;
+  --_yellow-750: 33 100% 13%;
+  --_yellow-800: 32 100% 10%;
+  --_yellow-810: 31 100% 9%;
+  --_yellow-820: 32 100% 8%;
+  --_yellow-830: 32 100% 8%;
+  --_yellow-840: 33 89% 7%;
+  --_yellow-850: 31 77% 7%;
+  --_yellow-860: 31 64% 6%;
+  --_yellow-870: 34 53% 6%;
+  --_yellow-880: 30 36% 5%;
+  --_yellow-890: 36 20% 5%;
+  --_yellow-900: 0 0% 4%;
+
+  /* green */
+  --_green-0: 0 0% 100%;
+  --_green-10: 84 56% 98%;
+  --_green-20: 87 58% 96%;
+  --_green-30: 86 50% 95%;
+  --_green-40: 83 50% 93%;
+  --_green-50: 85 48% 91%;
+  --_green-60: 84 50% 89%;
+  --_green-70: 83 52% 87%;
+  --_green-80: 83 53% 85%;
+  --_green-90: 83 55% 83%;
+  --_green-100: 83 55% 81%;
+  --_green-150: 83 55% 71%;
+  --_green-200: 83 54% 61%;
+  --_green-250: 81 54% 51%;
+  --_green-300: 79 94% 37%;
+  --_green-350: 79 100% 33%;
+  --_green-400: 81 100% 30%;
+  --_green-450: 82 100% 27%;
+  --_green-500: 84 100% 24%;
+  --_green-550: 86 100% 21%;
+  --_green-600: 87 100% 18%;
+  --_green-650: 89 100% 16%;
+  --_green-700: 91 100% 13%;
+  --_green-750: 92 100% 10%;
+  --_green-800: 95 100% 8%;
+  --_green-810: 97 100% 7%;
+  --_green-820: 99 100% 7%;
+  --_green-830: 98 100% 6%;
+  --_green-840: 95 100% 6%;
+  --_green-850: 95 86% 5%;
+  --_green-860: 95 70% 5%;
+  --_green-870: 97 48% 5%;
+  --_green-880: 98 31% 5%;
+  --_green-890: 90 17% 5%;
+  --_green-900: 0 0% 4%;
+
+  /* aqua */
+  --_aqua-0: 0 0% 100%;
+  --_aqua-10: 150 50% 98%;
+  --_aqua-20: 158 50% 97%;
+  --_aqua-30: 155 50% 95%;
+  --_aqua-40: 156 48% 94%;
+  --_aqua-50: 157 45% 92%;
+  --_aqua-60: 158 46% 91%;
+  --_aqua-70: 158 47% 89%;
+  --_aqua-80: 156 51% 87%;
+  --_aqua-90: 158 51% 85%;
+  --_aqua-100: 158 52% 84%;
+  --_aqua-150: 158 52% 75%;
+  --_aqua-200: 157 54% 66%;
+  --_aqua-250: 157 52% 57%;
+  --_aqua-300: 157 52% 49%;
+  --_aqua-350: 159 73% 40%;
+  --_aqua-400: 159 73% 36%;
+  --_aqua-450: 160 76% 32%;
+  --_aqua-500: 162 79% 28%;
+  --_aqua-550: 163 77% 24%;
+  --_aqua-600: 165 88% 20%;
+  --_aqua-650: 166 80% 17%;
+  --_aqua-700: 168 91% 14%;
+  --_aqua-750: 169 93% 11%;
+  --_aqua-800: 169 90% 8%;
+  --_aqua-810: 169 89% 7%;
+  --_aqua-820: 169 89% 7%;
+  --_aqua-830: 170 88% 6%;
+  --_aqua-840: 170 81% 6%;
+  --_aqua-850: 169 68% 6%;
+  --_aqua-860: 165 53% 6%;
+  --_aqua-870: 165 43% 5%;
+  --_aqua-880: 163 26% 5%;
+  --_aqua-890: 160 12% 5%;
+  --_aqua-900: 0 0% 4%;
+
+  /* blue */
+  --_blue-0: 0 0% 100%;
+  --_blue-10: 216 100% 99%;
+  --_blue-20: 213 82% 98%;
+  --_blue-30: 210 88% 97%;
+  --_blue-40: 208 74% 95%;
+  --_blue-50: 210 71% 95%;
+  --_blue-60: 210 71% 93%;
+  --_blue-70: 211 74% 92%;
+  --_blue-80: 211 78% 91%;
+  --_blue-90: 211 80% 90%;
+  --_blue-100: 213 85% 89%;
+  --_blue-150: 213 78% 84%;
+  --_blue-200: 213 80% 79%;
+  --_blue-250: 213 77% 73%;
+  --_blue-300: 213 77% 68%;
+  --_blue-350: 212 75% 62%;
+  --_blue-400: 213 77% 56%;
+  --_blue-450: 213 68% 50%;
+  --_blue-500: 213 68% 45%;
+  --_blue-550: 213 72% 39%;
+  --_blue-600: 214 72% 34%;
+  --_blue-650: 213 78% 28%;
+  --_blue-700: 214 78% 24%;
+  --_blue-750: 213 87% 18%;
+  --_blue-800: 212 91% 14%;
+  --_blue-810: 212 91% 13%;
+  --_blue-820: 212 93% 12%;
+  --_blue-830: 212 93% 11%;
+  --_blue-840: 212 92% 10%;
+  --_blue-850: 212 87% 9%;
+  --_blue-860: 213 77% 8%;
+  --_blue-870: 213 63% 7%;
+  --_blue-880: 212 45% 6%;
+  --_blue-890: 214 26% 5%;
+  --_blue-900: 0 0% 4%;
+
+  /* violet */
+  --_violet-0: 0 0% 100%;
+  --_violet-10: 255 100% 99%;
+  --_violet-20: 240 100% 99%;
+  --_violet-30: 245 100% 98%;
+  --_violet-40: 244 100% 97%;
+  --_violet-50: 247 100% 96%;
+  --_violet-60: 243 91% 96%;
+  --_violet-70: 245 92% 95%;
+  --_violet-80: 247 87% 94%;
+  --_violet-90: 246 88% 93%;
+  --_violet-100: 247 89% 93%;
+  --_violet-150: 246 86% 89%;
+  --_violet-200: 246 75% 84%;
+  --_violet-250: 247 74% 80%;
+  --_violet-300: 247 68% 75%;
+  --_violet-350: 247 69% 72%;
+  --_violet-400: 248 67% 67%;
+  --_violet-450: 248 67% 63%;
+  --_violet-500: 248 62% 58%;
+  --_violet-550: 248 48% 51%;
+  --_violet-600: 249 48% 44%;
+  --_violet-650: 248 49% 37%;
+  --_violet-700: 248 51% 31%;
+  --_violet-750: 248 52% 25%;
+  --_violet-800: 248 54% 19%;
+  --_violet-810: 248 53% 17%;
+  --_violet-820: 248 54% 16%;
+  --_violet-830: 247 53% 15%;
+  --_violet-840: 248 54% 14%;
+  --_violet-850: 247 54% 13%;
+  --_violet-860: 246 51% 11%;
+  --_violet-870: 243 43% 10%;
+  --_violet-880: 244 35% 8%;
+  --_violet-890: 240 23% 6%;
+  --_violet-900: 0 0% 4%;
+
+  /* magenta */
+  --_magenta-0: 0 0% 100%;
+  --_magenta-10: 340 60% 99%;
+  --_magenta-20: 338 80% 98%;
+  --_magenta-30: 338 73% 97%;
+  --_magenta-40: 340 60% 96%;
+  --_magenta-50: 340 60% 95%;
+  --_magenta-60: 338 61% 94%;
+  --_magenta-70: 337 66% 93%;
+  --_magenta-80: 338 69% 92%;
+  --_magenta-90: 338 73% 91%;
+  --_magenta-100: 337 76% 90%;
+  --_magenta-150: 338 68% 85%;
+  --_magenta-200: 338 76% 81%;
+  --_magenta-250: 338 71% 75%;
+  --_magenta-300: 337 70% 70%;
+  --_magenta-350: 338 71% 64%;
+  --_magenta-400: 338 61% 58%;
+  --_magenta-450: 339 49% 52%;
+  --_magenta-500: 338 48% 46%;
+  --_magenta-550: 339 49% 40%;
+  --_magenta-600: 338 52% 35%;
+  --_magenta-650: 338 53% 29%;
+  --_magenta-700: 338 54% 24%;
+  --_magenta-750: 338 58% 19%;
+  --_magenta-800: 337 58% 14%;
+  --_magenta-810: 338 61% 13%;
+  --_magenta-820: 338 61% 12%;
+  --_magenta-830: 338 62% 11%;
+  --_magenta-840: 338 62% 10%;
+  --_magenta-850: 339 59% 10%;
+  --_magenta-860: 340 55% 9%;
+  --_magenta-870: 339 44% 8%;
+  --_magenta-880: 340 35% 7%;
+  --_magenta-890: 340 21% 5%;
+  --_magenta-900: 0 0% 4%;
+}
+
+/* 官方具名品牌色（cds 命名空間，hex 直接值） */
+:root {
+  --cds-clay: #d97757;
+  --cds-clay-emphasized: #c6613f;
+  --cds-heather: #cbcadb;
+  --cds-plum: #827dbd;
+  --cds-cactus: #bcd1ca;
+  --cds-mineral: #629987;
+  --cds-peach: #ebc9b7;
+  --cds-oncolor-200: #f8f8f7bf;
+  --cds-oncolor-300: #f8f8f780;
+}
+
+/* ---------- 1. Claude 主題 — Light（語意層 → primitive 引用） ---------- */
+:root,
+[data-theme="claude"],
+[data-theme="claude"][data-mode="light"] {
+  --accent-brand: var(--_brand-clay);
+  --accent-000: var(--_blue-600);
+  --accent-100: var(--_blue-500);
+  --accent-200: var(--_blue-500);
+  --accent-900: var(--_blue-100);
+  --accent-pro-000: var(--_violet-600);
+  --accent-pro-100: var(--_violet-450);
+  --accent-pro-200: var(--_violet-450);
+  --accent-pro-900: var(--_violet-100);
+  --bg-000: var(--_gray-0);
+  --bg-100: var(--_gray-20);
+  --bg-200: var(--_gray-40);
+  --bg-300: var(--_gray-50);
+  --bg-400: var(--_gray-80);
+  --bg-500: var(--_gray-80);
+  --brand-000: var(--_brand-clay-emphasized);
+  --brand-100: var(--_brand-clay-emphasized);
+  --brand-200: var(--_brand-clay);
+  --brand-900: var(--always-black);
+  --border-100: var(--_gray-810);
+  --border-200: var(--_gray-810);
+  --border-300: var(--_gray-810);
+  --border-400: var(--_gray-810);
+  --danger-000: var(--_red-600);
+  --danger-100: var(--_red-450);
+  --danger-200: var(--_red-450);
+  --danger-900: var(--_red-100);
+  --pictogram-100: var(--_gray-80);
+  --pictogram-200: var(--_gray-100);
+  --pictogram-300: var(--_gray-0);
+  --pictogram-400: var(--_gray-20);
+  --success-000: var(--_green-600);
+  --success-100: var(--_green-450);
+  --success-200: var(--_green-450);
+  --success-900: var(--_green-100);
+  --text-000: var(--_gray-860);
+  --text-100: var(--_gray-860);
+  --text-200: var(--_gray-700);
+  --text-300: var(--_gray-700);
+  --text-400: var(--_gray-450);
+  --text-500: var(--_gray-450);
+  --warning-000: var(--_yellow-600);
+  --warning-100: var(--_yellow-450);
+  --warning-200: var(--_yellow-450);
+  --warning-900: var(--_yellow-100);
+  /* oncolor（彩色底上的文字，主題不變） */
+  --oncolor-100: 0 0% 100%;
+  --oncolor-200: 60 6.7% 97.1%;
+  --oncolor-300: 60 6.7% 97.1%;
+}
+
+/* ---------- 2. Claude 主題 — Dark ---------- */
+[data-theme="claude"][data-mode="dark"] {
+  --accent-brand: var(--_brand-clay);
+  --accent-000: var(--_blue-200);
+  --accent-100: var(--_blue-350);
+  --accent-200: var(--_blue-350);
+  --accent-900: var(--_blue-750);
+  --accent-pro-000: var(--_violet-200);
+  --accent-pro-100: var(--_violet-400);
+  --accent-pro-200: var(--_violet-400);
+  --accent-pro-900: var(--_violet-750);
+  --bg-000: var(--_gray-750);
+  --bg-100: var(--_gray-800);
+  --bg-200: var(--_gray-840);
+  --bg-300: var(--_gray-860);
+  --bg-400: var(--_gray-900);
+  --bg-500: var(--_gray-900);
+  --brand-000: var(--_brand-clay-emphasized);
+  --brand-100: var(--_brand-clay);
+  --brand-200: var(--_brand-clay);
+  --brand-900: var(--always-black);
+  --border-100: var(--_gray-100);
+  --border-200: var(--_gray-100);
+  --border-300: var(--_gray-100);
+  --border-400: var(--_gray-100);
+  --danger-000: var(--_red-200);
+  --danger-100: var(--_red-400);
+  --danger-200: var(--_red-400);
+  --danger-900: var(--_red-750);
+  --pictogram-100: var(--_gray-650);
+  --pictogram-200: var(--_gray-700);
+  --pictogram-300: var(--_gray-750);
+  --pictogram-400: var(--_gray-800);
+  --success-000: var(--_green-200);
+  --success-100: var(--_green-400);
+  --success-200: var(--_green-400);
+  --success-900: var(--_green-750);
+  --text-000: var(--_gray-20);
+  --text-100: var(--_gray-20);
+  --text-200: var(--_gray-200);
+  --text-300: var(--_gray-200);
+  --text-400: var(--_gray-350);
+  --text-500: var(--_gray-350);
+  --warning-000: var(--_yellow-200);
+  --warning-100: var(--_yellow-400);
+  --warning-200: var(--_yellow-400);
+  --warning-900: var(--_yellow-750);
+}
+
+/* auto 模式：跟隨系統 */
+@media (prefers-color-scheme: dark) {
+  [data-theme="claude"][data-mode="auto"],
+  [data-theme="claude"]:not([data-mode]) {
+    --accent-brand: var(--_brand-clay);
+    --accent-000: var(--_blue-200);
+    --accent-100: var(--_blue-350);
+    --accent-200: var(--_blue-350);
+    --accent-900: var(--_blue-750);
+    --accent-pro-000: var(--_violet-200);
+    --accent-pro-100: var(--_violet-400);
+    --accent-pro-200: var(--_violet-400);
+    --accent-pro-900: var(--_violet-750);
+    --bg-000: var(--_gray-750);
+    --bg-100: var(--_gray-800);
+    --bg-200: var(--_gray-840);
+    --bg-300: var(--_gray-860);
+    --bg-400: var(--_gray-900);
+    --bg-500: var(--_gray-900);
+    --brand-000: var(--_brand-clay-emphasized);
+    --brand-100: var(--_brand-clay);
+    --brand-200: var(--_brand-clay);
+    --brand-900: var(--always-black);
+    --border-100: var(--_gray-100);
+    --border-200: var(--_gray-100);
+    --border-300: var(--_gray-100);
+    --border-400: var(--_gray-100);
+    --danger-000: var(--_red-200);
+    --danger-100: var(--_red-400);
+    --danger-200: var(--_red-400);
+    --danger-900: var(--_red-750);
+    --pictogram-100: var(--_gray-650);
+    --pictogram-200: var(--_gray-700);
+    --pictogram-300: var(--_gray-750);
+    --pictogram-400: var(--_gray-800);
+    --success-000: var(--_green-200);
+    --success-100: var(--_green-400);
+    --success-200: var(--_green-400);
+    --success-900: var(--_green-750);
+    --text-000: var(--_gray-20);
+    --text-100: var(--_gray-20);
+    --text-200: var(--_gray-200);
+    --text-300: var(--_gray-200);
+    --text-400: var(--_gray-350);
+    --text-500: var(--_gray-350);
+    --warning-000: var(--_yellow-200);
+    --warning-100: var(--_yellow-400);
+    --warning-200: var(--_yellow-400);
+    --warning-900: var(--_yellow-750);
+  }
+}
+
+/* ---------- 2.5 相容別名（2026-01 舊命名 → 新命名） ---------- */
+:root {
+  --accent-main-000: var(--brand-000);
+  --accent-main-100: var(--brand-100);
+  --accent-main-200: var(--brand-200);
+  --accent-main-900: var(--brand-900);
+  --accent-secondary-000: var(--accent-000);
+  --accent-secondary-100: var(--accent-100);
+  --accent-secondary-200: var(--accent-200);
+  --accent-secondary-900: var(--accent-900);
+}
+
+/* ---------- 3. Console 主題（開發者後台；2026-01 版存檔，未隨主站重構驗證） ---------- */
+[data-theme="console"] {
+  --accent-brand: 15 63.1% 59.6%;
+  --accent-main-000: 18 50.4% 47.5%;
+  --accent-main-100: 18 56.8% 43.5%;
+  --accent-main-200: 19 58.3% 40.4%;
+  --accent-main-900: 16 21.6% 20%;
+  --accent-pro-000: 251 40.2% 54.1%;
+  --accent-pro-100: 251 40% 45.1%;
+  --accent-pro-200: 251 34.2% 33.3%;
+  --accent-pro-900: 249 25% 19.4%;
+  --accent-secondary-000: 158 68% 32%;
+  --accent-secondary-100: 158 80.4% 28%;
+  --accent-secondary-200: 158 79.2% 24.5%;
+  --accent-secondary-900: 160 18.1% 16.3%;
+  --bg-000: 0 0% 6%;
+  --bg-100: 0 0% 10%;
+  --bg-200: 0 0% 14%;
+  --bg-300: 0 0% 17%;
+  --bg-400: 0 0% 19%;
+  --bg-500: 0 0% 23%;
+  --border-100: 51 16.5% 84.5%;
+  --border-200: 51 16.5% 84.5%;
+  --border-300: 51 16.5% 84.5%;
+  --border-400: 51 16.5% 84.5%;
+  --danger-000: 4 90.4% 79.5%;
+  --danger-100: 5 91.7% 72.5%;
+  --danger-200: 5 58.4% 33.9%;
+  --danger-900: 0 48.2% 16.5%;
+  --oncolor-100: 0 0% 100%;
+  --oncolor-200: 60 6.7% 97.1%;
+  --oncolor-300: 60 6.7% 97.1%;
+  --pictogram-100: 48 3.4% 29.2%;
+  --pictogram-200: 60 2.5% 23.3%;
+  --pictogram-300: 0 0% 6%;
+  --pictogram-400: 0 0% 10%;
+  --success-000: 97 50.9% 43.1%;
+  --success-100: 125 100% 18%;
+  --success-200: 125 100% 18%;
+  --success-900: 135 88.2% 10%;
+  --text-000: 0 0% 100%;
+  --text-100: 60 3.7% 94.7%;
+  --text-200: 60 1.5% 86.9%;
+  --text-300: 30 1.4% 71.8%;
+  --text-400: 50 0.8% 65.1%;
+  --text-500: 45 0.6% 48%;
+  --warning-000: 40 71% 50%;
+  --warning-100: 39 93.4% 35.9%;
+  --warning-200: 39 93.4% 35.9%;
+  --warning-900: 45 94.8% 15.1%;
+}
+
+/* ---------- 4. 字體 ---------- */
+/* 官方 anthropicSans/Serif 為私有字體；此處接上替代字體後
+   只需覆寫 --font-anthropic-sans / --font-anthropic-serif 即可全站生效 */
+/* 注意：官方鏈在第二位放「度量補償版 Arial」（見下方 @font-face），
+   目的是真字體載入前防 CLS。若你沒有自架 anthropicSans/Serif，
+   請維持此處順序（補償字體不在鏈中），serif 才能正確退到 Georgia。
+   若自架了真字體，可在第二位插回 "anthropicSerif Fallback" 等。 */
+:root {
+  --font-anthropic-sans: "anthropicSans", system-ui,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-anthropic-serif: "anthropicSerif", Georgia,
+    "Times New Roman", Times, serif;
+  --font-jetbrains: "JetBrains Mono", ui-monospace,
+    SFMono-Regular, Menlo, Monaco, monospace;
+
+  --font-ui: var(--font-anthropic-sans);
+  --font-ui-serif: var(--font-anthropic-serif);
+  --font-claude-response: var(--font-anthropic-serif);
+  --font-user-message: var(--font-ui);
+  --font-mono: var(--font-jetbrains);
+  --font-sans-serif: var(--font-ui);
+  --font-serif: var(--font-ui-serif);
+  --font-system: system-ui, sans-serif;
+}
+
+/* 後備字體度量補償（降低 CLS） */
+@font-face {
+  font-family: "anthropicSans Fallback";
+  src: local("Arial");
+  ascent-override: 92.99%; descent-override: 24.13%;
+  line-gap-override: 0%; size-adjust: 106.73%;
+}
+@font-face {
+  font-family: "anthropicSerif Fallback";
+  src: local("Arial");
+  ascent-override: 93.6%; descent-override: 24.28%;
+  line-gap-override: 0%; size-adjust: 106.03%;
+}
+@font-face {
+  font-family: "jetbrains Fallback";
+  src: local("Arial");
+  ascent-override: 77.57%; descent-override: 22.82%;
+  line-gap-override: 0%; size-adjust: 131.49%;
+}
+
+/* ---------- 5. 基底樣式 ---------- */
+html {
+  font-family: var(--font-ui);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: hsl(var(--bg-100));
+  color: hsl(var(--text-100));
+  font-family: var(--font-ui);
+}
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+  font-feature-settings: "calt" 0, "liga" 0;
+}
+::selection {
+  background-color: hsl(var(--accent-secondary-100));
+  color: hsl(var(--oncolor-100)) !important;
+}
+
+/* ---------- 6. 字重系統（亮模式） ---------- */
+.font-normal { font-weight: 430; }
+.font-medium { font-weight: 550; }
+.font-semibold { font-weight: 580; }
+.font-bold, b, strong { font-weight: 600; }
+.font-base { font-weight: 430; }
+.font-base-bold { font-weight: 500; }
+.font-large { font-weight: 430; }
+.font-large-bold { font-weight: 600; }
+.font-small { font-weight: 430; }
+.font-small-bold { font-weight: 600; }
+.font-xl { font-weight: 400; font-variation-settings: "opsz" 20; }
+.font-xl-bold { font-weight: 600; font-variation-settings: "opsz" 20; }
+
+/* Type styles */
+.font-display {
+  font-family: var(--font-ui-serif);
+  font-size: 2.375rem; font-weight: 330; line-height: 1.2;
+  font-variation-settings: "opsz" 48;
+}
+.font-title {
+  font-family: var(--font-ui-serif);
+  font-size: 1.75rem; font-weight: 500; line-height: 1.3;
+  font-variation-settings: "opsz" 28;
+}
+.font-heading {
+  font-family: var(--font-ui-serif);
+  font-size: 1.5rem; font-weight: 500; line-height: 1.3;
+  font-variation-settings: "opsz" 24;
+}
+.font-claude-response { font-family: var(--font-claude-response); font-weight: 400; }
+.font-claude-response-title {
+  font-family: var(--font-claude-response);
+  font-size: 1.75rem; font-weight: 600; line-height: 1.3;
+  font-variation-settings: "opsz" 28;
+}
+.font-claude-response-heading {
+  font-family: var(--font-claude-response);
+  font-size: 1.25rem; font-weight: 600; line-height: 1.4;
+  font-variation-settings: "opsz" 20;
+}
+.font-claude-response-subheading {
+  font-family: var(--font-claude-response);
+  font-size: 1rem; font-weight: 600; line-height: 1.35;
+}
+.font-claude-response-code {
+  font-family: var(--font-mono);
+  font-size: 0.813rem; font-weight: 400; line-height: 1.5;
+}
+
+/* 暗模式字重補償 */
+[data-mode="dark"] .font-normal { font-weight: 400; }
+[data-mode="dark"] .font-medium { font-weight: 510; }
+[data-mode="dark"] .font-semibold { font-weight: 540; }
+[data-mode="dark"] .font-bold, [data-mode="dark"] b, [data-mode="dark"] strong { font-weight: 530; }
+[data-mode="dark"] .font-base { font-weight: 400; }
+[data-mode="dark"] .font-base-bold { font-weight: 460; }
+[data-mode="dark"] .font-large { font-weight: 400; }
+[data-mode="dark"] .font-large-bold { font-weight: 560; }
+[data-mode="dark"] .font-small { font-weight: 400; }
+[data-mode="dark"] .font-small-bold { font-weight: 560; }
+[data-mode="dark"] .font-xl { font-weight: 360; }
+[data-mode="dark"] .font-xl-bold { font-weight: 560; }
+[data-mode="dark"] .font-display { font-weight: 290; }
+[data-mode="dark"] .font-title, [data-mode="dark"] .font-heading { font-weight: 460; }
+[data-mode="dark"] .font-claude-response { font-weight: 360; }
+[data-mode="dark"] .font-claude-response-title,
+[data-mode="dark"] .font-claude-response-heading,
+[data-mode="dark"] .font-claude-response-subheading { font-weight: 530; }
+
+/* ---------- 7. Focus Ring ---------- */
+a, button, input, textarea, .can-focus {
+  outline: 2px solid hsl(var(--accent-secondary-000) / 0%);
+  outline-offset: 2px;
+}
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, .can-focus:focus-visible {
+  outline: 2px solid hsl(var(--accent-secondary-000) / 70%);
+  transition: outline 0.2s ease !important;
+}
+
+/* ---------- 8. Keyframes ---------- */
+@keyframes fade { 0% { opacity: 0 } to { opacity: 1 } }
+@keyframes zoom { 0% { transform: scale(0.95) } to { transform: scale(1) } }
+@keyframes blink { 0%, to { opacity: 1 } 50% { opacity: 0 } }
+@keyframes spin { to { transform: rotate(1turn) } }
+@keyframes pulse { 50% { opacity: 0.5 } }
+@keyframes pulse-dot { 0%, to { transform: scale(0.75) } 50% { transform: scale(1) } }
+@keyframes ping { 75%, to { transform: scale(2); opacity: 0 } }
+@keyframes shimmer {
+  0% { transform: translateX(-100%) }
+  60% { transform: translateX(100%) }
+  to { transform: translateX(100%) }
+}
+@keyframes shimmertext {
+  0% { background-position: 100% 0 }
+  65% { background-position: 0 0 }
+  to { background-position: 0 0 }
+}
+@keyframes loading-background {
+  0%, to { background-position: 0 0 }
+  25% { background-position: 100% 0 }
+  50% { background-position: 100% 100% }
+  75% { background-position: 0 100% }
+}
+@keyframes curtainDown {
+  0% { clip-path: inset(0 0 100% 0); opacity: 0 }
+  to { clip-path: inset(0 0 0 0); opacity: 1 }
+}
+@keyframes curtainUp {
+  0% { clip-path: inset(0 0 0 0); opacity: 1 }
+  to { clip-path: inset(0 0 100% 0); opacity: 0 }
+}
+@keyframes accordion-open {
+  0% { height: 0; opacity: 0 }
+  to { height: var(--accordion-content-height, auto); opacity: 1 }
+}
+@keyframes accordion-close {
+  0% { height: var(--accordion-content-height, auto); opacity: 1 }
+  to { height: 0; opacity: 0 }
+}
+@keyframes toast-slide { to { transform: translateX(100%) } }
+
+/* ---------- 9. 元件 ---------- */
+
+/* Button 基底 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  border: 0.5px solid var(--button-border, transparent);
+  background-color: var(--button-bg, transparent);
+  color: var(--button-text, inherit);
+  transition: color 0.1s var(--ease-standard), background-color 0.1s var(--ease-standard),
+    border-color 0.1s var(--ease-standard), transform 0.1s var(--ease-standard);
+  backface-visibility: hidden;
+  /* 中尺寸（預設） */
+  height: 2.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  min-width: 5rem;
+  font-size: 0.875rem;
+}
+[data-mode="dark"] .btn { font-weight: 460; }
+.btn:hover:not(:disabled) {
+  background-color: var(--button-hover-bg, var(--button-bg));
+  color: var(--button-hover-text, var(--button-text));
+  border-color: var(--button-hover-border, transparent);
+}
+.btn:active:not(:disabled) { transform: scale(0.985); }
+.btn:focus-visible { outline-color: var(--button-focus-outline, hsl(var(--accent-secondary-000) / 70%)); }
+.btn:disabled { pointer-events: none; opacity: 0.5; box-shadow: none; }
+
+/* Button 尺寸 */
+.btn--lg {
+  height: 2.75rem;            /* h-11 = 44px */
+  padding: 0 1.25rem;
+  border-radius: 0.6rem;      /* 招牌圓角 */
+  min-width: 6rem;
+  font-size: 1rem;
+}
+.btn--sm {
+  height: 1.75rem;            /* 28px */
+  padding: 0 0.75rem;
+  min-width: 1.75rem;
+  border-radius: 0.5rem;
+}
+
+/* Button 變體 */
+.btn--primary {
+  --button-bg: hsl(var(--text-000));
+  --button-text: hsl(var(--bg-000));
+  --button-border: transparent;
+  --button-hover-bg: hsl(var(--text-000));
+  --button-hover-text: hsl(var(--bg-000));
+  --button-focus-outline: hsl(var(--text-000) / 75%);
+}
+.btn--secondary {
+  --button-bg: transparent;
+  --button-text: hsl(var(--text-000));
+  --button-border: hsl(var(--border-200) / 30%);
+  --button-hover-bg: hsl(var(--bg-400));
+  --button-hover-text: hsl(var(--text-000));
+  --button-hover-border: transparent;
+}
+.btn--ghost {
+  --button-bg: transparent;
+  --button-text: hsl(var(--text-300));
+  --button-border: transparent;
+  --button-hover-bg: hsl(var(--bg-300));
+  --button-hover-text: hsl(var(--text-100));
+  min-width: 0;
+}
+.btn--ghost:active:not(:disabled),
+.btn--ghost[aria-expanded="true"],
+.btn--ghost[aria-checked="true"] {
+  background-color: hsl(var(--bg-300));
+  color: hsl(var(--text-100));
+}
+.btn--danger {
+  --button-bg: hsl(var(--danger-200));
+  --button-text: hsl(var(--oncolor-100));
+  --button-border: transparent;
+  --button-hover-bg: hsl(var(--danger-200));
+  --button-focus-outline: hsl(var(--danger-100) / 50%);
+}
+.btn--claude {
+  --button-bg: hsl(var(--accent-main-000));
+  --button-text: hsl(var(--oncolor-100));
+  --button-border: transparent;
+  --button-hover-bg: hsl(var(--accent-main-200));
+  --button-hover-text: hsl(var(--oncolor-100));
+  --button-focus-outline: hsl(var(--accent-main-100) / 75%);
+}
+
+/* 危險情境：容器掛 data-color-context="danger" 後內部按鈕自動轉紅 */
+[data-color-context="danger"] .btn--secondary {
+  --button-text: hsl(var(--danger-000));
+  --button-border: hsl(var(--danger-100));
+  --button-hover-bg: hsl(var(--danger-100) / 10%);
+  --button-hover-text: hsl(var(--danger-000));
+  --button-hover-border: hsl(var(--danger-200));
+}
+[data-color-context="danger"] .btn--ghost {
+  --button-text: hsl(var(--danger-000));
+  --button-hover-bg: hsl(var(--danger-100) / 8%);
+  --button-hover-text: hsl(var(--danger-000));
+}
+
+/* Hero CTA（行銷頁大按鈕的彈性 hover + 底部光暈） */
+.btn--hero {
+  transition: transform 0.15s var(--ease-hero);
+  will-change: transform;
+}
+.btn--hero:hover:not(:disabled) { transform: scaleY(1.015) scaleX(1.005); }
+.btn--hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  background: radial-gradient(at bottom, hsl(var(--bg-000) / 20%), hsl(var(--bg-000) / 0%));
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+}
+.btn--hero:hover::after { opacity: 1; transform: translateY(0); }
+
+/* Input */
+.input {
+  width: 100%;
+  height: 2.75rem;             /* h-11 */
+  padding: 0 0.75rem;
+  border-radius: 0.6rem;
+  background-color: hsl(var(--bg-000));
+  border: 1px solid hsl(var(--border-300) / 30%);
+  color: hsl(var(--text-100));
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 430;
+  transition: border-color 0.15s var(--ease-standard);
+}
+.input:hover { border-color: hsl(var(--border-200) / 50%); }
+.input::placeholder { color: hsl(var(--text-500)); }
+.input:disabled { cursor: not-allowed; opacity: 0.5; }
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 1.5rem;       /* rounded-3xl */
+  padding: 2rem 1.25rem;
+  background-color: hsl(var(--bg-000));
+  border: 0.5px solid hsl(var(--border-400) / 15%);
+  transition: all 0.2s var(--ease-standard);
+}
+@media (min-width: 768px) { .card { padding: 2rem; } }
+.card:hover { box-shadow: var(--shadow-sm); }
+[data-mode="dark"] .card { background-color: hsl(var(--bg-200)); }
+/* 強調卡（藍色光暈） */
+.card--featured {
+  border-color: hsl(var(--accent-secondary-000) / 20%);
+  box-shadow: 0 4px 24px hsl(var(--accent-secondary-000) / 15%);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: var(--z-toast);
+  max-width: 28rem;
+  max-height: calc(100vh - 1rem);
+  overflow: auto;
+  border-radius: 1.5rem;
+  background-color: hsl(var(--bg-500));
+  padding: 1rem;
+  font-family: var(--font-ui);
+  animation: toast-slide 0.2s var(--ease-toast) forwards reverse;
+}
+@media (min-width: 640px) { .toast { padding: 2rem; } }
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  background-color: hsl(var(--bg-100));
+  z-index: var(--z-header);
+}
+[data-mode="dark"] .navbar { background-color: hsl(var(--bg-300)); }
+.navbar-dropdown {
+  animation: curtainDown 0.6s var(--ease-curtain);
+  transform-origin: top center;
+  border: none;
+}
+.navbar-dropdown[data-state="closed"] { animation: curtainUp 0.6s var(--ease-curtain); }
+.navbar-dropdown a:hover { background-color: hsl(var(--bg-000)); }
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 9999px;
+  border: 8px solid hsl(var(--border-200) / 30%);
+  border-right-color: transparent;
+  animation: spin 1s linear infinite;
+  vertical-align: -0.125em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: spin 1.5s linear infinite; }
+}
+
+/* Modal overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: hsl(var(--always-black) / 50%);
+  animation: fade 0.2s var(--ease-standard);
+}
+.modal {
+  z-index: var(--z-modal);
+  background-color: hsl(var(--bg-000));
+  border: 0.5px solid hsl(var(--border-300) / 15%);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-pop);
+  animation: fade 0.2s var(--ease-standard), zoom 0.2s var(--ease-standard);
+}
+
+/* Skeleton 掃光 */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: hsl(var(--bg-300));
+  border-radius: 0.5rem;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, hsl(var(--always-white) / 40%), transparent);
+  animation: shimmer 1.5s infinite;
+}
+[data-mode="dark"] .skeleton::after {
+  background: linear-gradient(90deg, transparent, hsl(var(--always-white) / 10%), transparent);
+}
+
+/* 「思考中」文字掃光 */
+.shimmer-text {
+  background: linear-gradient(90deg,
+    hsl(var(--text-500)) 0%, hsl(var(--text-000)) 50%, hsl(var(--text-500)) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmertext 2.25s infinite;
+}
+
+/* 串流游標 */
+.stream-cursor { animation: blink 1s linear infinite; }
+
+/* 自訂捲軸 */
+.custom-scroll { scrollbar-width: thin; scrollbar-color: hsl(var(--text-500) / 0.8) transparent; }
+.custom-scroll::-webkit-scrollbar { width: 0.75rem; }
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--text-500) / 0.8);
+  border-radius: 1em;
+  border: 0.25rem solid transparent;
+  background-clip: content-box;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover { background-color: hsl(var(--text-500)); }
+.u-hidden-scrollbar { scrollbar-width: none; }
+.u-hidden-scrollbar::-webkit-scrollbar { width: 0; opacity: 0; }
+
+/* 程式碼區塊（One Dark — 亮暗模式同用深底） */
+.hljs { color: #abb2bf; background: #282c34; }
+pre code.hljs { display: block; overflow-x: auto; padding: 1em; border-radius: 0.5rem; }
+code.hljs { padding: 3px 5px; }
+.hljs-comment, .hljs-quote { color: #5c6370; font-style: italic; }
+.hljs-doctag, .hljs-formula, .hljs-keyword { color: #c678dd; }
+.hljs-deletion, .hljs-name, .hljs-section, .hljs-selector-tag, .hljs-subst { color: #e06c75; }
+.hljs-literal { color: #56b6c2; }
+.hljs-addition, .hljs-attribute, .hljs-meta .hljs-string, .hljs-regexp, .hljs-string { color: #98c379; }
+.hljs-attr, .hljs-number, .hljs-selector-attr, .hljs-selector-class, .hljs-selector-pseudo,
+.hljs-template-variable, .hljs-type, .hljs-variable { color: #d19a66; }
+.hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-symbol, .hljs-title { color: #61aeee; }
+.hljs-built_in, .hljs-class .hljs-title, .hljs-title.class_ { color: #e6c07b; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
+.hljs-link { text-decoration: underline; }
+
+/* Markdown 表格 */
+.markdown table { display: block; overflow-x: auto; border-collapse: collapse; }
+.markdown td, .markdown th {
+  border: 1px solid hsl(var(--border-300) / 25%);
+  padding: 0.5rem;
+}
+
+/* 減速偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-dropdown, .toast, .overlay, .modal { animation-duration: 0s; }
+}

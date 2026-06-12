@@ -1,0 +1,518 @@
+[
+ {
+  "name": "icon-0646ff39",
+  "vb": "0 0 24 24",
+  "bytes": 266,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-0ad8bb77",
+  "vb": "0 0 20 20",
+  "bytes": 569,
+  "page": "connectors.html"
+ },
+ {
+  "name": "icon-1412ff95",
+  "vb": "0 0 20 20",
+  "bytes": 1078,
+  "page": "download.html"
+ },
+ {
+  "name": "icon-15cf4f03",
+  "vb": "0 0 20 20",
+  "bytes": 530,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-19f2a085",
+  "vb": "0 0 24 24",
+  "bytes": 1182,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-1cac389a",
+  "vb": "0 0 20 20",
+  "bytes": 640,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-28174f8a",
+  "vb": "0 0 20 20",
+  "bytes": 1074,
+  "page": "pricing.html"
+ },
+ {
+  "name": "icon-28b2000f",
+  "vb": "0 0 20 20",
+  "bytes": 1318,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-2ce7c656",
+  "vb": "0 0 20 20",
+  "bytes": 1189,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-2df36cbc",
+  "vb": "0 0 20 20",
+  "bytes": 2101,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-2fc3d0de",
+  "vb": "0 0 17 17",
+  "bytes": 897,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-387f6ef8",
+  "vb": "0 0 20 20",
+  "bytes": 660,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-3df99fa1",
+  "vb": "0 0 16 17",
+  "bytes": 1566,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-3f02abb9",
+  "vb": "0 0 20 20",
+  "bytes": 1106,
+  "page": "pricing.html"
+ },
+ {
+  "name": "icon-402701c1",
+  "vb": "0 0 20 20",
+  "bytes": 701,
+  "page": "pricing.html"
+ },
+ {
+  "name": "icon-4209e1ec",
+  "vb": "0 0 20 20",
+  "bytes": 1469,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-4a4514ea",
+  "vb": "0 0 24 24",
+  "bytes": 880,
+  "page": "platform_api.html"
+ },
+ {
+  "name": "icon-53b78271",
+  "vb": "0 0 20 20",
+  "bytes": 1130,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-605e6237",
+  "vb": "0 0 17 17",
+  "bytes": 648,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-624b70a8",
+  "vb": "0 0 20 20",
+  "bytes": 1192,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-62f7a995",
+  "vb": "0 0 20 20",
+  "bytes": 1351,
+  "page": "skills.html"
+ },
+ {
+  "name": "icon-63b15d0d",
+  "vb": "0 0 20 20",
+  "bytes": 583,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-63fc11b0",
+  "vb": "0 0 20 20",
+  "bytes": 2125,
+  "page": "download.html"
+ },
+ {
+  "name": "icon-66fe3ce7",
+  "vb": "0 0 20 20",
+  "bytes": 1134,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-6ae52aef",
+  "vb": "0 0 20 20",
+  "bytes": 575,
+  "page": "connectors.html"
+ },
+ {
+  "name": "icon-70b96b1e",
+  "vb": "0 0 20 20",
+  "bytes": 727,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-725d6dc6",
+  "vb": "0 0 20 20",
+  "bytes": 2122,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-7501cd16",
+  "vb": "0 0 20 20",
+  "bytes": 1528,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-77085189",
+  "vb": "0 0 20 21",
+  "bytes": 811,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-77ff4102",
+  "vb": "0 0 20 20",
+  "bytes": 876,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-7d4d675b",
+  "vb": "0 0 20 20",
+  "bytes": 2598,
+  "page": "product_claude-security.html"
+ },
+ {
+  "name": "icon-7eb04776",
+  "vb": "0 0 20 20",
+  "bytes": 1162,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-82996cd5",
+  "vb": "0 0 18 18",
+  "bytes": 1840,
+  "page": "connectors.html"
+ },
+ {
+  "name": "icon-84e29352",
+  "vb": "0 0 20 20",
+  "bytes": 1756,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-878455ab",
+  "vb": "0 0 20 20",
+  "bytes": 528,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-8bb1f5d9",
+  "vb": "0 0 18 18",
+  "bytes": 852,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-8d54146f",
+  "vb": "0 0 24 24",
+  "bytes": 1434,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-917f4f93",
+  "vb": "0 0 20 20",
+  "bytes": 579,
+  "page": "connectors.html"
+ },
+ {
+  "name": "icon-985f5053",
+  "vb": "0 0 20 20",
+  "bytes": 1486,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-9c15f7d0",
+  "vb": "0 0 20 20",
+  "bytes": 672,
+  "page": "connectors.html"
+ },
+ {
+  "name": "icon-9c2fe833",
+  "vb": "0 0 24 24",
+  "bytes": 673,
+  "page": "platform_api.html"
+ },
+ {
+  "name": "icon-9e0bc44a",
+  "vb": "0 0 20 20",
+  "bytes": 638,
+  "page": "download.html"
+ },
+ {
+  "name": "icon-a08b10b6",
+  "vb": "0 0 20 20",
+  "bytes": 1074,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-a37636aa",
+  "vb": "0 0 20 20",
+  "bytes": 529,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-a5c5ba88",
+  "vb": "0 0 24 24",
+  "bytes": 1661,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-a62091ec",
+  "vb": "0 0 18 18",
+  "bytes": 1386,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-a6a8354c",
+  "vb": "0 0 20 20",
+  "bytes": 1206,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-b5376d6e",
+  "vb": "0 0 20 20",
+  "bytes": 2848,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-c03b4e4e",
+  "vb": "0 0 20 20",
+  "bytes": 546,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-c229019c",
+  "vb": "0 0 24 24",
+  "bytes": 556,
+  "page": "pricing.html"
+ },
+ {
+  "name": "icon-ce2ff03f",
+  "vb": "0 0 20 20",
+  "bytes": 1897,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-d151e9fb",
+  "vb": "0 0 20 20",
+  "bytes": 566,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-d84b572c",
+  "vb": "0 0 20 20",
+  "bytes": 705,
+  "page": "solutions_agents.html"
+ },
+ {
+  "name": "icon-dc09f480",
+  "vb": "0 0 20 20",
+  "bytes": 587,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-dce8df27",
+  "vb": "0 0 20 20",
+  "bytes": 538,
+  "page": "download.html"
+ },
+ {
+  "name": "icon-df77fc1a",
+  "vb": "0 0 20 20",
+  "bytes": 1180,
+  "page": "platform_api.html"
+ },
+ {
+  "name": "icon-e3f8365f",
+  "vb": "0 0 20 20",
+  "bytes": 545,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-e5d78556",
+  "vb": "0 0 16 16",
+  "bytes": 788,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-e632698c",
+  "vb": "0 0 24 24",
+  "bytes": 1151,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-e7d7cfe8",
+  "vb": "0 0 20 20",
+  "bytes": 570,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "icon-ef54e3d5",
+  "vb": "0 0 20 20",
+  "bytes": 1975,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-f7e88b35",
+  "vb": "0 0 20 20",
+  "bytes": 1219,
+  "page": "download.html"
+ },
+ {
+  "name": "icon-f9dfb50b",
+  "vb": "0 0 20 20",
+  "bytes": 1399,
+  "page": "solutions_agents.html"
+ },
+ {
+  "name": "illustration-09945606",
+  "vb": "0 0 500 500",
+  "bytes": 24252,
+  "page": "pricing.html"
+ },
+ {
+  "name": "illustration-207b4eaf",
+  "vb": "0 0 500 500",
+  "bytes": 29587,
+  "page": "skills.html"
+ },
+ {
+  "name": "illustration-7aa8ca1e",
+  "vb": "0 0 500 500",
+  "bytes": 31554,
+  "page": "pricing.html"
+ },
+ {
+  "name": "illustration-813b6654",
+  "vb": "0 0 500 500",
+  "bytes": 14561,
+  "page": "pricing.html"
+ },
+ {
+  "name": "illustration-b1ef2202",
+  "vb": "0 0 500 500",
+  "bytes": 46921,
+  "page": "connectors.html"
+ },
+ {
+  "name": "lockup-573",
+  "vb": "0 0 573 125",
+  "bytes": 7985,
+  "page": "com-overview.html"
+ },
+ {
+  "name": "lockup-claude-code",
+  "vb": "0 0 573 125",
+  "bytes": 7968,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "pictogram-0a37d27b",
+  "vb": "0 0 56 56",
+  "bytes": 26232,
+  "page": "product_cowork.html"
+ },
+ {
+  "name": "pictogram-2fa6819a",
+  "vb": "0 0 64 64",
+  "bytes": 58572,
+  "page": "pricing.html"
+ },
+ {
+  "name": "pictogram-3a34d631",
+  "vb": "0 0 96 96",
+  "bytes": 21266,
+  "page": "product_claude-security.html"
+ },
+ {
+  "name": "pictogram-496cf23b",
+  "vb": "0 0 65 64",
+  "bytes": 51124,
+  "page": "pricing.html"
+ },
+ {
+  "name": "pictogram-59baa048",
+  "vb": "0 0 64 64",
+  "bytes": 23689,
+  "page": "pricing.html"
+ },
+ {
+  "name": "pictogram-a64335cb",
+  "vb": "0 0 64 64",
+  "bytes": 15492,
+  "page": "platform_api.html"
+ },
+ {
+  "name": "pictogram-abf797e0",
+  "vb": "0 0 96 96",
+  "bytes": 39992,
+  "page": "download.html"
+ },
+ {
+  "name": "pictogram-b2bd9b48",
+  "vb": "0 0 64 64",
+  "bytes": 32881,
+  "page": "pricing.html"
+ },
+ {
+  "name": "pictogram-bf82794d",
+  "vb": "0 0 96 96",
+  "bytes": 54163,
+  "page": "download.html"
+ },
+ {
+  "name": "pictogram-cceb7533",
+  "vb": "0 0 96 96",
+  "bytes": 18355,
+  "page": "download.html"
+ },
+ {
+  "name": "pictogram-d61b6d86",
+  "vb": "0 0 64 64",
+  "bytes": 910,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "pictogram-f3d75a33",
+  "vb": "0 0 96 96",
+  "bytes": 54784,
+  "page": "pricing.html"
+ },
+ {
+  "name": "social-instagram",
+  "vb": "0 0 16 16",
+  "bytes": 998,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "social-linkedin",
+  "vb": "0 0 16 16",
+  "bytes": 718,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "social-x",
+  "vb": "0 0 16 16",
+  "bytes": 327,
+  "page": "product_claude-code.html"
+ },
+ {
+  "name": "social-youtube",
+  "vb": "0 0 16 16",
+  "bytes": 696,
+  "page": "product_claude-code.html"
+ }
+]

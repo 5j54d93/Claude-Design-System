@@ -1,0 +1,142 @@
+[
+ {
+  "name": "add-files",
+  "vb": "0 0 20 20",
+  "bytes": 676
+ },
+ {
+  "name": "add-to-project",
+  "vb": "0 0 20 20",
+  "bytes": 568
+ },
+ {
+  "name": "all-chats",
+  "vb": "0 0 256 256",
+  "bytes": 368
+ },
+ {
+  "name": "caret-down",
+  "vb": "0 0 20 20",
+  "bytes": 302
+ },
+ {
+  "name": "claudes-choice",
+  "vb": "0 0 256 256",
+  "bytes": 733
+ },
+ {
+  "name": "code",
+  "vb": "0 0 256 256",
+  "bytes": 480
+ },
+ {
+  "name": "connectors-2",
+  "vb": "0 0 20 20",
+  "bytes": 471
+ },
+ {
+  "name": "connectors",
+  "vb": "0 0 20 20",
+  "bytes": 518
+ },
+ {
+  "name": "cursor-glow",
+  "vb": "0 0 20 26",
+  "bytes": 489
+ },
+ {
+  "name": "cursor",
+  "vb": "0 0 20 26",
+  "bytes": 372
+ },
+ {
+  "name": "dictation-cancel",
+  "vb": "0 0 20 20",
+  "bytes": 351
+ },
+ {
+  "name": "dictation-done",
+  "vb": "0 0 20 20",
+  "bytes": 314
+ },
+ {
+  "name": "github",
+  "vb": "0 0 16 16",
+  "bytes": 1361
+ },
+ {
+  "name": "globe",
+  "vb": "0 0 20 20",
+  "bytes": 1610
+ },
+ {
+  "name": "incognito",
+  "vb": "0 0 20 20",
+  "bytes": 2413
+ },
+ {
+  "name": "learn",
+  "vb": "0 0 256 256",
+  "bytes": 683
+ },
+ {
+  "name": "life-stuff",
+  "vb": "0 0 256 256",
+  "bytes": 605
+ },
+ {
+  "name": "org-avatar-badge",
+  "vb": "0 0 256 256",
+  "bytes": 372
+ },
+ {
+  "name": "plugins",
+  "vb": "0 0 20 20",
+  "bytes": 575
+ },
+ {
+  "name": "screenshot",
+  "vb": "0 0 20 20",
+  "bytes": 601
+ },
+ {
+  "name": "scroll-to-bottom",
+  "vb": "0 0 20 20",
+  "bytes": 322
+ },
+ {
+  "name": "search",
+  "vb": "0 0 20 20",
+  "bytes": 528
+ },
+ {
+  "name": "skills",
+  "vb": "0 0 20 20",
+  "bytes": 804
+ },
+ {
+  "name": "spark-greeting",
+  "vb": "0 0 100 100",
+  "bytes": 1109
+ },
+ {
+  "name": "use-style",
+  "vb": "0 0 20 20",
+  "bytes": 2413
+ },
+ {
+  "name": "voice-mode",
+  "vb": "0 0 21.2 21.2",
+  "bytes": 813
+ },
+ {
+  "name": "wordmark",
+  "vb": "30 0 82 24",
+  "bytes": 6009
+ },
+ {
+  "name": "write",
+  "vb": "0 0 256 256",
+  "bytes": 377
+ }
+]

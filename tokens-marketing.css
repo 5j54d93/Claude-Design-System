@@ -1,0 +1,190 @@
+/* ============================================================
+   claude.com 行銷官網 Design Tokens（Webflow 站）
+   來源：claude.com live 抓取 2026-06-12
+         （claude-brand.shared CSS，199 個 root 變數逆向）
+   與 App（claude.ai）為兩套系統：行銷站保留米白 #faf9f5 經典色，
+   使用「swatch 色板 → theme 語意」+ 流式排版（320→1440px 線性內插）
+   用法：區段掛 .u-theme-* class 切換主題
+   ============================================================ */
+
+/* ---------- 1. Swatch 色板 ---------- */
+:root {
+  /* 灰階（暖灰，050 即經典米白） */
+  --swatch--gray-000: #ffffff;
+  --swatch--gray-050: #faf9f5;
+  --swatch--gray-100: #f5f4ed;
+  --swatch--gray-150: #f0eee6;
+  --swatch--gray-200: #e8e6dc;
+  --swatch--gray-250: #dedcd1;
+  --swatch--gray-300: #d1cfc5;
+  --swatch--gray-350: #c2c0b6;
+  --swatch--gray-400: #b0aea5;
+  --swatch--gray-450: #9c9a92;
+  --swatch--gray-500: #87867f;
+  --swatch--gray-550: #73726c;
+  --swatch--gray-600: #5e5d59;
+  --swatch--gray-650: #4d4c48;
+  --swatch--gray-700: #3d3d3a;
+  --swatch--gray-750: #30302e;
+  --swatch--gray-800: #262624;
+  --swatch--gray-850: #1f1e1d;
+  --swatch--gray-900: #1a1918;
+  --swatch--gray-950: #141413;
+  --swatch--gray-1000: #000000;
+
+  /* 品牌色（官方命名） */
+  --swatch--clay: #d97757;             /* 品牌橘 */
+  --swatch--clay-interactive: #c96442; /* 按鈕用深一階 */
+  --swatch--oat: #e3dacc;
+  --swatch--peach: #ebc9b7;
+  --swatch--coral: #ebcece;
+  --swatch--fig: #c46686;
+  --swatch--heather: #cbcadb;
+  --swatch--plum: #827dbd;
+  --swatch--sky: #6a9bcc;
+  --swatch--cactus: #bcd1ca;
+  --swatch--mineral: #629987;
+  --swatch--olive: #788c5d;
+  --swatch--transparent: transparent;
+}
+
+/* ---------- 2. 全域結構 ---------- */
+:root {
+  --site--viewport-min: 20;            /* 流式內插下限 20rem = 320px */
+  --site--viewport-max: 90;            /* 上限 90rem = 1440px */
+  --site--margin: clamp(2rem, calc(2rem + 2 * (100vw - 20rem) / 70), 4rem);
+  --max-width--main: 90rem;
+  --max-width--medium: 74.5rem;
+  --max-width--small: 60rem;
+  --border-width--main: 0.0625rem;     /* 1px */
+
+  --radius--x-small: 0.25rem;
+  --radius--small: 0.5rem;
+  --radius--main: 0.75rem;
+  --radius--large: 1rem;
+  --radius--x-large: clamp(1rem, calc(1rem + 0.5 * (100vw - 20rem) / 70), 1.5rem);
+  --radius--xx-large: clamp(1rem, calc(1rem + 1 * (100vw - 20rem) / 70), 2rem);
+
+  --focus--width: 0.125rem;
+  --focus--offset-inner: -0.125rem;
+  --focus--offset-outer: 0.25rem;
+
+  /* nav 下拉 */
+  --nav--dropdown-duration: 300ms;
+  --nav--dropdown-open-duration: 600ms;
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* 12 欄格線 */
+  --grid--column-count: 12;
+  --grid--gutter: 2rem;
+}
+
+/* ---------- 3. 流式字級（320px → 1440px 線性內插） ---------- */
+:root {
+  --font--primary: "Anthropic Sans", Arial, sans-serif;
+  --font--secondary: "Anthropic Serif", Georgia, serif;       /* 標題/重點 */
+  --font--mono: "Anthropic Mono", monospace;
+  --font--logographic: "Noto Sans", Arial, sans-serif;        /* CJK 補字 */
+
+  --font-size--display-1: clamp(2.625rem, calc(2.625rem + 1.875 * (100vw - 20rem) / 70), 4.5rem);
+  --font-size--display-2: clamp(2.25rem, calc(2.25rem + 1.75 * (100vw - 20rem) / 70), 4rem);
+  --font-size--h1: clamp(2.125rem, calc(2.125rem + 1.125 * (100vw - 20rem) / 70), 3.25rem);
+  --font-size--h2: clamp(1.875rem, calc(1.875rem + 0.875 * (100vw - 20rem) / 70), 2.75rem);
+  --font-size--h3: clamp(1.75rem, calc(1.75rem + 0.5 * (100vw - 20rem) / 70), 2.25rem);
+  --font-size--h4: clamp(1.4375rem, calc(1.4375rem + 0.5625 * (100vw - 20rem) / 70), 2rem);
+  --font-size--h5: clamp(1.25rem, calc(1.25rem + 0.3125 * (100vw - 20rem) / 70), 1.5625rem);
+  --font-size--h6: clamp(1rem, calc(1rem + 0.1875 * (100vw - 20rem) / 70), 1.1875rem);
+  --font-size--body-large-1: clamp(1.375rem, calc(1.375rem + 0.125 * (100vw - 20rem) / 70), 1.5rem);
+  --font-size--body-large-2: clamp(1.25rem, calc(1.25rem + 0.1875 * (100vw - 20rem) / 70), 1.4375rem);
+  --font-size--body-1: clamp(1.1875rem, calc(1.1875rem + 0.0625 * (100vw - 20rem) / 70), 1.25rem);
+  --font-size--body-2: 1.0625rem;
+  --font-size--body-3: 0.9375rem;
+  --font-size--caption: 0.75rem;
+  --font-size--micro: 0.625rem;
+
+  /* line-height 刻度：1 / 1.1 / 1.2 / 1.3 / 1.5 / 1.6 / 1.7 */
+  /* 字重：light 300 / regular 400 / medium 500 / semibold 600 / bold 700 */
+  /* letter-spacing：0 / .01em / .05em；text-trim：上 .39em 下 .38em */
+}
+
+/* ---------- 4. 區段間距（流式） ---------- */
+:root {
+  --section-space--none: 0px;
+  --section-space--small: clamp(4rem, calc(4rem + 2 * (100vw - 20rem) / 70), 6rem);
+  --section-space--main: clamp(6rem, calc(6rem + 2 * (100vw - 20rem) / 70), 8rem);
+  --section-space--large: clamp(8rem, calc(8rem + 4.5 * (100vw - 20rem) / 70), 12.5rem);
+  --section-space--page-top: clamp(12rem, calc(12rem + 3 * (100vw - 20rem) / 70), 15rem);
+  --space--2rem: clamp(1.75rem, calc(1.75rem + 0.25 * (100vw - 20rem) / 70), 2rem);
+  --space--2-5rem: clamp(2rem, calc(2rem + 0.5 * (100vw - 20rem) / 70), 2.5rem);
+  --space--3rem: clamp(2.5rem, calc(2.5rem + 0.5 * (100vw - 20rem) / 70), 3rem);
+  --space--4rem: clamp(3.25rem, calc(3.25rem + 0.75 * (100vw - 20rem) / 70), 4rem);
+  --space--5rem: clamp(4rem, calc(4rem + 1 * (100vw - 20rem) / 70), 5rem);
+  --space--6rem: clamp(4.5rem, calc(4.5rem + 1.5 * (100vw - 20rem) / 70), 6rem);
+}
+
+/* ---------- 5. 區段主題（8 種；掛在 section 上） ---------- */
+.u-theme-light, .u-theme-ivory {
+  --theme--background-primary: var(--swatch--gray-050);
+  --theme--background-secondary: var(--swatch--gray-100);
+  --theme--background-tertiary: var(--swatch--gray-150);
+  --theme--foreground-primary: var(--swatch--gray-950);
+  --theme--foreground-secondary: var(--swatch--gray-750);
+  --theme--foreground-tertiary: var(--swatch--gray-600);
+  --theme--border-primary: var(--swatch--gray-400);
+  --theme--border-secondary: var(--swatch--gray-300);
+  --theme--border-tertiary: var(--swatch--gray-200);
+  --theme--accent: var(--swatch--clay);
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
+.u-theme-white { --theme--background-primary: var(--swatch--gray-000); --theme--foreground-primary: var(--swatch--gray-950); --theme--accent: var(--swatch--clay); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+.u-theme-neutral-1 { --theme--background-primary: var(--swatch--gray-150); --theme--foreground-primary: var(--swatch--gray-950); --theme--accent: var(--swatch--clay); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+.u-theme-neutral-2 { --theme--background-primary: var(--swatch--gray-200); --theme--foreground-primary: var(--swatch--gray-1000); --theme--accent: var(--swatch--gray-050); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+.u-theme-dark-1 { --theme--background-primary: var(--swatch--gray-800); --theme--foreground-primary: var(--swatch--gray-050); --theme--accent: var(--swatch--gray-050); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+.u-theme-dark-2 { --theme--background-primary: var(--swatch--gray-850); --theme--foreground-primary: var(--swatch--gray-050); --theme--accent: #c46849; background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+.u-theme-dark-3 { --theme--background-primary: var(--swatch--gray-950); --theme--foreground-primary: var(--swatch--gray-050); --theme--accent: #c46849; background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+
+/* 文字選取：clay 50%（與 App 的藍底不同！） */
+.u-theme-marketing ::selection,
+[class*="u-theme-"] ::selection {
+  background: color-mix(in srgb, var(--swatch--clay) 50%, transparent);
+  color: var(--theme--foreground-primary, var(--swatch--gray-950));
+}
+
+/* ---------- 6. 按鈕（4 主題；hover 邊框加倍是行銷站簽名手感） ---------- */
+.mkt-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font--primary);
+  font-size: var(--font-size--body-3);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius--small);
+  border: var(--border-width--main) solid transparent;
+  box-shadow: inset 0 0 0 0 currentColor;
+  cursor: pointer;
+  transition: background-color .2s var(--ease-expo-out), color .2s, box-shadow .15s var(--ease-expo-out);
+}
+/* hover 時以 inset box-shadow 模擬「邊框加倍」（原站 border-width-hover = 2x） */
+.mkt-btn--brand {
+  background: var(--swatch--clay-interactive); color: var(--swatch--gray-050);
+  border-color: var(--swatch--clay-interactive);
+}
+.mkt-btn--brand:hover { box-shadow: inset 0 0 0 var(--border-width--main) var(--swatch--gray-050); }
+.mkt-btn--primary {
+  background: var(--swatch--gray-950); color: var(--swatch--gray-050);
+  border-color: var(--swatch--gray-750);
+}
+.mkt-btn--primary:hover { background: var(--swatch--gray-850); }
+.mkt-btn--secondary {
+  background: var(--swatch--gray-200); color: var(--swatch--gray-650);
+  border-color: var(--swatch--gray-300);
+}
+.mkt-btn--secondary:hover { background: var(--swatch--gray-000); color: var(--swatch--gray-950); }
+.mkt-btn--tertiary {
+  background: var(--swatch--gray-050); color: var(--swatch--gray-600);
+  border-color: var(--swatch--gray-300);
+}
+.mkt-btn--tertiary:hover { color: var(--swatch--gray-950); }
+
+/* ---------- 7. 斷點（Webflow 標準） ----------
+   desktop ≥ 992px / tablet 768–991 / landscape 480–767 / portrait ≤ 479 */
