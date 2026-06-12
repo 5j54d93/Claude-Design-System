@@ -109,4 +109,6 @@ Specs were captured on **2026-06-12** from both production sites（logged-in cla
 
 ## License：MIT
 
-The documentation and CSS implementation are [MIT licensed](LICENSE). Anthropic brand assets referenced within remain the property of Anthropic PBC.
+The documentation and CSS implementation are [MIT licensed](LICENSE).
+
+> Claude, the Claude logo, wordmark and fonts referenced in `assets/` remain the property of **Anthropic PBC** — included for research and reference purposes only, and are **not** covered by the MIT license.
