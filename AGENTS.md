@@ -1,4 +1,4 @@
-# CLAUDE.md — Claude Design System 維護指南
+# AGENTS.md — Claude Design System 維護指南
 
 ## 專案概述
 
@@ -8,8 +8,8 @@ Claude 視覺系統（claude.ai App + claude.com 官網，內容整併於各章�
 
 ```
 Claude-Design-System/
-├── AGENTS.md            ← Codex 維護指南
-├── CLAUDE.md            ← Claude 維護指南（本檔）
+├── AGENTS.md            ← Codex 維護指南（本檔）
+├── CLAUDE.md            ← Claude 維護指南
 ├── README.md            ← 對外說明
 ├── index.html           ← 文件網站（單檔；版面 1:1 仿 claude.ai app shell——側欄同底色
 │                           + border-r-0.5 髮絲線 + ghost 導覽項 + 右上浮動工具列 +

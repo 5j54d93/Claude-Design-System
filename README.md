@@ -9,7 +9,7 @@
 
 A design system reference reverse-engineered from [**claude.ai**](https://claude.ai) (the app) and [**claude.com**](https://claude.com) (the marketing site) — design tokens, components, icons, typography and motion, documented in a static site that is itself built with these very tokens.
 
-<img src="assets/cover.png" width='100%' height='100%'/>
+<img src="assets/seo/cover.png" width='100%' height='100%'/>
 
 ## Overview
 
