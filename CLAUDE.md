@@ -2,14 +2,14 @@
 
 ## 專案概述
 
-Claude 視覺系統（claude.ai App + claude.com 官網，內容整併於各章）的逆向整理（非官方），包含 design tokens、元件規格與一個展示用文件網站。這是**純靜態站**——所有頁面皆為純 HTML，無任何伺服器端依賴，直接用瀏覽器開啟 `index.html`（`file://` 協定）即可瀏覽，不需要 web server 或 localhost。可直接發佈到 GitHub Pages。
+Claude 視覺系統（claude.ai App + claude.com 官網，內容整併於各章）的逆向整理，包含 design tokens、元件規格與一個展示用文件網站。這是**純靜態站**——所有頁面皆為純 HTML，無任何伺服器端依賴，直接用瀏覽器開啟 `index.html`（`file://` 協定）即可瀏覽，不需要 web server 或 localhost。可直接發佈到 GitHub Pages。
 
 ## 專案結構
 
 ```
 Claude-Design-System/
 ├── CLAUDE.md            ← 本檔
-├── README.md            ← 對外說明（含非官方 disclaimer）
+├── README.md            ← 對外說明
 ├── index.html           ← 文件網站（單檔；版面 1:1 仿 claude.ai app shell——側欄同底色
 │                           + border-r-0.5 髮絲線 + ghost 導覽項 + 右上浮動工具列 +
 │                           max-w-3xl 內容欄 + 可收合側欄；含投影片模式與亮暗切換）
@@ -52,4 +52,4 @@ Claude-Design-System/
 - Commit 前綴：`feat:` / `fix:` / `docs:` / `style:`
 - 版本號位置：`docs/INDEX.md` 開頭（同步 `index.html` 側欄 `.version`）
 - 改動後務必更新 INDEX.md 的版本與日期
-- 發佈 GitHub Pages 時 repo 建議名 `claude-design-system`（小寫），description 標明 Unofficial
+- 發佈 GitHub Pages 時 repo 建議名 `claude-design-system`（小寫），description 聚焦 design tokens 與 component reference

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://5j54d93.github.io/Claude-Design-System/sitemap.xml

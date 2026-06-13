@@ -7,11 +7,9 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/5j54d93/Claude-Design-System)
 ![Platform](https://img.shields.io/badge/platform-Web-lightgrey)
 
-An **unofficial design system** reverse-engineered from [**claude.ai**](https://claude.ai) (the app) and [**claude.com**](https://claude.com) (the marketing site) — design tokens, components, icons, typography and motion, documented in a static site that is itself built with these very tokens.
+A design system reference reverse-engineered from [**claude.ai**](https://claude.ai) (the app) and [**claude.com**](https://claude.com) (the marketing site) — design tokens, components, icons, typography and motion, documented in a static site that is itself built with these very tokens.
 
-> ⚠️ **Unofficial**: this project is not affiliated with Anthropic. Color values and CSS conventions are not copyrightable, but the Claude logo, wordmark and fonts referenced in `assets/` remain Anthropic's brand assets — included for research and reference only. Do not use them to impersonate the brand.
-
-<img src="https://github.com/5j54d93/Claude-Design-System/blob/main/.github/assets/cover.png" width='100%' height='100%'/>
+<img src="assets/cover.png" width='100%' height='100%'/>
 
 ## Overview
 
