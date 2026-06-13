@@ -44,7 +44,7 @@ One design language, two implementations — both fully documented and merged ch
 
 ## The Documentation Site
 
-Open [**index.html**](index.html) directly in a browser（fully static, zero dependencies）. The site's layout is a 1:1 replica of the claude.ai app shell — hairline-bordered collapsible sidebar, floating top-right toolbar, 48rem content column — so the documentation **is** the demo.
+Open [**index.html**](index.html) directly in a browser（fully static, zero dependencies）. The site's layout follows the claude.ai app shell — hairline-bordered collapsible sidebar, floating top-right toolbar, and a documentation column that expands from 48rem up to 72rem on wide screens（84rem in presentation mode）— so the documentation **is** the demo.
 
 - **11 chapters + appendix**：theme architecture, colors, typography, layout, shape & elevation, motion, components, icons & brand, content styles, page patterns, implementation guide
 - **Interactive**：click swatches to copy HEX, replay animations, live-rendered components（not screenshots）

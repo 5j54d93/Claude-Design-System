@@ -51,6 +51,7 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 - 側欄項目一律 ghost 按鈕（hover `bg-300`、active/展開 `bg-300` + `text-100`），列間距 `gap-px`
 - 主區 `w-full relative min-w-0`；右上工具列浮動（`absolute top-3 right-3 z-header gap-3.5`），非整條 top bar
 - 對話欄 `max-w-3xl`（48rem）置中；使用者訊息 sans + `bg-bg-300` 圓角泡泡，Claude 回覆 serif 直排無泡泡
+- 本文件站沿用 App shell，但為 GitHub Pages 閱讀性將內容欄由 48rem 起跳，寬螢幕漸進放寬至 72rem（簡報模式 84rem）；這是文件站適配，不是 production 對話欄量測值
 - Composer：`rounded-2xl bg-bg-000 border-0.5` + 陰影（登入後渲染，此項依 CSS 類推定）
 - App 通知 toast 容器在**右上**；landing 的 cookie toast 才在右下
 
