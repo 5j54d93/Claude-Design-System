@@ -46,11 +46,11 @@ Open [**index.html**](index.html) directly in a browser（fully static, zero dep
 
 - **11 chapters + appendix**：theme architecture, colors, typography, layout, shape & elevation, motion, components, icons & brand, content styles, page patterns, implementation guide
 - **Interactive**：click swatches to copy HEX, replay animations, live-rendered components（not screenshots）
-- **🌙 Light／dark toggle** — every token on the page responds instantly
+- **Appearance segmented control** — system／light／dark modes update every token instantly
 - **Presentation mode**：▶ fullscreen slides; navigate with ←／→, toggle dark with D
 - **Deep-linkable**：`?slide=7&mode=dark`
 
-<img src="https://github.com/5j54d93/Claude-Design-System/blob/main/.github/assets/components-dark.png" width='100%' height='100%'/>
+<img src=".github/assets/components-dark.png" width='100%' height='100%'/>
 
 ## What's Inside
 
