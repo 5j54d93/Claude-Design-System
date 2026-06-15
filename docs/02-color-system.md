@@ -230,9 +230,9 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 
 **::selection 為 clay 50% 透明**（`color-mix(in srgb, var(--swatch--clay) 50%, transparent)`）— 與 App 的藍底不同。實作見 `tokens-marketing.css`。
 
-### 2.8 Full sitemap 色彩複核（claude.com）
+### 2.8 claude.com 色彩規格補充
 
-最新 `claude-brand.shared.9ce205edd.min.css` 解析結果：`34` 個 `--swatch--*` 色票與 §2.7 相符，未發現新的品牌色階需要加入；但補確認以下語意用色，應視為官網實作時的穩定 token：
+claude.com 的 `34` 個 `--swatch--*` 色票與 §2.7 一致；官網實作時還需要保留以下語意用色：
 
 | 用途 | Token / 值 | 備註 |
 |---|---|---|
@@ -245,4 +245,4 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 | Error text | `#b53333` | 表單錯誤文字 |
 | Selection | `color-mix(... clay 50%, transparent)` | 官網文字選取不是 App 的藍底白字 |
 
-結論：色票本身不需新增，但色彩章需明確保留「官網用 swatch / App 用 HSL semantic」的雙軌說明；`tokens-marketing.css` 與 `tokens.json.marketingLive2026` 已按此同步。
+結論：Claude 的色彩系統是雙軌：App 以 HSL semantic token 為主，官網以 swatch 與 `.u-theme-*` 區段主題為主。

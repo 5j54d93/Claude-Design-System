@@ -74,7 +74,7 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 
 - 上方橫排 nav（`nav_desktop_layout`），下拉 `300/600ms` + `ease-expo-out`
 - 產品線（nav 實測）：Claude / **Claude Code**（+Enterprise）/ **Claude Cowork** / **Claude Security** / Claude for Chrome・Slack・M365 / Skills；模型頁 Opus・Sonnet・Haiku
-- **2026-06-15 full sitemap crawl**：主 sitemap `3,125` URLs；canonical `1,520`、多語系 `1,605`（`/de` `/fr` `/ja` `/ko`）；docs sitemap `75` URLs。實際抓取 canonical + docs 共 `1,595` 頁，`1595/1595` 回 `200`，HTML 分析量約 `761.6 MB`。
+- 站點規模：`1,520` 個 canonical marketing pages、`75` 個 docs pages，另有 `/de` `/fr` `/ja` `/ko` 多語系模板變體
 - 核心品牌/產品頁：`/product/*`、`/platform/*`、`/solutions/*`、`/partners/*`、`/pricing`、`/download`、`/skills`、`/plugins`、`/connectors`；多語系 `/de` `/fr` `/ja` `/ko`。
 - 版面：區段堆疊 + `.u-theme-*` 換膚；hero 用 serif display 流式大字；技術棧 Webflow + Swiper
 
@@ -115,10 +115,10 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 
 - Webflow 頁共用 Swiper 11、jQuery、GSAP `3.15.0`、ScrollTrigger、SplitText、TextPlugin、Flip、Draggable、InertiaPlugin、Lottie / dotlottie、privacy banner、custom tracking。
 - `@finsweet/attributes` 出現在 collection/filter/copy 等頁；`copyclip` 主要用於可複製指令或分享連結。
-- 最新主要 shared CSS：`claude-brand.shared.9ce205edd.min.css`（本輪全站 1,517 個 Webflow canonical 頁引用）；少數 singleton / Next 頁有獨立 CSS bundle。
+- 主要 shared CSS：`claude-brand.shared.9ce205edd.min.css`；少數 singleton / Next 頁有獨立 CSS bundle。
 
 **覆蓋結論**：
 
-- claude.com 的 UI 不以「每個 URL 一套設計」存在，而是以 route group + Webflow component variants 重複組合；本輪已把各 route group 的 page pattern 納入 §10，把共用元件與互動規格納入 §7。
+- claude.com 的 UI 不以「每個 URL 一套設計」存在，而是以 route group + Webflow component variants 重複組合；route group 的 page pattern 見 §10，共用元件與互動規格見 §7。
 - 多語系頁只改文字長度與 locale path，未發現獨立 UI 系統；文件仍需在實作時注意較長德文/法文標籤的 wrapping。
 - `/docs/*` 與 Webflow marketing 使用不同技術棧，已獨立列入 §7.15 與本章 docs 頁型。

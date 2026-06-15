@@ -20,7 +20,7 @@
 
 ### 8.0.1 ⚡ 2026-06-15 重大發現：UI 圖示主要改用「可變圖示字型 Anthropicons-Variable」
 
-這次 live 複核（設定 modal、側欄、各功能頁）發現：claude.ai 目前**絕大多數 UI chrome 圖示不再是內嵌 SVG，而是透過可變圖示字型 `Anthropicons-Variable` 的字符（glyph）渲染**。
+2026-06-15 live 觀察（設定 modal、側欄、各功能頁）顯示：claude.ai 目前**絕大多數 UI chrome 圖示不再是內嵌 SVG，而是透過可變圖示字型 `Anthropicons-Variable` 的字符（glyph）渲染**。
 
 | 項目 | 實測 |
 |---|---|
@@ -49,7 +49,7 @@
 
 | 類別 | 數量 | 說明 |
 |---|---|---|
-| `icon-*` | 93 | 16–24px UI/導覽圖示（20×20 為主，同 App 體系）；含 2026-06-15 sitemap sweep 新增 30 個 |
+| `icon-*` | 93 | 16–24px UI/導覽圖示（20×20 為主，同 App 體系）；含 30 個 claude.com 跨頁共用圖示 |
 | `pictogram-*` | 12 | 56–96 viewBox 產品圖標（pricing/download/security 頁） |
 | `illustration-*` | 5 | 500×500 星芒系插圖 |
 | `lockup-claude-code` | 1 | Claude Code 字標組合（573×125） |
@@ -57,11 +57,11 @@
 
 另有 1462×674、1000×1000 大型 hero 場景圖未收錄（見 raw/ 頁面存檔）。
 
-**2026-06-15 sitemap icon sweep**：以 `claude.com/sitemap.xml` 全量 `1,520` 個 canonical 路徑（排除 `/de` `/fr` `/ja` `/ko`）實際抓取 `1,516/1,520`，抽出所有 inline `<svg>`，以「path 幾何」去重得 `172` 個 icon 尺寸的單色 SVG。其中 `69` 個已收錄；新發現 `103` 個，再以**出現頁數**分流：**`30` 個跨頁共用（≥3 頁、`currentColor`/單色）判定為 Claude 設計系統圖示並收錄**（globe、briefcase、gear、download、building、check-circle、shield-check、code、graduation cap、people、copy、external-link、chevrons、clipboard、trending 等）；其餘 `68` 個只出現在單一 connector/customer/partner 詳情頁（多為第三方品牌商標），基於商標/範疇考量**不納入**。命名沿用 `icon-<hash>` + `_manifest.json`（記 `vb`/`bytes`/來源頁）。
+**claude.com 跨頁共用圖示**：官網圖示多為 `currentColor` 單色 SVG，可跟隨區段主題變色。已收錄的共用類型包含 globe、briefcase、gear、download、building、check-circle、shield-check、code、graduation cap、people、copy、external-link、chevrons、clipboard、trending 等。單頁第三方品牌商標不納入 Claude 設計系統圖示範圍。
 
-### 8.3 Full sitemap 品牌資產複核（claude.com）
+### 8.3 claude.com 品牌資產使用模式
 
-full sitemap 重新掃描後，官網圖示/品牌使用模式確認如下：
+官網圖示/品牌使用模式如下：
 
 | 訊號 | 出現方式 | 規格含義 |
 |---|---|---|
@@ -72,4 +72,4 @@ full sitemap 重新掃描後，官網圖示/品牌使用模式確認如下：
 | `social-*` | footer / social links | 16px 單色 SVG |
 | `pictogram-*` / `illustration-*` | pricing、download、security 等頁 | 大尺寸 pictogram 用暖灰/品牌 accent 層次，不走多彩插圖風 |
 
-結論：`assets/marketing/` 目前 116 個 SVG（含 2026-06-15 sweep 新增 30 個）覆蓋 shared component 的主要圖示類型。全 sitemap 的 **inline `<svg>`** 已於本輪掃過並收錄跨頁共用者；尚未收錄的是：(1) 單頁第三方品牌商標（範疇外）、(2) 以 `<img src>`/`background` 載入的點陣或 raster/srcset 大圖（需另跑 asset 下載任務）。
+結論：`assets/marketing/` 目前 116 個 SVG 覆蓋 shared component 的主要圖示類型；大型 hero 圖與 raster/srcset 圖片屬頁面內容資產，不作為核心 UI icon 規格。

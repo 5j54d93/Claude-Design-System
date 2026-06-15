@@ -33,11 +33,11 @@ code.hljs { padding: 3px 5px; }
 
 KaTeX（標準樣式表，`.katex-display` 置中區塊）。
 
-### 9.4 claude.com docs / rich text 複核
+### 9.4 claude.com docs / rich text
 
-full sitemap 顯示 `claude.com` 有兩套內容樣式來源：主站 Webflow rich text 與 `/docs/*` Next/Tailwind 文件殼。
+`claude.com` 有兩套內容樣式來源：主站 Webflow rich text 與 `/docs/*` Next/Tailwind 文件殼。
 
-| 區塊 | crawl 訊號 | 設計規格 |
+| 區塊 | 主要訊號 | 設計規格 |
 |---|---|---|
 | Webflow rich text | `u-rich-text-blog`、`rich_text`、blog/resource templates | 文章內文使用官網 typography token；行內 code 以淡底、細邊框、mono 字呈現，不是整塊 One Dark |
 | Blog / resources | `/blog/detail`、`/resources/detail` templates | 文章頁保留 editorial spacing、metadata、tag、share/link controls |
@@ -47,4 +47,4 @@ full sitemap 顯示 `claude.com` 有兩套內容樣式來源：主站 Webflow ri
 | Copy / anchor controls | `data-floating-buttons`、`group-hover:opacity-100`、`focus:opacity-100` | heading anchor、copy button 平時隱藏，hover/focus 顯示 |
 | Code card | docs code blocks + copy controls | 技術文件 code block 是 docs shell 元件；App 的 highlight.js One Dark 仍作 App 端規格 |
 
-結論：第 9 章不能只寫 App 的 `.ReactMarkdown` 和 highlight.js；網頁版已補入 Webflow rich text 與 `/docs` 文件殼樣式，搜尋「callout」「table」「copy button」時能在主章節找到。
+結論：內容樣式需要同時涵蓋 App 的 `.ReactMarkdown` / highlight.js、官網 Webflow rich text，以及 `/docs` 文件殼的 callout、table、copy button。

@@ -109,11 +109,11 @@
 
 無障礙：所有動畫皆配 `motion-reduce:duration-0` 或 `motion-reduce:animate-[spin_1.5s_linear_infinite]`（減速版）。
 
-### 6.5 Full sitemap 動效複核（claude.com）
+### 6.5 claude.com motion stack
 
-官網主站的動效不是只靠 shared CSS。2026-06-15 full crawl 顯示，`claude-brand.shared.9ce205edd.min.css` 內可直接解析到的 `@keyframes` 只有 `spin`；其餘頁面動效主要由 Webflow interactions 與外部 JS 套件驅動。
+官網主站的動效不是只靠 CSS keyframes。`claude-brand.shared.9ce205edd.min.css` 內可直接解析到的 `@keyframes` 主要是 `spin`；其餘頁面動效主要由 Webflow interactions 與外部 JS 套件驅動。
 
-| 層級 | full crawl 訊號 | 用途 |
+| 層級 | 主要訊號 | 用途 |
 |---|---|---|
 | CSS keyframe | `spin` | spinner / loading |
 | Carousel | Swiper 11 CSS/JS 出現在 `1,520` 個 canonical 頁 | logo wall、customer/resource carousel、橫向列表 |

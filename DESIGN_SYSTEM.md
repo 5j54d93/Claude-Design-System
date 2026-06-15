@@ -1,7 +1,7 @@
 # Claude Design System 完整規格文件
 
-> 來源：claude.ai **live 站實地抓取（2026-06-12，build `e9c073951b`，Chrome 登入狀態）＋ 2026-06-15 登入狀態 live 複核（DOM 實測 token 全數一致、補錄 App shell/composer/模型選擇器/Settings modal/功能頁；發現 UI 圖示主要為 Anthropicons-Variable 圖示字型）** + claude.com full sitemap crawl（2026-06-15，1595 canonical/docs pages + icon sweep）+ 歷史 production CSS bundle（2025-11 ~ 2026-03）交叉驗證。
-> 文件版本：**v3.0 — 2026-06 雙站整併 + claude.com full sitemap audit + claude.ai live 複核 + 新 UI 設計推導指南**（primitive 色板層 + 語意層）；console 主題沿用 2026-01 存檔。
+> 來源：claude.ai **live 站實地抓取（2026-06-12，build `e9c073951b`，Chrome 登入狀態）＋ 2026-06-15 登入狀態 live 實測（DOM token 全數一致、補錄 App shell/composer/模型選擇器/Settings modal/功能頁；發現 UI 圖示主要為 Anthropicons-Variable 圖示字型）** + claude.com 全站頁型與元件盤點（2026-06-15，1595 canonical/docs pages + icon sweep）+ 歷史 production CSS bundle（2025-11 ~ 2026-03）交叉驗證。
+> 文件版本：**v3.1 — 2026-06 雙站整併 + claude.com 全站頁型與元件盤點 + claude.ai live 實測 + 新 UI 設計推導指南**（primitive 色板層 + 語意層）；console 主題沿用 2026-01 存檔。
 > 用途：依本文件即可重建 claude.ai App 與 claude.com 官網的主要視覺、元件、頁型規格，並推導未列出的 Claude-style UI。
 
 ---
@@ -62,17 +62,15 @@ Claude 的視覺系統落在兩個站：**claude.ai（App，Next.js）** 與 **c
 
 之後各章中標註「**官網**」的小節即 claude.com 專屬規格；未標註者為 App / 共通。
 
-### 1.2 Full sitemap 後的架構複核（claude.com）
+### 1.2 claude.com 架構補充
 
-2026-06-15 重新掃描 `claude.com/sitemap.xml` + `claude.com/docs/sitemap.xml` 後，架構判定如下：
+claude.com 的公開內容可分成 Webflow 主站、Next/Tailwind 文件頁與多語系模板三類；它們共享同一套品牌語言，但樣式來源與實作重點不同：
 
-| 區塊 | 技術/樣式來源 | 本文件歸檔方式 |
+| 區塊 | 技術/樣式來源 | 設計系統涵蓋方式 |
 |---|---|---|
 | `claude.com` 主站 Webflow 頁 | `claude-brand.shared.9ce205edd.min.css`，共 `203` 個 CSS 變數、`34` 個 swatch、Webflow component variants | 色彩、字級、佈局、圓角、按鈕、頁型分別落在 §2–§7、§10 |
-| `claude.com/docs/*` 文件頁 | Next/Tailwind shell；不套用 Webflow shared CSS，但在同一 sitemap | 以 docs shell、TOC、callout、table、copy/floating controls 補入 §7、§9、§10 |
+| `claude.com/docs/*` 文件頁 | Next/Tailwind shell；不套用 Webflow shared CSS | 以 docs shell、TOC、callout、table、copy/floating controls 歸入 §7、§9、§10 |
 | 多語系 `/de` `/fr` `/ja` `/ko` | 同模板內容變體，主要差異是文字長度與 locale path | 不重複列元件；實作時需保留 label wrapping 與彈性寬度 |
-
-因此，這輪不是只補第 7、10 章：第 2–6、8–9、11 章也都依 `9ce205edd` shared CSS 與 docs sitemap 重新標記「已驗證 / 已補充 / 無需變更」。
 
 ## 2. 色彩系統
 
@@ -302,9 +300,9 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 
 **::selection 為 clay 50% 透明**（`color-mix(in srgb, var(--swatch--clay) 50%, transparent)`）— 與 App 的藍底不同。實作見 `tokens-marketing.css`。
 
-### 2.8 Full sitemap 色彩複核（claude.com）
+### 2.8 claude.com 色彩規格補充
 
-最新 `claude-brand.shared.9ce205edd.min.css` 解析結果：`34` 個 `--swatch--*` 色票與 §2.7 相符，未發現新的品牌色階需要加入；但補確認以下語意用色，應視為官網實作時的穩定 token：
+claude.com 的 `34` 個 `--swatch--*` 色票與 §2.7 一致；官網實作時還需要保留以下語意用色：
 
 | 用途 | Token / 值 | 備註 |
 |---|---|---|
@@ -317,7 +315,7 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 | Error text | `#b53333` | 表單錯誤文字 |
 | Selection | `color-mix(... clay 50%, transparent)` | 官網文字選取不是 App 的藍底白字 |
 
-結論：色票本身不需新增，但色彩章需明確保留「官網用 swatch / App 用 HSL semantic」的雙軌說明；`tokens-marketing.css` 與 `tokens.json.marketingLive2026` 已按此同步。
+結論：Claude 的色彩系統是雙軌：App 以 HSL semantic token 為主，官網以 swatch 與 `.u-theme-*` 區段主題為主。
 
 ## 3. 字體排印
 
@@ -367,7 +365,7 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 body, html { font-family: var(--font-ui); }
 ```
 
-> 歷史 note：2026-01 存檔仍可見 `--font-jetbrains` / JetBrains Mono；2026-06 live 與官網 full crawl 以 **Anthropic Mono** 為現行等寬字。
+> 歷史 note：2026-01 存檔仍可見 `--font-jetbrains` / JetBrains Mono；2026-06 現行 App 與官網皆以 **Anthropic Mono** 為等寬字。
 
 > **核心視覺特徵**：Claude 的 AI 回覆使用「襯線體」、使用者訊息與 UI 使用「無襯線體」——這是 claude.ai 最易識別的排印決策。
 
@@ -433,9 +431,9 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 
 固定級：body-3 `0.9375rem`、caption `0.75rem`、micro `0.625rem`。行高刻度 `1/1.1/1.2/1.3/1.5/1.6/1.7`；**text-trim 模擬**（上 `.39em` 下 `.38em`，mono 為 `.4em/.37em`）做首行精準對齊。
 
-### 3.7 Full sitemap 排印複核（claude.com）
+### 3.7 claude.com 排印規格補充
 
-`9ce205edd` shared CSS 中 typography 相關變數共 `42` 個，與上表一致。這輪補確認三個實作細節：
+官網 typography token 與上表一致，另有幾個實作細節會影響跨頁一致性：
 
 | 類型 | 最新值 | 設計含義 |
 |---|---|---|
@@ -445,7 +443,7 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 | Logographic | `"Noto Sans", Arial, sans-serif` | CJK/多語系頁面補字，解釋多語頁沒有獨立版型但仍能承受字幅差異 |
 | Letter spacing | `0em` / `.01em` / `.05em` | 多數文字不收字距；caption/eyebrow 才使用小幅 spacing 或 uppercase |
 
-結論：字級 token 無需新增，但第 3 章需要補上 `body-large-2`、mono trim 與官網 fallback 鏈，已同步。
+結論：官網排印以 Anthropic Sans / Serif / Mono 三字族、流式字級、text-trim 模擬與多語 fallback 鏈共同維持節奏。
 
 ## 4. 佈局：斷點、z-index、間距
 
@@ -491,9 +489,9 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 - 斷點（Webflow）：`≤479` / `480–767` / `768–991` / `≥992`
 - 邊框 `0.0625rem`；focus ring `0.125rem`；官網圓角另有流式 `x-large 1→1.5rem`、`xx-large 1→2rem`
 
-### 4.5 Full sitemap 佈局複核（claude.com）
+### 4.5 claude.com 佈局 token
 
-最新 shared CSS 裡佈局 token 的完整組成：
+官網佈局 token 的完整組成：
 
 | 類型 | Token / 值 | 用途 |
 |---|---|---|
@@ -503,7 +501,7 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 | section spacing | `none 0`、`small 4→6rem`、`main 6→8rem`、`large 8→12.5rem`、`page-top 12→15rem` | 官網區段垂直 rhythm |
 | spacing scale | `.25/.5/.75/1/1.5rem` 固定，`2/2.5/3/4/5/6rem` 多為流式 | 卡片內距、logo wall、feature grid |
 
-結論：本章原先「12 欄 / 2rem gutter」的描述只適合桌面 pattern，已改成 mobile-first `6/1rem` + desktop `12/2rem` 的雙層敘述。
+結論：官網版面採 mobile-first `6/1rem` grid，桌面大型 section 再擴成 `12/2rem`，不要只用單一桌面欄數推導所有頁面。
 
 ## 5. 圓角、邊框、陰影
 
@@ -565,7 +563,7 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 
 毛玻璃：`backdrop-blur` 常用 `8px / 12px / 14px / 16px / 24px / 40px`。
 
-### 5.4 官網形狀與焦點複核（claude.com）
+### 5.4 官網形狀與焦點規格（claude.com）
 
 `9ce205edd` shared CSS 補確認官網有自己的 shape token，與 App 的 `0.5px` 髮絲線系統不同：
 
@@ -690,11 +688,11 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 
 無障礙：所有動畫皆配 `motion-reduce:duration-0` 或 `motion-reduce:animate-[spin_1.5s_linear_infinite]`（減速版）。
 
-### 6.5 Full sitemap 動效複核（claude.com）
+### 6.5 claude.com motion stack
 
-官網主站的動效不是只靠 shared CSS。2026-06-15 full crawl 顯示，`claude-brand.shared.9ce205edd.min.css` 內可直接解析到的 `@keyframes` 只有 `spin`；其餘頁面動效主要由 Webflow interactions 與外部 JS 套件驅動。
+官網主站的動效不是只靠 CSS keyframes。`claude-brand.shared.9ce205edd.min.css` 內可直接解析到的 `@keyframes` 主要是 `spin`；其餘頁面動效主要由 Webflow interactions 與外部 JS 套件驅動。
 
-| 層級 | full crawl 訊號 | 用途 |
+| 層級 | 主要訊號 | 用途 |
 |---|---|---|
 | CSS keyframe | `spin` | spinner / loading |
 | Carousel | Swiper 11 CSS/JS 出現在 `1,520` 個 canonical 頁 | logo wall、customer/resource carousel、橫向列表 |
@@ -721,7 +719,7 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 | **風格 chips** | Code / Write / Learn / Life stuff / Claude's choice — pill 形、icon + 文字 |
 | **促銷卡（右下）** | 白卡、插圖 + 標題 + 黑色 primary 按鈕 + 右上 X |
 | **官網 Segmented selector** | Pricing 的 Individual / Team & Enterprise（Team and Enterprise）tabs：外層 `gray-150` + `1rem` radius，active 白底，`role=tablist` |
-| **官網 full sitemap UI audit** | 2026-06-15 重新掃描 `claude.com` canonical `1,520` 頁 + docs `75` 頁，1595/1595 皆 200；共用 CSS `claude-brand.shared.9ce205edd.min.css` |
+| **官網共用元件矩陣** | Webflow 主站與 `/docs/*` 文件頁共用的 nav、footer、card、filter、tabs、accordion、docs shell 等模式，詳見 §7.14–7.16 |
 
 ### 7.1 Button
 
@@ -880,7 +878,7 @@ role="status" + <span class="sr-only">Loading...</span>
 
 ### 7.12 Segmented Selector / Toggle Group（分段選擇，如 Individual / Team & Enterprise）
 
-來源：`claude.com/pricing`（2026-06-15 full sitemap crawl）。截圖中的 **Individual / Team and Enterprise**（live HTML 目前文案為 **Team & Enterprise**）不是 native `<select>`，而是 Webflow tabs：
+來源：`claude.com/pricing`。截圖中的 **Individual / Team and Enterprise**（live HTML 目前文案為 **Team & Enterprise**）不是 native `<select>`，而是 Webflow tabs：
 
 ```html
 <div data-tabs="menu" role="tablist" class="tab_menu_inner">
@@ -923,9 +921,9 @@ transition-colors duration-[250ms] motion-reduce:duration-0
 
 nav 下拉：`300ms` 關 / `600ms` 開、`--ease-expo-out: cubic-bezier(0.16,1,0.3,1)`。實作類別 `.mkt-btn--*` 見 `tokens-marketing.css`。
 
-### 7.14 claude.com 全站元件涵蓋矩陣（2026-06-15 sitemap audit）
+### 7.14 claude.com 共用元件矩陣
 
-本輪重新掃描 `https://claude.com/sitemap.xml` 與 `https://claude.com/docs/sitemap.xml`：主 sitemap `3,125` URLs；排除 `/de` `/fr` `/ja` `/ko` 後 canonical `1,520` URLs；docs sitemap `75` URLs。實際抓取 canonical + docs 共 `1,595` 頁，狀態碼 `200` 比例 `1595/1595`，HTML 分析量約 `761.6 MB`。多語系頁面保留在 inventory，但因沿用同模板，元件規格以 canonical 頁 + docs 頁判讀。
+claude.com 的 UI 由少數穩定元件與頁型重複組合而成。多語系頁面沿用同模板，因此元件規格以 canonical 頁與 docs 頁的共用模式判讀：
 
 | UI 模式 | 主要 class / attribute | 設計規格與行為 | 覆蓋頁型 |
 |---|---|---|---|
@@ -966,7 +964,7 @@ nav 下拉：`300ms` 關 / `600ms` 開、`--ease-expo-out: cubic-bezier(0.16,1,0
 3. **tokens** 放在 `tokens-marketing.css` / `tokens.json`：提供可重用的參考 class，例如 `.mkt-card-link`、`.mkt-filter`、`.mkt-prompt`、`.mkt-docs-shell`。
 4. **網頁版 demo** 放在 `index.html` 第 7、10 章，另有「全文鏡像」章節讓 Markdown 文字版內容可在網頁中直接閱讀與搜尋。
 
-> §7.17–7.19 為 **2026-06-15 claude.ai 登入狀態 live 複核**（Chrome DOM `getComputedStyle` 實測）補錄的 App shell 元件，所有色彩 token 與 §2.0 live 值一致。
+> §7.17–7.19 為 **2026-06-15 claude.ai 登入狀態 live 實測**（Chrome DOM `getComputedStyle`）補錄的 App shell 元件，所有色彩 token 與 §2.0 live 值一致。
 
 ### 7.17 App shell（側欄）— 2026-06-15 live
 
@@ -1049,7 +1047,7 @@ claude.ai 的版面是「側欄 + 主內容欄」單層 shell，**側欄與主�
 
 ### 8.0.1 ⚡ 2026-06-15 重大發現：UI 圖示主要改用「可變圖示字型 Anthropicons-Variable」
 
-這次 live 複核（設定 modal、側欄、各功能頁）發現：claude.ai 目前**絕大多數 UI chrome 圖示不再是內嵌 SVG，而是透過可變圖示字型 `Anthropicons-Variable` 的字符（glyph）渲染**。
+2026-06-15 live 觀察（設定 modal、側欄、各功能頁）顯示：claude.ai 目前**絕大多數 UI chrome 圖示不再是內嵌 SVG，而是透過可變圖示字型 `Anthropicons-Variable` 的字符（glyph）渲染**。
 
 | 項目 | 實測 |
 |---|---|
@@ -1077,7 +1075,7 @@ claude.ai 的版面是「側欄 + 主內容欄」單層 shell，**側欄與主�
 
 | 類別 | 數量 | 說明 |
 |---|---|---|
-| `icon-*` | 93 | 16–24px UI/導覽圖示（20×20 為主，同 App 體系）；含 2026-06-15 sitemap sweep 新增 30 個 |
+| `icon-*` | 93 | 16–24px UI/導覽圖示（20×20 為主，同 App 體系）；含 30 個 claude.com 跨頁共用圖示 |
 | `pictogram-*` | 12 | 56–96 viewBox 產品圖標（pricing/download/security 頁） |
 | `illustration-*` | 5 | 500×500 星芒系插圖 |
 | `lockup-claude-code` | 1 | Claude Code 字標組合（573×125） |
@@ -1085,11 +1083,11 @@ claude.ai 的版面是「側欄 + 主內容欄」單層 shell，**側欄與主�
 
 另有 1462×674、1000×1000 大型 hero 場景圖未收錄（見 raw/ 頁面存檔）。
 
-**2026-06-15 sitemap icon sweep**：以 `claude.com/sitemap.xml` 全量 `1,520` 個 canonical 路徑（排除 `/de` `/fr` `/ja` `/ko`）實際抓取 `1,516/1,520`，抽出所有 inline `<svg>`，以「path 幾何」去重得 `172` 個 icon 尺寸的單色 SVG。其中 `69` 個已收錄；新發現 `103` 個，再以**出現頁數**分流：**`30` 個跨頁共用（≥3 頁、`currentColor`/單色）判定為 Claude 設計系統圖示並收錄**（globe、briefcase、gear、download、building、check-circle、shield-check、code、graduation cap、people、copy、external-link、chevrons、clipboard、trending 等）；其餘 `68` 個只出現在單一 connector/customer/partner 詳情頁（多為第三方品牌商標），基於商標/範疇考量**不納入**。命名沿用 `icon-<hash>` + `_manifest.json`（記 `vb`/`bytes`/來源頁）。
+**claude.com 跨頁共用圖示**：官網圖示多為 `currentColor` 單色 SVG，可跟隨區段主題變色。已收錄的共用類型包含 globe、briefcase、gear、download、building、check-circle、shield-check、code、graduation cap、people、copy、external-link、chevrons、clipboard、trending 等。單頁第三方品牌商標不納入 Claude 設計系統圖示範圍。
 
-### 8.3 Full sitemap 品牌資產複核（claude.com）
+### 8.3 claude.com 品牌資產使用模式
 
-full sitemap 重新掃描後，官網圖示/品牌使用模式確認如下：
+官網圖示/品牌使用模式如下：
 
 | 訊號 | 出現方式 | 規格含義 |
 |---|---|---|
@@ -1100,7 +1098,7 @@ full sitemap 重新掃描後，官網圖示/品牌使用模式確認如下：
 | `social-*` | footer / social links | 16px 單色 SVG |
 | `pictogram-*` / `illustration-*` | pricing、download、security 等頁 | 大尺寸 pictogram 用暖灰/品牌 accent 層次，不走多彩插圖風 |
 
-結論：`assets/marketing/` 目前 116 個 SVG（含 2026-06-15 sweep 新增 30 個）覆蓋 shared component 的主要圖示類型。全 sitemap 的 **inline `<svg>`** 已於本輪掃過並收錄跨頁共用者；尚未收錄的是：(1) 單頁第三方品牌商標（範疇外）、(2) 以 `<img src>`/`background` 載入的點陣或 raster/srcset 大圖（需另跑 asset 下載任務）。
+結論：`assets/marketing/` 目前 116 個 SVG 覆蓋 shared component 的主要圖示類型；大型 hero 圖與 raster/srcset 圖片屬頁面內容資產，不作為核心 UI icon 規格。
 
 ## 9. 內容樣式：程式碼、Markdown、數學式
 
@@ -1133,11 +1131,11 @@ code.hljs { padding: 3px 5px; }
 
 KaTeX（標準樣式表，`.katex-display` 置中區塊）。
 
-### 9.4 claude.com docs / rich text 複核
+### 9.4 claude.com docs / rich text
 
-full sitemap 顯示 `claude.com` 有兩套內容樣式來源：主站 Webflow rich text 與 `/docs/*` Next/Tailwind 文件殼。
+`claude.com` 有兩套內容樣式來源：主站 Webflow rich text 與 `/docs/*` Next/Tailwind 文件殼。
 
-| 區塊 | crawl 訊號 | 設計規格 |
+| 區塊 | 主要訊號 | 設計規格 |
 |---|---|---|
 | Webflow rich text | `u-rich-text-blog`、`rich_text`、blog/resource templates | 文章內文使用官網 typography token；行內 code 以淡底、細邊框、mono 字呈現，不是整塊 One Dark |
 | Blog / resources | `/blog/detail`、`/resources/detail` templates | 文章頁保留 editorial spacing、metadata、tag、share/link controls |
@@ -1147,7 +1145,7 @@ full sitemap 顯示 `claude.com` 有兩套內容樣式來源：主站 Webflow ri
 | Copy / anchor controls | `data-floating-buttons`、`group-hover:opacity-100`、`focus:opacity-100` | heading anchor、copy button 平時隱藏，hover/focus 顯示 |
 | Code card | docs code blocks + copy controls | 技術文件 code block 是 docs shell 元件；App 的 highlight.js One Dark 仍作 App 端規格 |
 
-結論：第 9 章不能只寫 App 的 `.ReactMarkdown` 和 highlight.js；網頁版已補入 Webflow rich text 與 `/docs` 文件殼樣式，搜尋「callout」「table」「copy button」時能在主章節找到。
+結論：內容樣式需要同時涵蓋 App 的 `.ReactMarkdown` / highlight.js、官網 Webflow rich text，以及 `/docs` 文件殼的 callout、table、copy button。
 
 ## 10. 頁面結構模式
 
@@ -1221,7 +1219,7 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 
 - 上方橫排 nav（`nav_desktop_layout`），下拉 `300/600ms` + `ease-expo-out`
 - 產品線（nav 實測）：Claude / **Claude Code**（+Enterprise）/ **Claude Cowork** / **Claude Security** / Claude for Chrome・Slack・M365 / Skills；模型頁 Opus・Sonnet・Haiku
-- **2026-06-15 full sitemap crawl**：主 sitemap `3,125` URLs；canonical `1,520`、多語系 `1,605`（`/de` `/fr` `/ja` `/ko`）；docs sitemap `75` URLs。實際抓取 canonical + docs 共 `1,595` 頁，`1595/1595` 回 `200`，HTML 分析量約 `761.6 MB`。
+- 站點規模：`1,520` 個 canonical marketing pages、`75` 個 docs pages，另有 `/de` `/fr` `/ja` `/ko` 多語系模板變體
 - 核心品牌/產品頁：`/product/*`、`/platform/*`、`/solutions/*`、`/partners/*`、`/pricing`、`/download`、`/skills`、`/plugins`、`/connectors`；多語系 `/de` `/fr` `/ja` `/ko`。
 - 版面：區段堆疊 + `.u-theme-*` 換膚；hero 用 serif display 流式大字；技術棧 Webflow + Swiper
 
@@ -1262,11 +1260,11 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 
 - Webflow 頁共用 Swiper 11、jQuery、GSAP `3.15.0`、ScrollTrigger、SplitText、TextPlugin、Flip、Draggable、InertiaPlugin、Lottie / dotlottie、privacy banner、custom tracking。
 - `@finsweet/attributes` 出現在 collection/filter/copy 等頁；`copyclip` 主要用於可複製指令或分享連結。
-- 最新主要 shared CSS：`claude-brand.shared.9ce205edd.min.css`（本輪全站 1,517 個 Webflow canonical 頁引用）；少數 singleton / Next 頁有獨立 CSS bundle。
+- 主要 shared CSS：`claude-brand.shared.9ce205edd.min.css`；少數 singleton / Next 頁有獨立 CSS bundle。
 
 **覆蓋結論**：
 
-- claude.com 的 UI 不以「每個 URL 一套設計」存在，而是以 route group + Webflow component variants 重複組合；本輪已把各 route group 的 page pattern 納入 §10，把共用元件與互動規格納入 §7。
+- claude.com 的 UI 不以「每個 URL 一套設計」存在，而是以 route group + Webflow component variants 重複組合；route group 的 page pattern 見 §10，共用元件與互動規格見 §7。
 - 多語系頁只改文字長度與 locale path，未發現獨立 UI 系統；文件仍需在實作時注意較長德文/法文標籤的 wrapping。
 - `/docs/*` 與 Webflow marketing 使用不同技術棧，已獨立列入 §7.15 與本章 docs 頁型。
 
@@ -1365,17 +1363,14 @@ module.exports = {
 4. CTA hover 以 border/spacer 變化為主，brand button 底色維持 `clay-interactive`。
 5. docs 頁型要另外處理：`/docs/*` 是 Next/Tailwind shell，不套 Webflow shared CSS。
 
-### 11.6 Full crawl 後的維護流程
+### 11.6 實作檢查清單
 
-每次重新掃 `claude.com` sitemap 後，更新順序如下：
-
-1. 先記錄 sitemap 數量、canonical/docs 抓取數、shared CSS hash 與 HTTP 狀態。
-2. 對照 §1–§12：token 類變更進 §2–§6；元件進 §7；資產/品牌進 §8；內容樣式進 §9；頁型進 §10；使用方式進 §11；未知 UI 推導規則進 §12。
-3. 同步三層：`docs/*.md`、`DESIGN_SYSTEM.md`、`index.html` 主章節。
-4. 將所有文字版新增內容重新鏡像到 `index.html` 的「全文鏡像」章，避免網頁版漏內容。
-5. 若改色彩 token，同步 `tokens.css`、`tokens-marketing.css`、`tokens.json` 與 `index.html` 內色票對照。
-
-v2.8 full sitemap audit 的判定：第 7、10 章是新增最多的章節；第 1–6、8–9、11 章也已完成複核並補上官網 shared CSS / docs shell 的缺漏規格。v2.9 進一步加入 §12，將這些規格整理成可推導未知 UI 的設計流程。
+1. 先判斷 surface：App / Marketing / Docs / Hybrid，不要混用兩站的互動模型。
+2. App 介面使用 `tokens.css`、`data-theme="claude"`、`data-mode="auto|light|dark"` 與 HSL semantic token。
+3. 官網頁面使用 `tokens-marketing.css`、`.u-theme-*` 區段主題、流式 typography 與 mobile-first grid。
+4. 新元件先套用既有 anatomy：低透明髮絲框、8–12px 控制圓角、16–24px 卡片/容器圓角、100–200ms 互動。
+5. Docs 類頁型另用左 nav + 內容欄 + 右 TOC；code/table/callout/copy controls 優先保持可掃描與可操作。
+6. 未列出的 UI 先走 §12 的推導流程，再回到 §2–§10 對照 token、layout、component、motion 與 accessibility。
 
 ## 12. 新 UI 設計推導指南
 
@@ -1559,9 +1554,9 @@ Claude-style UI 的核心不是某個固定外觀，而是一組穩定決策：*
 
 **Live 抓取（2026-06-12，v2.0 主要來源）**：Chrome 登入狀態實地抓取 claude.ai（build `e9c073951b`）——`/new`、`/recents`、`/projects`、對話頁、composer 各選單；完整 token dump 與 SVG 存於 `raw/live-2026-06/tokens-and-svgs.json`、圖示成品於 `assets/icons/`。
 
-**Live 複核（2026-06-15，v3.0）**：以 Claude in Chrome 於登入狀態（Pro）重新進入 `claude.ai/new`，用 DOM `getComputedStyle` 直接讀取 `:root` 變數——`--bg-*`、`--text-*`、`--border-*`、`--accent-brand`、`--brand-*`、`--accent-*`(藍)、`--accent-pro-*`、`--danger/success/warning-*`、字族鏈皆與 §2.0／§3.0 的 2026-06-12 值**完全一致**，確認該批 token 仍為現行。同時確認 `--accent-secondary-*` 在 live 已為空（更名為 `--accent-*`）。並實測補錄 App shell（側欄 `288px`／`bg-100`／`0.5px border 15%`）、composer（`radius 20px` + ring/陰影）、模型選擇器 popover（`radius 12px` + 三層陰影、模型清單 Fable 5／Opus 4.8／Sonnet 4.6／Haiku 4.5）與 Products 區（Code、Design）、Use incognito 等 2026-06 介面變化，見 §7.17–7.19、§5.3。並進一步走訪 **Settings modal**（`#settings/*`、`960×720`、左 nav rail + 設定列 pattern，§7.20）與 **功能頁**（Projects/Artifacts 的 list/collection + empty state、Customize 的 `49px` rail + `255px` 次級面板，§10.2），補入 App 非聊天頁的版面模式。**圖示系統重大發現**：實測 `data-cds="Icon"` 元件在頁面上 `66/66` 全為**可變圖示字型 `Anthropicons-Variable`** 的 PUA glyph（非內嵌 SVG），全文件僅 13 個 inline `<svg>`；故設定/導覽等新圖示無法以 DOM 擷取成 SVG 檔，已於 §8.0.1 以「記錄圖示系統架構與來源」方式收錄。
+**Live 實測（2026-06-15）**：以 Claude in Chrome 於登入狀態（Pro）重新進入 `claude.ai/new`，用 DOM `getComputedStyle` 直接讀取 `:root` 變數——`--bg-*`、`--text-*`、`--border-*`、`--accent-brand`、`--brand-*`、`--accent-*`(藍)、`--accent-pro-*`、`--danger/success/warning-*`、字族鏈皆與 §2.0／§3.0 的 2026-06-12 值**完全一致**，確認該批 token 仍為現行。同時確認 `--accent-secondary-*` 在 live 已為空（更名為 `--accent-*`）。並實測補錄 App shell（側欄 `288px`／`bg-100`／`0.5px border 15%`）、composer（`radius 20px` + ring/陰影）、模型選擇器 popover（`radius 12px` + 三層陰影、模型清單 Fable 5／Opus 4.8／Sonnet 4.6／Haiku 4.5）與 Products 區（Code、Design）、Use incognito 等 2026-06 介面變化，見 §7.17–7.19、§5.3。並進一步走訪 **Settings modal**（`#settings/*`、`960×720`、左 nav rail + 設定列 pattern，§7.20）與 **功能頁**（Projects/Artifacts 的 list/collection + empty state、Customize 的 `49px` rail + `255px` 次級面板，§10.2），補入 App 非聊天頁的版面模式。**圖示系統重大發現**：實測 `data-cds="Icon"` 元件在頁面上 `66/66` 全為**可變圖示字型 `Anthropicons-Variable`** 的 PUA glyph（非內嵌 SVG），全文件僅 13 個 inline `<svg>`；故設定/導覽等新圖示無法以 DOM 擷取成 SVG 檔，已於 §8.0.1 以「記錄圖示系統架構與來源」方式收錄。
 
-**Full sitemap crawl（2026-06-15）**：`claude.com/robots.txt` 允許全站並列出 `sitemap.xml` + `docs/sitemap.xml`；主 sitemap 共 `3,125` URLs，canonical `1,520`、多語系 `1,605`，docs sitemap `75`。本輪實際下載 canonical + docs 共 `1,595` 頁，狀態碼 `1595/1595 = 200`，HTML 分析量約 `761.6 MB`，並解析最新 shared CSS `claude-brand.shared.9ce205edd.min.css`（約 `2.63 MB`）。`claude.ai/robots.txt` 禁止 `/new?*`、`/chat/*`、`/settings*`、`/api/*` 等 App 內路徑；`claude.ai/sitemap.xml` 直抓遇到 Cloudflare challenge，因此 App 端仍以 2026-06-12 登入狀態 live 抓取為主證據。
+**Full sitemap crawl（2026-06-15）**：`claude.com/robots.txt` 允許全站並列出 `sitemap.xml` + `docs/sitemap.xml`；主 sitemap 共 `3,125` URLs，canonical `1,520`、多語系 `1,605`，docs sitemap `75`。實際下載 canonical + docs 共 `1,595` 頁，狀態碼 `1595/1595 = 200`，HTML 分析量約 `761.6 MB`，並解析最新 shared CSS `claude-brand.shared.9ce205edd.min.css`（約 `2.63 MB`）。`claude.ai/robots.txt` 禁止 `/new?*`、`/chat/*`、`/settings*`、`/api/*` 等 App 內路徑；`claude.ai/sitemap.xml` 直抓遇到 Cloudflare challenge，因此 App 端仍以 2026-06-12 登入狀態 live 抓取為主證據。
 
 **Sitemap icon sweep（2026-06-15）**：對全部 `1,520` 個 canonical 路徑實抓 `1,516`，抽出所有 inline `<svg>`、以 path 幾何去重，新增 `30` 個跨頁共用（≥3 頁、`currentColor`/單色）的 Claude 設計系統圖示至 `assets/marketing/`（總數 86→116），並排除 68 個單頁第三方品牌商標。詳見 §8.2。
 

@@ -18,7 +18,7 @@
 | **風格 chips** | Code / Write / Learn / Life stuff / Claude's choice — pill 形、icon + 文字 |
 | **促銷卡（右下）** | 白卡、插圖 + 標題 + 黑色 primary 按鈕 + 右上 X |
 | **官網 Segmented selector** | Pricing 的 Individual / Team & Enterprise（Team and Enterprise）tabs：外層 `gray-150` + `1rem` radius，active 白底，`role=tablist` |
-| **官網 full sitemap UI audit** | 2026-06-15 重新掃描 `claude.com` canonical `1,520` 頁 + docs `75` 頁，1595/1595 皆 200；共用 CSS `claude-brand.shared.9ce205edd.min.css` |
+| **官網共用元件矩陣** | Webflow 主站與 `/docs/*` 文件頁共用的 nav、footer、card、filter、tabs、accordion、docs shell 等模式，詳見 §7.14–7.16 |
 
 
 ### 7.1 Button
@@ -178,7 +178,7 @@ role="status" + <span class="sr-only">Loading...</span>
 
 ### 7.12 Segmented Selector / Toggle Group（分段選擇，如 Individual / Team & Enterprise）
 
-來源：`claude.com/pricing`（2026-06-15 full sitemap crawl）。截圖中的 **Individual / Team and Enterprise**（live HTML 目前文案為 **Team & Enterprise**）不是 native `<select>`，而是 Webflow tabs：
+來源：`claude.com/pricing`。截圖中的 **Individual / Team and Enterprise**（live HTML 目前文案為 **Team & Enterprise**）不是 native `<select>`，而是 Webflow tabs：
 
 ```html
 <div data-tabs="menu" role="tablist" class="tab_menu_inner">
@@ -221,9 +221,9 @@ transition-colors duration-[250ms] motion-reduce:duration-0
 
 nav 下拉：`300ms` 關 / `600ms` 開、`--ease-expo-out: cubic-bezier(0.16,1,0.3,1)`。實作類別 `.mkt-btn--*` 見 `tokens-marketing.css`。
 
-### 7.14 claude.com 全站元件涵蓋矩陣（2026-06-15 sitemap audit）
+### 7.14 claude.com 共用元件矩陣
 
-本輪重新掃描 `https://claude.com/sitemap.xml` 與 `https://claude.com/docs/sitemap.xml`：主 sitemap `3,125` URLs；排除 `/de` `/fr` `/ja` `/ko` 後 canonical `1,520` URLs；docs sitemap `75` URLs。實際抓取 canonical + docs 共 `1,595` 頁，狀態碼 `200` 比例 `1595/1595`，HTML 分析量約 `761.6 MB`。多語系頁面保留在 inventory，但因沿用同模板，元件規格以 canonical 頁 + docs 頁判讀。
+claude.com 的 UI 由少數穩定元件與頁型重複組合而成。多語系頁面沿用同模板，因此元件規格以 canonical 頁與 docs 頁的共用模式判讀：
 
 | UI 模式 | 主要 class / attribute | 設計規格與行為 | 覆蓋頁型 |
 |---|---|---|---|
@@ -266,7 +266,7 @@ nav 下拉：`300ms` 關 / `600ms` 開、`--ease-expo-out: cubic-bezier(0.16,1,0
 
 ---
 
-> §7.17–7.19 為 **2026-06-15 claude.ai 登入狀態 live 複核**（Chrome DOM `getComputedStyle` 實測）補錄的 App shell 元件，所有色彩 token 與 §2.0 live 值一致。
+> §7.17–7.19 為 **2026-06-15 claude.ai 登入狀態 live 實測**（Chrome DOM `getComputedStyle`）補錄的 App shell 元件，所有色彩 token 與 §2.0 live 值一致。
 
 ### 7.17 App shell（側欄）— 2026-06-15 live
 

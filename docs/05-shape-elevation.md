@@ -62,7 +62,7 @@
 
 毛玻璃：`backdrop-blur` 常用 `8px / 12px / 14px / 16px / 24px / 40px`。
 
-### 5.4 官網形狀與焦點複核（claude.com）
+### 5.4 官網形狀與焦點規格（claude.com）
 
 `9ce205edd` shared CSS 補確認官網有自己的 shape token，與 App 的 `0.5px` 髮絲線系統不同：
 

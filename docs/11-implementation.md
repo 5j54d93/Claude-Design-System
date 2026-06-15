@@ -97,14 +97,11 @@ module.exports = {
 4. CTA hover 以 border/spacer 變化為主，brand button 底色維持 `clay-interactive`。
 5. docs 頁型要另外處理：`/docs/*` 是 Next/Tailwind shell，不套 Webflow shared CSS。
 
-### 11.6 Full crawl 後的維護流程
+### 11.6 實作檢查清單
 
-每次重新掃 `claude.com` sitemap 後，更新順序如下：
-
-1. 先記錄 sitemap 數量、canonical/docs 抓取數、shared CSS hash 與 HTTP 狀態。
-2. 對照 §1–§12：token 類變更進 §2–§6；元件進 §7；資產/品牌進 §8；內容樣式進 §9；頁型進 §10；使用方式進 §11；未知 UI 推導規則進 §12。
-3. 同步三層：`docs/*.md`、`DESIGN_SYSTEM.md`、`index.html` 主章節。
-4. 將所有文字版新增內容重新鏡像到 `index.html` 的「全文鏡像」章，避免網頁版漏內容。
-5. 若改色彩 token，同步 `tokens.css`、`tokens-marketing.css`、`tokens.json` 與 `index.html` 內色票對照。
-
-v2.8 full sitemap audit 的判定：第 7、10 章是新增最多的章節；第 1–6、8–9、11 章也已完成複核並補上官網 shared CSS / docs shell 的缺漏規格。v2.9 進一步加入 §12，將這些規格整理成可推導未知 UI 的設計流程。
+1. 先判斷 surface：App / Marketing / Docs / Hybrid，不要混用兩站的互動模型。
+2. App 介面使用 `tokens.css`、`data-theme="claude"`、`data-mode="auto|light|dark"` 與 HSL semantic token。
+3. 官網頁面使用 `tokens-marketing.css`、`.u-theme-*` 區段主題、流式 typography 與 mobile-first grid。
+4. 新元件先套用既有 anatomy：低透明髮絲框、8–12px 控制圓角、16–24px 卡片/容器圓角、100–200ms 互動。
+5. Docs 類頁型另用左 nav + 內容欄 + 右 TOC；code/table/callout/copy controls 優先保持可掃描與可操作。
+6. 未列出的 UI 先走 §12 的推導流程，再回到 §2–§10 對照 token、layout、component、motion 與 accessibility。

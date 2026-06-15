@@ -106,7 +106,7 @@ For UI that is not already listed as a component, start from [docs/12-design-pla
 
 ## How It Was Made
 
-Specs were captured from production sites：logged-in claude.ai on **2026-06-12** via browser automation and **re-verified live on 2026-06-15** (reading the running app's `:root` variables — colors, typography and the rest matched exactly, and the App shell / composer / model-selector components were measured and added), and claude.com via a **2026-06-15 full sitemap crawl**：3,125 public sitemap URLs inventoried, 1,520 canonical marketing pages + 75 docs pages fetched（1595/1595 HTTP 200）, and the latest `claude-brand.shared.9ce205edd.min.css` parsed. Values are cross-checked against archived production bundles from 2025-11 ~ 2026-03. The documentation site renders the extracted tokens and component patterns live — if the tokens were wrong, the site would look wrong.
+Specs were captured from production sites：logged-in claude.ai on **2026-06-12** via browser automation and **re-verified live on 2026-06-15** (reading the running app's `:root` variables — colors, typography and the rest matched exactly, and the App shell / composer / model-selector components were measured and added), and claude.com via a **2026-06-15 full-site inventory**：3,125 public sitemap URLs inventoried, 1,520 canonical marketing pages + 75 docs pages fetched（1595/1595 HTTP 200）, and the latest `claude-brand.shared.9ce205edd.min.css` parsed. Values are cross-checked against archived production bundles from 2025-11 ~ 2026-03. The documentation site renders the extracted tokens and component patterns live — if the tokens were wrong, the site would look wrong.
 
 ## License：MIT
 

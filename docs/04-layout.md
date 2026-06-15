@@ -46,9 +46,9 @@
 - 斷點（Webflow）：`≤479` / `480–767` / `768–991` / `≥992`
 - 邊框 `0.0625rem`；focus ring `0.125rem`；官網圓角另有流式 `x-large 1→1.5rem`、`xx-large 1→2rem`
 
-### 4.5 Full sitemap 佈局複核（claude.com）
+### 4.5 claude.com 佈局 token
 
-最新 shared CSS 裡佈局 token 的完整組成：
+官網佈局 token 的完整組成：
 
 | 類型 | Token / 值 | 用途 |
 |---|---|---|
@@ -58,4 +58,4 @@
 | section spacing | `none 0`、`small 4→6rem`、`main 6→8rem`、`large 8→12.5rem`、`page-top 12→15rem` | 官網區段垂直 rhythm |
 | spacing scale | `.25/.5/.75/1/1.5rem` 固定，`2/2.5/3/4/5/6rem` 多為流式 | 卡片內距、logo wall、feature grid |
 
-結論：本章原先「12 欄 / 2rem gutter」的描述只適合桌面 pattern，已改成 mobile-first `6/1rem` + desktop `12/2rem` 的雙層敘述。
+結論：官網版面採 mobile-first `6/1rem` grid，桌面大型 section 再擴成 `12/2rem`，不要只用單一桌面欄數推導所有頁面。
