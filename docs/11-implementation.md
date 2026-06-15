@@ -75,3 +75,36 @@ module.exports = {
 | anthropicSans | Styrene B | Inter（調 `font-feature-settings`）/ Public Sans |
 | anthropicSerif | Tiempos Text / Copernicus 系 | Source Serif 4（有 opsz 軸，**推薦**）/ Lora |
 | 等寬 | JetBrains Mono（本身開源 ✓） | — |
+
+### 11.5 官網規格實作（claude.com）
+
+若目標是還原 claude.com，而不是 claude.ai App，請改引用 `tokens-marketing.css` 的官網類別與變數：
+
+```html
+<link rel="stylesheet" href="tokens-marketing.css">
+<section class="mkt-section mkt-theme-light">
+  <div class="mkt-container">
+    <a class="mkt-button mkt-button-brand" href="#">Get started</a>
+  </div>
+</section>
+```
+
+實作重點：
+
+1. 用 `--swatch--*` 與 `.mkt-theme-*` 做區段換膚，不用 `data-mode="dark"` 模擬全站暗色。
+2. 版面採 mobile-first：預設 6 欄 / 1rem gutter，桌面 section 再升到 12 欄 / 2rem。
+3. 大標使用 `--_typography---font-size--display-*` / `h*` 的 `clamp()`，不要用 viewport-width 直接縮放文字。
+4. CTA hover 以 border/spacer 變化為主，brand button 底色維持 `clay-interactive`。
+5. docs 頁型要另外處理：`/docs/*` 是 Next/Tailwind shell，不套 Webflow shared CSS。
+
+### 11.6 Full crawl 後的維護流程
+
+每次重新掃 `claude.com` sitemap 後，更新順序如下：
+
+1. 先記錄 sitemap 數量、canonical/docs 抓取數、shared CSS hash 與 HTTP 狀態。
+2. 對照 §1–§12：token 類變更進 §2–§6；元件進 §7；資產/品牌進 §8；內容樣式進 §9；頁型進 §10；使用方式進 §11；未知 UI 推導規則進 §12。
+3. 同步三層：`docs/*.md`、`DESIGN_SYSTEM.md`、`index.html` 主章節。
+4. 將所有文字版新增內容重新鏡像到 `index.html` 的「全文鏡像」章，避免網頁版漏內容。
+5. 若改色彩 token，同步 `tokens.css`、`tokens-marketing.css`、`tokens.json` 與 `index.html` 內色票對照。
+
+v2.8 full sitemap audit 的判定：第 7、10 章是新增最多的章節；第 1–6、8–9、11 章也已完成複核並補上官網 shared CSS / docs shell 的缺漏規格。v2.9 進一步加入 §12，將這些規格整理成可推導未知 UI 的設計流程。

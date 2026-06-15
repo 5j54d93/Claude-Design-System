@@ -24,6 +24,12 @@
   "page": "com-overview.html"
  },
  {
+  "name": "icon-195bb1f3",
+  "vb": "0 0 20 20",
+  "bytes": 1376,
+  "page": "resources-use-cases-Plan-your-career-path (2026-06-15 sweep, 50p)"
+ },
+ {
   "name": "icon-19f2a085",
   "vb": "0 0 24 24",
   "bytes": 1182,
@@ -34,6 +40,12 @@
   "vb": "0 0 20 20",
   "bytes": 640,
   "page": "product_claude-code.html"
+ },
+ {
+  "name": "icon-27aa9894",
+  "vb": "0 0 20 20",
+  "bytes": 314,
+  "page": "resources-tutorials-using-claude-cowork-for-legal-question-briefing (2026-06-15 sweep, 3p)"
  },
  {
   "name": "icon-28174f8a",
@@ -66,10 +78,40 @@
   "page": "com-overview.html"
  },
  {
+  "name": "icon-322fc09b",
+  "vb": "0 0 16 16",
+  "bytes": 500,
+  "page": "code-with-claude-london-extended (2026-06-15 sweep, 3p)"
+ },
+ {
+  "name": "icon-345a5157",
+  "vb": "0 0 18 18",
+  "bytes": 1969,
+  "page": "blog (2026-06-15 sweep, 38p)"
+ },
+ {
   "name": "icon-387f6ef8",
   "vb": "0 0 20 20",
   "bytes": 660,
   "page": "com-overview.html"
+ },
+ {
+  "name": "icon-38b048fe",
+  "vb": "0 0 20 20",
+  "bytes": 1504,
+  "page": "resources-tutorials-category-education (2026-06-15 sweep, 4p)"
+ },
+ {
+  "name": "icon-38d81273",
+  "vb": "0 0 20 20",
+  "bytes": 3054,
+  "page": "home (2026-06-15 sweep, 1358p)"
+ },
+ {
+  "name": "icon-395c96b6",
+  "vb": "0 0 20 20",
+  "bytes": 609,
+  "page": "resources-courses (2026-06-15 sweep, 3p)"
  },
  {
   "name": "icon-3df99fa1",
@@ -84,10 +126,22 @@
   "page": "pricing.html"
  },
  {
+  "name": "icon-3fec5b18",
+  "vb": "0 0 20 20",
+  "bytes": 875,
+  "page": "blog-1m-context (2026-06-15 sweep, 936p)"
+ },
+ {
   "name": "icon-402701c1",
   "vb": "0 0 20 20",
   "bytes": 701,
   "page": "pricing.html"
+ },
+ {
+  "name": "icon-40937f7b",
+  "vb": "0 0 33 32",
+  "bytes": 765,
+  "page": "blog-1m-context (2026-06-15 sweep, 384p)"
  },
  {
   "name": "icon-4209e1ec",
@@ -96,16 +150,34 @@
   "page": "com-overview.html"
  },
  {
+  "name": "icon-467786e1",
+  "vb": "0 0 32 32",
+  "bytes": 1271,
+  "page": "claude-for-chrome (2026-06-15 sweep, 3p)"
+ },
+ {
   "name": "icon-4a4514ea",
   "vb": "0 0 24 24",
   "bytes": 880,
   "page": "platform_api.html"
  },
  {
+  "name": "icon-525a84a8",
+  "vb": "0 0 20 20",
+  "bytes": 4241,
+  "page": "connectors-10x-genomics-cloud (2026-06-15 sweep, 366p)"
+ },
+ {
   "name": "icon-53b78271",
   "vb": "0 0 20 20",
   "bytes": 1130,
   "page": "com-overview.html"
+ },
+ {
+  "name": "icon-5fac17a8",
+  "vb": "0 0 20 20",
+  "bytes": 533,
+  "page": "blog-category-agents (2026-06-15 sweep, 30p)"
  },
  {
   "name": "icon-605e6237",
@@ -138,6 +210,12 @@
   "page": "download.html"
  },
  {
+  "name": "icon-6531aa0d",
+  "vb": "0 0 27 26",
+  "bytes": 2176,
+  "page": "code-with-claude-london-extended (2026-06-15 sweep, 4p)"
+ },
+ {
   "name": "icon-66fe3ce7",
   "vb": "0 0 20 20",
   "bytes": 1134,
@@ -154,6 +232,12 @@
   "vb": "0 0 20 20",
   "bytes": 727,
   "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-70e440e1",
+  "vb": "0 0 20 20",
+  "bytes": 2255,
+  "page": "resources-use-cases-category-cowork (2026-06-15 sweep, 3p)"
  },
  {
   "name": "icon-725d6dc6",
@@ -210,10 +294,22 @@
   "page": "com-overview.html"
  },
  {
+  "name": "icon-87dac1ca",
+  "vb": "0 0 20 21",
+  "bytes": 2551,
+  "page": "resources-use-cases-Create-brand-assets (2026-06-15 sweep, 97p)"
+ },
+ {
   "name": "icon-8bb1f5d9",
   "vb": "0 0 18 18",
   "bytes": 852,
   "page": "product_cowork.html"
+ },
+ {
+  "name": "icon-8d2f4e15",
+  "vb": "0 0 20 20",
+  "bytes": 294,
+  "page": "resources-tutorials-using-claude-cowork-for-legal-question-briefing (2026-06-15 sweep, 3p)"
  },
  {
   "name": "icon-8d54146f",
@@ -226,6 +322,12 @@
   "vb": "0 0 20 20",
   "bytes": 579,
   "page": "connectors.html"
+ },
+ {
+  "name": "icon-93f75732",
+  "vb": "0 0 16 17",
+  "bytes": 3969,
+  "page": "app-unavailable-in-region (2026-06-15 sweep, 1365p)"
  },
  {
   "name": "icon-985f5053",
@@ -246,10 +348,22 @@
   "page": "platform_api.html"
  },
  {
+  "name": "icon-9c8069bf",
+  "vb": "0 0 20 20",
+  "bytes": 1465,
+  "page": "claude-for-slack (2026-06-15 sweep, 9p)"
+ },
+ {
   "name": "icon-9e0bc44a",
   "vb": "0 0 20 20",
   "bytes": 638,
   "page": "download.html"
+ },
+ {
+  "name": "icon-9ea87d5d",
+  "vb": "0 0 20 20",
+  "bytes": 2016,
+  "page": "resources-use-cases (2026-06-15 sweep, 3p)"
  },
  {
   "name": "icon-a08b10b6",
@@ -282,10 +396,40 @@
   "page": "product_claude-code.html"
  },
  {
+  "name": "icon-ad24f647",
+  "vb": "0 0 20 20",
+  "bytes": 1058,
+  "page": "resources-use-cases-category-cowork (2026-06-15 sweep, 3p)"
+ },
+ {
+  "name": "icon-ae04a4ea",
+  "vb": "0 0 27 26",
+  "bytes": 4174,
+  "page": "code-with-claude-london-extended (2026-06-15 sweep, 4p)"
+ },
+ {
   "name": "icon-b5376d6e",
   "vb": "0 0 20 20",
   "bytes": 2848,
   "page": "com-overview.html"
+ },
+ {
+  "name": "icon-b86637e7",
+  "vb": "0 0 32 32",
+  "bytes": 1749,
+  "page": "contact-sales-yc-credit (2026-06-15 sweep, 8p)"
+ },
+ {
+  "name": "icon-ba6c9112",
+  "vb": "0 0 20 21",
+  "bytes": 1216,
+  "page": "blog (2026-06-15 sweep, 171p)"
+ },
+ {
+  "name": "icon-bf9a1dfb",
+  "vb": "0 0 20 21",
+  "bytes": 1442,
+  "page": "blog (2026-06-15 sweep, 168p)"
  },
  {
   "name": "icon-c03b4e4e",
@@ -300,6 +444,18 @@
   "page": "pricing.html"
  },
  {
+  "name": "icon-c9c24eaf",
+  "vb": "0 0 20 20",
+  "bytes": 839,
+  "page": "plugins (2026-06-15 sweep, 272p)"
+ },
+ {
+  "name": "icon-cbd75444",
+  "vb": "0 0 20 20",
+  "bytes": 3019,
+  "page": "community-ambassadors (2026-06-15 sweep, 11p)"
+ },
+ {
   "name": "icon-ce2ff03f",
   "vb": "0 0 20 20",
   "bytes": 1897,
@@ -310,6 +466,18 @@
   "vb": "0 0 20 20",
   "bytes": 566,
   "page": "com-overview.html"
+ },
+ {
+  "name": "icon-d32ff4de",
+  "vb": "0 0 20 20",
+  "bytes": 1444,
+  "page": "resources-tutorials (2026-06-15 sweep, 4p)"
+ },
+ {
+  "name": "icon-d4c8bd42",
+  "vb": "0 0 32 32",
+  "bytes": 1318,
+  "page": "claude-for-chrome (2026-06-15 sweep, 3p)"
  },
  {
   "name": "icon-d84b572c",
@@ -336,6 +504,12 @@
   "page": "platform_api.html"
  },
  {
+  "name": "icon-e076b753",
+  "vb": "0 0 20 20",
+  "bytes": 816,
+  "page": "resources-use-cases-Create-brand-assets (2026-06-15 sweep, 97p)"
+ },
+ {
   "name": "icon-e3f8365f",
   "vb": "0 0 20 20",
   "bytes": 545,
@@ -358,6 +532,12 @@
   "vb": "0 0 20 20",
   "bytes": 570,
   "page": "com-overview.html"
+ },
+ {
+  "name": "icon-e9217de9",
+  "vb": "0 0 20 20",
+  "bytes": 1437,
+  "page": "community (2026-06-15 sweep, 4p)"
  },
  {
   "name": "icon-ef54e3d5",

@@ -108,3 +108,18 @@
 ```
 
 無障礙：所有動畫皆配 `motion-reduce:duration-0` 或 `motion-reduce:animate-[spin_1.5s_linear_infinite]`（減速版）。
+
+### 6.5 Full sitemap 動效複核（claude.com）
+
+官網主站的動效不是只靠 shared CSS。2026-06-15 full crawl 顯示，`claude-brand.shared.9ce205edd.min.css` 內可直接解析到的 `@keyframes` 只有 `spin`；其餘頁面動效主要由 Webflow interactions 與外部 JS 套件驅動。
+
+| 層級 | full crawl 訊號 | 用途 |
+|---|---|---|
+| CSS keyframe | `spin` | spinner / loading |
+| Carousel | Swiper 11 CSS/JS 出現在 `1,520` 個 canonical 頁 | logo wall、customer/resource carousel、橫向列表 |
+| Scroll / reveal | GSAP `3.15.0` + `ScrollTrigger` + `SplitText` + `TextPlugin` + `Flip` + `Draggable` + `InertiaPlugin` | hero reveal、split text、拖曳/慣性、scroll-linked motion |
+| Lottie | `dotlottie-player` + `lottie-web 5.12.2` | product/feature illustration motion |
+| Webflow attrs | `data-animate-*`、`data-accordion`、`data-prompt-trigger`、`data-prompt-menu`、`data-lenis-prevent` | 卡片 reveal、accordion、prompt menu、smooth scroll guard |
+| Button transition | `100–300ms`，hover 常以 border/spacer 寬度變化呈現 | 官網 CTA 的「邊框加倍」手感 |
+
+結論：第 6 章的 App keyframes 仍保留，但官網應以「CSS token + Webflow/GSAP interaction layer」理解，不應把 App 的 `fade/zoom/shimmer` 直接當作所有 claude.com 頁面的來源。

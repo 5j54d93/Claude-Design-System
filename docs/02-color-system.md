@@ -229,3 +229,20 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 **8 種區段主題**（section 掛 `.u-theme-*` 整段換膚）：`light`/`ivory`（米白＋clay accent）、`white`、`neutral-1`（#f0eee6）、`neutral-2`（#e8e6dc）、`dark-1`（#262624）、`dark-2`（#1f1e1d）、`dark-3`（#141413，accent `#c46849`）。
 
 **::selection 為 clay 50% 透明**（`color-mix(in srgb, var(--swatch--clay) 50%, transparent)`）— 與 App 的藍底不同。實作見 `tokens-marketing.css`。
+
+### 2.8 Full sitemap 色彩複核（claude.com）
+
+最新 `claude-brand.shared.9ce205edd.min.css` 解析結果：`34` 個 `--swatch--*` 色票與 §2.7 相符，未發現新的品牌色階需要加入；但補確認以下語意用色，應視為官網實作時的穩定 token：
+
+| 用途 | Token / 值 | 備註 |
+|---|---|---|
+| 主要背景 | `--_theme---background-primary: var(--swatch--gray-050)` | `#faf9f5`，官網仍保留經典米白 |
+| 次層/第三層背景 | `gray-100` / `gray-150` | 卡片、選單、分段選擇底色 |
+| 主要文字 | `--_theme---foreground-primary: gray-950` | `#141413` |
+| 次要/弱化文字 | `gray-750` / `gray-600` | route cards、caption、metadata |
+| Brand CTA | `clay-interactive #c96442` | hover 不改底色，主要用邊框與 spacer 變化 |
+| Switch active | `#2c84db` | 官網 toggle/switch 的 active 藍 |
+| Error text | `#b53333` | 表單錯誤文字 |
+| Selection | `color-mix(... clay 50%, transparent)` | 官網文字選取不是 App 的藍底白字 |
+
+結論：色票本身不需新增，但色彩章需明確保留「官網用 swatch / App 用 HSL semantic」的雙軌說明；`tokens-marketing.css` 與 `tokens.json.marketingLive2026` 已按此同步。

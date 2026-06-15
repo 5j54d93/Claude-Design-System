@@ -42,13 +42,15 @@
   --font-ui-serif:        var(--font-anthropic-serif);  /* 標題襯線 */
   --font-claude-response: var(--font-anthropic-serif);  /* Claude 回覆內文（襯線！） */
   --font-user-message:    var(--font-ui);               /* 使用者訊息（無襯線） */
-  --font-mono:            var(--font-jetbrains);
+  --font-mono:            var(--font-anthropic-mono);   /* 2026-06 起 */
   --font-sans-serif:      var(--font-ui);
   --font-serif:           var(--font-ui-serif);
   --font-system:          system-ui, sans-serif;
 }
 body, html { font-family: var(--font-ui); }
 ```
+
+> 歷史 note：2026-01 存檔仍可見 `--font-jetbrains` / JetBrains Mono；2026-06 live 與官網 full crawl 以 **Anthropic Mono** 為現行等寬字。
 
 > **核心視覺特徵**：Claude 的 AI 回覆使用「襯線體」、使用者訊息與 UI 使用「無襯線體」——這是 claude.ai 最易識別的排印決策。
 
@@ -109,6 +111,21 @@ Landing 主標（"Impossible?"）：`text-[1.75rem]` → `min-[350px]:text-[3.2r
 | display-2 | 2.25rem | 4rem | h5 | 1.25rem | 1.5625rem |
 | h1 | 2.125rem | 3.25rem | h6 | 1rem | 1.1875rem |
 | h2 | 1.875rem | 2.75rem | body-large-1 | 1.375rem | 1.5rem |
-| h3 | 1.75rem | 2.25rem | body-1 | 1.1875rem | 1.25rem |
+| h3 | 1.75rem | 2.25rem | body-large-2 | 1.25rem | 1.4375rem |
+| body-1 | 1.1875rem | 1.25rem | body-2 | 1.0625rem | 1.0625rem |
 
-固定級：body-2 `1.0625rem`、body-3 `0.9375rem`、caption `0.75rem`、micro `0.625rem`。行高刻度 `1/1.1/1.2/1.3/1.5/1.6/1.7`；**text-trim 模擬**（上 `.39em` 下 `.38em`）做首行精準對齊。
+固定級：body-3 `0.9375rem`、caption `0.75rem`、micro `0.625rem`。行高刻度 `1/1.1/1.2/1.3/1.5/1.6/1.7`；**text-trim 模擬**（上 `.39em` 下 `.38em`，mono 為 `.4em/.37em`）做首行精準對齊。
+
+### 3.7 Full sitemap 排印複核（claude.com）
+
+`9ce205edd` shared CSS 中 typography 相關變數共 `42` 個，與上表一致。這輪補確認三個實作細節：
+
+| 類型 | 最新值 | 設計含義 |
+|---|---|---|
+| Primary | `"Anthropic Sans", Arial, sans-serif` | 官網 UI、導覽、卡片、按鈕預設 |
+| Secondary | `"Anthropic Serif", Georgia, sans-serif` | 官網大型標題、editorial headline；雖 fallback 字串最後是 `sans-serif`，實際第二順位仍是 Georgia |
+| Mono | `"Anthropic Mono", Arial, sans-serif` | 程式碼與技術文件；App 端舊 JetBrains 說明只作歷史對照 |
+| Logographic | `"Noto Sans", Arial, sans-serif` | CJK/多語系頁面補字，解釋多語頁沒有獨立版型但仍能承受字幅差異 |
+| Letter spacing | `0em` / `.01em` / `.05em` | 多數文字不收字距；caption/eyebrow 才使用小幅 spacing 或 uppercase |
+
+結論：字級 token 無需新增，但第 3 章需要補上 `body-large-2`、mono trim 與官網 fallback 鏈，已同步。

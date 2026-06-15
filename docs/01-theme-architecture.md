@@ -40,3 +40,15 @@ Claude 的視覺系統落在兩個站：**claude.ai（App，Next.js）** 與 **c
 | 按鈕 hover | 換底色 | **邊框加倍** |
 
 之後各章中標註「**官網**」的小節即 claude.com 專屬規格；未標註者為 App / 共通。
+
+### 1.2 Full sitemap 後的架構複核（claude.com）
+
+2026-06-15 重新掃描 `claude.com/sitemap.xml` + `claude.com/docs/sitemap.xml` 後，架構判定如下：
+
+| 區塊 | 技術/樣式來源 | 本文件歸檔方式 |
+|---|---|---|
+| `claude.com` 主站 Webflow 頁 | `claude-brand.shared.9ce205edd.min.css`，共 `203` 個 CSS 變數、`34` 個 swatch、Webflow component variants | 色彩、字級、佈局、圓角、按鈕、頁型分別落在 §2–§7、§10 |
+| `claude.com/docs/*` 文件頁 | Next/Tailwind shell；不套用 Webflow shared CSS，但在同一 sitemap | 以 docs shell、TOC、callout、table、copy/floating controls 補入 §7、§9、§10 |
+| 多語系 `/de` `/fr` `/ja` `/ko` | 同模板內容變體，主要差異是文字長度與 locale path | 不重複列元件；實作時需保留 label wrapping 與彈性寬度 |
+
+因此，這輪不是只補第 7、10 章：第 2–6、8–9、11 章也都依 `9ce205edd` shared CSS 與 docs sitemap 重新標記「已驗證 / 已補充 / 無需變更」。
