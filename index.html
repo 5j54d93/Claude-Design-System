@@ -306,6 +306,83 @@
   .pill.orange { background: hsl(var(--accent-main-200) / 14%); color: hsl(var(--accent-main-000)); }
   .pill.blue { background: hsl(var(--accent-secondary-900) / 60%); color: hsl(var(--accent-secondary-000)); }
 
+  .cover-stat-label {
+    display: block;
+    font-size: .74rem;
+    line-height: 1.35;
+    color: hsl(var(--text-400));
+  }
+  .cover-stat-label span { display: block; }
+  .mkt-demo-theme { transition: background-color .15s var(--ease-standard), color .15s var(--ease-standard); }
+  .mkt-demo-theme .mkt-card-link,
+  .mkt-demo-theme .mkt-prompt,
+  .mkt-demo-theme .mkt-prompt-menu,
+  .mkt-demo-theme .mkt-docs-shell {
+    background: var(--theme--background-primary);
+    color: var(--theme--foreground-primary);
+    border-color: var(--theme--border-tertiary);
+  }
+  .mkt-demo-theme .mkt-card-link:hover { background: var(--theme--background-secondary); }
+  .mkt-demo-theme .mkt-card-link__visual,
+  .mkt-demo-theme .mkt-docs-shell__nav {
+    background: var(--theme--background-secondary);
+    color: var(--theme--foreground-secondary);
+    border-color: var(--theme--border-tertiary);
+  }
+  .mkt-demo-theme .mkt-card-link__title,
+  .mkt-demo-theme .mkt-filter__toggle,
+  .mkt-demo-theme .mkt-prompt__textarea {
+    color: var(--theme--foreground-primary);
+  }
+  .mkt-demo-theme .mkt-card-link__text,
+  .mkt-demo-theme .mkt-filter__option,
+  .mkt-demo-theme .mkt-prompt__textarea::placeholder {
+    color: var(--theme--foreground-tertiary);
+  }
+  .mkt-demo-theme .mkt-filter,
+  .mkt-demo-theme .mkt-filter__group,
+  .mkt-demo-theme .mkt-prompt-menu__item {
+    border-color: var(--theme--border-tertiary);
+  }
+  .mkt-demo-theme .mkt-prompt-menu__item { color: var(--theme--foreground-secondary); }
+  .mkt-demo-theme input[type="checkbox"] { accent-color: var(--theme--accent); }
+  [data-mode="dark"] .mkt-demo-theme {
+    --theme--background-primary: var(--swatch--gray-850);
+    --theme--background-secondary: var(--swatch--gray-900);
+    --theme--background-tertiary: var(--swatch--gray-800);
+    --theme--foreground-primary: var(--swatch--gray-050);
+    --theme--foreground-secondary: var(--swatch--gray-200);
+    --theme--foreground-tertiary: var(--swatch--gray-400);
+    --theme--border-primary: var(--swatch--gray-550);
+    --theme--border-secondary: var(--swatch--gray-650);
+    --theme--border-tertiary: var(--swatch--gray-750);
+    --theme--button-secondary--background: var(--swatch--gray-750);
+    --theme--button-secondary--text: var(--swatch--gray-100);
+    --theme--white: var(--swatch--gray-800);
+    --theme--accent: #c46849;
+    background: var(--theme--background-primary);
+    color: var(--theme--foreground-primary);
+  }
+  @media (prefers-color-scheme: dark) {
+    [data-mode="auto"] .mkt-demo-theme {
+      --theme--background-primary: var(--swatch--gray-850);
+      --theme--background-secondary: var(--swatch--gray-900);
+      --theme--background-tertiary: var(--swatch--gray-800);
+      --theme--foreground-primary: var(--swatch--gray-050);
+      --theme--foreground-secondary: var(--swatch--gray-200);
+      --theme--foreground-tertiary: var(--swatch--gray-400);
+      --theme--border-primary: var(--swatch--gray-550);
+      --theme--border-secondary: var(--swatch--gray-650);
+      --theme--border-tertiary: var(--swatch--gray-750);
+      --theme--button-secondary--background: var(--swatch--gray-750);
+      --theme--button-secondary--text: var(--swatch--gray-100);
+      --theme--white: var(--swatch--gray-800);
+      --theme--accent: #c46849;
+      background: var(--theme--background-primary);
+      color: var(--theme--foreground-primary);
+    }
+  }
+
   /* ── Demo 容器 ── */
   .demo {
     border: 0.5px dashed hsl(var(--border-300) / 30%);
@@ -345,7 +422,7 @@
   .motion-cell label { font-family: var(--font-mono); font-size: .68rem; color: hsl(var(--text-400)); cursor: pointer; }
 
   /* ── icon gallery ── */
-  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 10px; margin: 12px 0 22px; }
+  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(98px, 1fr)); gap: 10px; margin: 12px 0 22px; }
   .icon-cell {
     border: 0.5px solid hsl(var(--border-300) / 15%); border-radius: .75rem;
     background: hsl(var(--bg-100)); padding: 18px 10px 12px; text-align: center;
@@ -491,7 +568,7 @@
     </div>
     <div class="foot-row" title="版本資訊">
       <span class="avatar" style="font-size:.8rem;">✶</span>
-      <span>v3.3 · 更新於 2026-06-15<br>來源：claude.ai＋claude.com</span>
+      <span>v3.6 · 更新於 2026-06-15<br>來源：claude.ai＋claude.com</span>
     </div>
   </div>
 </nav>
@@ -524,19 +601,19 @@
         <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:36px;">
           <div class="card" style="flex:0 1 150px; padding:18px; align-items:center;">
             <div style="font-family:var(--font-ui-serif); font-size:1.7rem; font-weight:500; color:hsl(var(--accent-main-000));">3</div>
-            <div style="font-size:.74rem; color:hsl(var(--text-400));">主題（亮/暗/console）</div>
+            <div class="cover-stat-label"><span>主題</span><span>（亮/暗/console）</span></div>
           </div>
           <div class="card" style="flex:0 1 150px; padding:18px; align-items:center;">
             <div style="font-family:var(--font-ui-serif); font-size:1.7rem; font-weight:500; color:hsl(var(--accent-main-000));">44+</div>
-            <div style="font-size:.74rem; color:hsl(var(--text-400));">色彩 tokens / 主題</div>
+            <div class="cover-stat-label">色彩 tokens / 主題</div>
           </div>
           <div class="card" style="flex:0 1 150px; padding:18px; align-items:center;">
             <div style="font-family:var(--font-ui-serif); font-size:1.7rem; font-weight:500; color:hsl(var(--accent-main-000));">17</div>
-            <div style="font-size:.74rem; color:hsl(var(--text-400));">Keyframes 動畫</div>
+            <div class="cover-stat-label">Keyframes 動畫</div>
           </div>
           <div class="card" style="flex:0 1 150px; padding:18px; align-items:center;">
             <div style="font-family:var(--font-ui-serif); font-size:1.7rem; font-weight:500; color:hsl(var(--accent-main-000));">2</div>
-            <div style="font-size:.74rem; color:hsl(var(--text-400));">站雙系統（App＋官網）</div>
+            <div class="cover-stat-label"><span>站雙系統</span><span>（App＋官網）</span></div>
           </div>
         </div>
         <div class="info-box" style="max-width:560px; margin:0 auto; text-align:left;">
@@ -961,7 +1038,7 @@ border-color: hsl(var(--border-200) / 30%);   /* 任意透明度 ← 邊框慣�
           <li><strong>Navbar dropdown</strong>：clip-path 簾幕 600ms（見動效章 curtainDown）</li>
         </ul>
         <h3>Segmented Selector（claude.com pricing tabs）</h3>
-        <div class="demo u-theme-light">
+        <div class="demo u-theme-light mkt-demo-theme">
           <div class="row">
             <div class="mkt-segmented" role="tablist" aria-label="Pricing audience" data-demo-segmented>
               <button class="mkt-segmented__option is-active" type="button" role="tab" aria-selected="true" onclick="setDemoSegment(this)">
@@ -1000,7 +1077,7 @@ border-color: hsl(var(--border-200) / 30%);   /* 任意透明度 ← 邊框慣�
         </table></div>
 
         <h3>官網 card / filter / prompt / docs shell</h3>
-        <div class="demo u-theme-light">
+        <div class="demo u-theme-light mkt-demo-theme">
           <div class="row" style="align-items:stretch;">
             <div class="mkt-card-link" style="flex:1 1 22rem; min-width:18rem;">
               <div class="mkt-card-link__visual">SVG</div>
@@ -1077,7 +1154,8 @@ border-color: hsl(var(--border-200) / 30%);   /* 任意透明度 ← 邊框慣�
           <p style="margin:12px 0 0; font-size:.78rem; color:hsl(var(--text-400));">assets/claude-wordmark.svg（viewBox 0 0 112 24）· assets/by-anthropic.svg — 皆 currentColor 隨主題變色</p>
         </div>
 
-        <h3>圖示系統</h3>
+        <h3>Icon Library</h3>
+        <p style="font-size:.85rem;">App inline SVG 與 claude.com 共用 UI icon 合併展示；品牌 lockup 與大型 pictogram 另列為資產類型。</p>
         <div class="icon-grid">
           <div class="icon-cell"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.068 2.161a2.72 2.72 0 0 1 3.524 1.533l3.206 8.14a1.61 1.61 0 0 1-.907 2.087l-.076.03a1.61 1.61 0 0 1-2.087-.908L8.027 8.726a.5.5 0 0 1 .93-.367l1.702 4.318a.61.61 0 0 0 .79.343l.076-.03a.61.61 0 0 0 .343-.79L8.662 4.06a1.72 1.72 0 0 0-2.227-.968l-.154.06a1.72 1.72 0 0 0-.97 2.228l3.87 9.821a2.826 2.826 0 0 0 3.665 1.594l.23-.09a2.83 2.83 0 0 0 1.595-3.666l-2.363-6a.5.5 0 1 1 .93-.366l2.363 6a3.826 3.826 0 0 1-2.158 4.962l-.23.09a3.827 3.827 0 0 1-4.963-2.157L4.382 5.747a2.72 2.72 0 0 1 1.532-3.525z"></path></svg><label>add-files</label></div>
           <div class="icon-cell"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" d="M15.82 7a1.5 1.5 0 0 1 1.498 1.576l-.019.171-1.165 7A1.5 1.5 0 0 1 14.654 17H5.347a1.5 1.5 0 0 1-1.48-1.253l-1.165-7A1.5 1.5 0 0 1 4.182 7zM4.181 8a.5.5 0 0 0-.493.582l1.166 7a.5.5 0 0 0 .493.418h9.307a.5.5 0 0 0 .493-.418l1.166-7 .006-.112A.5.5 0 0 0 15.82 8z" clip-rule="evenodd"></path><path d="M15.5 5a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM14 3a.5.5 0 0 1 0 1H6a.5.5 0 0 1 0-1z"></path></svg><label>add-to-project</label></div>
@@ -1129,23 +1207,6 @@ border-color: hsl(var(--border-200) / 30%);   /* 任意透明度 ← 邊框慣�
           <div class="icon-cell"><svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 3C10.4142 3 10.75 3.33579 10.75 3.75V9.25H16.25C16.6642 9.25 17 9.58579 17 10C17 10.3882 16.7051 10.7075 16.3271 10.7461L16.25 10.75H10.75V16.25C10.75 16.6642 10.4142 17 10 17C9.58579 17 9.25 16.6642 9.25 16.25V10.75H3.75C3.33579 10.75 3 10.4142 3 10C3 9.58579 3.33579 9.25 3.75 9.25H9.25V3.75C9.25 3.33579 9.58579 3 10 3Z"></path></svg><label>plus / new chat</label></div>
           <div class="icon-cell"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8.99962 2C12.3133 2 14.9996 4.68629 14.9996 8C14.9996 11.3137 12.3133 14 8.99962 14H2.49962C2.30105 13.9998 2.12113 13.8821 2.04161 13.7002C1.96224 13.5181 1.99835 13.3058 2.1334 13.1602L3.93516 11.2178C3.34317 10.2878 2.99962 9.18343 2.99962 8C2.99962 4.68643 5.68609 2.00022 8.99962 2ZM8.99962 3C6.23838 3.00022 3.99961 5.23871 3.99961 8C3.99961 9.11212 4.36265 10.1386 4.97618 10.9688C5.11884 11.1621 5.1035 11.4293 4.94004 11.6055L3.64512 13H8.99962C11.761 13 13.9996 10.7614 13.9996 8C13.9996 5.23858 11.761 3 8.99962 3Z"></path><path d="M16.5445 9.72754C16.4182 9.53266 16.1678 9.44648 15.943 9.53418C15.7183 9.62215 15.5932 9.85502 15.6324 10.084L15.7369 10.3955C15.9073 10.8986 16.0006 11.438 16.0006 12C16.0006 13.1123 15.6376 14.1386 15.024 14.9687C14.8811 15.1621 14.8956 15.4302 15.0592 15.6064L16.3531 17H11.0006C9.54519 17 8.23527 16.3782 7.32091 15.3848L7.07091 15.1103C6.88996 14.9645 6.62535 14.9606 6.43907 15.1143C6.25267 15.2682 6.20668 15.529 6.31603 15.7344L6.58458 16.0625C7.68048 17.253 9.25377 18 11.0006 18H17.5006C17.6991 17.9998 17.8791 17.8822 17.9586 17.7002C18.038 17.5181 18.0018 17.3058 17.8668 17.1602L16.0631 15.2178C16.6554 14.2876 17.0006 13.1837 17.0006 12C17.0006 11.3271 16.8891 10.6792 16.6842 10.0742L16.5445 9.72754Z"></path></svg><label>chats</label></div>
           <div class="icon-cell"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16.5 3C16.7761 3 17 3.22386 17 3.5V16.5L16.9902 16.6006C16.9437 16.8286 16.7417 17 16.5 17C16.2583 17 16.0563 16.8286 16.0098 16.6006L16 16.5V3.5C16 3.22386 16.2239 3 16.5 3ZM8.12793 5.16504C8.28958 4.98547 8.5524 4.95058 8.75293 5.06836L8.83496 5.12793L13.835 9.62793C13.9403 9.72275 14 9.85828 14 10C14 10.1063 13.9667 10.2093 13.9053 10.2939L13.835 10.3721L8.83496 14.8721C8.62972 15.0568 8.31267 15.0402 8.12793 14.835C7.94322 14.6297 7.95984 14.3127 8.16504 14.1279L12.1963 10.5H3.5C3.22386 10.5 3 10.2761 3 10C3 9.72386 3.22386 9.5 3.5 9.5H12.1963L8.16504 5.87207L8.09766 5.79688C7.95931 5.60979 7.96622 5.34471 8.12793 5.16504Z"></path></svg><label>skip-to-end</label></div>
-        </div>
-
-        <h3>插圖（Pictogram）</h3>
-        <p>大型幾何線條 SVG（500×500 viewBox），單色 <code>currentColor</code>，層次用 <code>--pictogram-100~400</code> 四階：</p>
-        <div class="demo"><div class="row">
-          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-100));"></div>
-          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-200));"></div>
-          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-300)); border:0.5px solid hsl(var(--border-300)/15%);"></div>
-          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-400)); border:0.5px solid hsl(var(--border-300)/15%);"></div>
-          <span style="font-family:var(--font-mono); font-size:.68rem; color:hsl(var(--text-400));">pictogram-100 → 400</span>
-        </div></div>
-        <h3>官網 SVG 資產（assets/marketing/，116 個）</h3>
-        <p style="font-size:.9rem;">93 個 UI 圖示（20×20 為主；含 30 個 claude.com 跨頁共用圖示）、12 個產品 pictogram（56–96 viewBox）、5 個 500×500 星芒插圖、Claude Code 字標組合（573×125）、4 個社群圖示（X/YouTube/LinkedIn/Instagram）。清單見 <code>assets/marketing/_manifest.json</code>。</p>
-        <div class="info-box"><strong>claude.com 跨頁共用圖示</strong>：官網圖示多為 <code>currentColor</code> 單色 SVG，可跟隨區段主題變色；已收錄 globe／briefcase／gear／download／shield-check／code／people／copy／external-link 等共用圖示。單頁第三方品牌商標不納入 Claude 設計系統圖示範圍。</div>
-        <h3>官網共用 icon（30 個，assets/marketing/）</h3>
-        <p style="font-size:.85rem;">以下為 claude.com 跨頁共用的 Claude 單色圖示（<code>currentColor</code>，標籤為內容 hash）。</p>
-        <div class="icon-grid">
           <div class="icon-cell"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10.3857 2.50977C14.3486 2.71054 17.5 5.98724 17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 9.72386 2.72386 9.5 3 9.5C3.27614 9.5 3.5 9.72386 3.5 10C3.5 13.5898 6.41015 16.5 10 16.5C13.5898 16.5 16.5 13.5898 16.5 10C16.5 6.5225 13.7691 3.68312 10.335 3.50879L10 3.5L9.89941 3.49023C9.67145 3.44371 9.5 3.24171 9.5 3C9.5 2.72386 9.72386 2.5 10 2.5L10.3857 2.50977ZM10 5.5C10.2761 5.5 10.5 5.72386 10.5 6V9.69043L13.2236 11.0527C13.4706 11.1762 13.5708 11.4766 13.4473 11.7236C13.3392 11.9397 13.0957 12.0435 12.8711 11.9834L12.7764 11.9473L9.77637 10.4473C9.60698 10.3626 9.5 10.1894 9.5 10V6C9.5 5.72386 9.72386 5.5 10 5.5ZM3.66211 6.94141C4.0273 6.94159 4.32303 7.23735 4.32324 7.60254C4.32324 7.96791 4.02743 8.26446 3.66211 8.26465C3.29663 8.26465 3 7.96802 3 7.60254C3.00021 7.23723 3.29676 6.94141 3.66211 6.94141ZM4.95605 4.29395C5.32146 4.29404 5.61719 4.59063 5.61719 4.95605C5.6171 5.3214 5.3214 5.61709 4.95605 5.61719C4.59063 5.61719 4.29403 5.32146 4.29395 4.95605C4.29395 4.59057 4.59057 4.29395 4.95605 4.29395ZM7.60254 3C7.96802 3 8.26465 3.29663 8.26465 3.66211C8.26446 4.02743 7.96791 4.32324 7.60254 4.32324C7.23736 4.32302 6.94159 4.0273 6.94141 3.66211C6.94141 3.29676 7.23724 3.00022 7.60254 3Z" fill="currentColor"></path></svg><label>195bb1f3</label></div>
           <div class="icon-cell"><svg fill="currentColor" viewBox="0 0 20 20"><path d="M11.5 3a.5.5 0 0 1 0-1H17a1 1 0 0 1 1 1v5.5a.5.5 0 0 1-1 0V3.707l-8.146 8.147a.5.5 0 0 1-.708-.708L16.293 3z"></path><path d="M8.5 4a.5.5 0 0 1 0 1H5a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-3.5a.5.5 0 0 1 1 0V15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path></svg><label>27aa9894</label></div>
           <div class="icon-cell"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.5999 4C11.8208 4 11.9999 4.17909 11.9999 4.4V10C11.9998 10.2209 11.8208 10.4 11.5999 10.4C11.3791 10.3999 11.2 10.2208 11.1999 10V5.36563L4.6827 11.8828C4.52648 12.0389 4.27324 12.039 4.11708 11.8828C3.96093 11.7267 3.96102 11.4734 4.11708 11.3172L10.6343 4.8L5.99989 4.8C5.77909 4.79991 5.59996 4.6208 5.59989 4.4C5.59989 4.17914 5.77905 4.00009 5.99989 4L11.5999 4Z" fill="currentColor"></path></svg><label>322fc09b</label></div>
@@ -1177,6 +1238,20 @@ border-color: hsl(var(--border-200) / 30%);   /* 任意透明度 ← 邊框慣�
           <div class="icon-cell"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 2.5C14.1421 2.5 17.5 5.85786 17.5 10C17.5 14.1421 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1421 2.5 10C2.5 5.85786 5.85786 2.5 10 2.5ZM10 3.5C6.41015 3.5 3.5 6.41015 3.5 10C3.5 13.5899 6.41015 16.5 10 16.5C13.5899 16.5 16.5 13.5899 16.5 10C16.5 6.41015 13.5899 3.5 10 3.5ZM12.6094 7.1875C12.7819 6.97187 13.0969 6.93687 13.3125 7.10938C13.5281 7.28188 13.5631 7.59687 13.3906 7.8125L9.39062 12.8125C9.30178 12.9236 9.16935 12.9912 9.02734 12.999C8.92097 13.0049 8.81649 12.9768 8.72852 12.9199L8.64648 12.8535L6.64648 10.8535L6.58203 10.7754C6.45387 10.5813 6.47562 10.3173 6.64648 10.1465C6.81735 9.97562 7.08131 9.95387 7.27539 10.082L7.35352 10.1465L8.95801 11.751L12.6094 7.1875Z" fill="currentColor"></path></svg><label>e076b753</label></div>
           <div class="icon-cell"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.82227 3.03223C9.95577 2.98149 10.1064 2.99085 10.2344 3.05859L18.7344 7.55859C18.8977 7.64533 19 7.81501 19 8C19 8.185 18.8977 8.35466 18.7344 8.44141L16.9805 9.36914C16.9919 9.41102 17 9.45452 17 9.5V13.1113C16.9999 13.4845 16.8596 13.862 16.5674 14.1377C16.2667 14.4214 15.7273 14.8927 15 15.3721V17.5C15 17.7761 14.7761 18 14.5 18C14.2239 18 14 17.7761 14 17.5V15.957C12.8979 16.5301 11.532 17 10 17C7.15439 17 4.87641 15.3894 3.8125 14.4785L3.43262 14.1377C3.14045 13.862 3.00008 13.4845 3 13.1113V9.5C3 9.45461 3.00722 9.41095 3.01855 9.36914L1.26562 8.44141C1.10227 8.35466 1 8.185 1 8C1.00001 7.81501 1.10227 7.64533 1.26562 7.55859L9.76562 3.05859L9.82227 3.03223ZM4 13.1113C4.00008 13.2383 4.04751 13.3426 4.11914 13.4102L4.47461 13.7295C5.46045 14.5708 7.5074 16 10 16C11.558 16 12.9406 15.4397 14 14.8154V10.9473L10.2344 12.9414C10.088 13.0189 9.91197 13.0189 9.76562 12.9414L4 9.88867V13.1113ZM14.9902 10.4229C14.9942 10.4483 15 10.4737 15 10.5V14.1484C15.3834 13.8602 15.6826 13.5972 15.8809 13.4102C15.9525 13.3426 15.9999 13.2383 16 13.1113V9.88867L14.9902 10.4229ZM2.56738 8L10 11.9336L13.0986 10.293L9.75684 8.4375L9.67383 8.37891C9.49755 8.22746 9.44522 7.96793 9.5625 7.75684C9.67978 7.54585 9.92776 7.45286 10.1494 7.52246L10.2432 7.5625L14.1533 9.73438L17.4316 8L10 4.06543L2.56738 8Z" fill="currentColor"></path></svg><label>e9217de9</label></div>
         </div>
+
+        <h3>插圖（Pictogram）</h3>
+        <p>大型幾何線條 SVG（500×500 viewBox），單色 <code>currentColor</code>，層次用 <code>--pictogram-100~400</code> 四階：</p>
+        <div class="demo"><div class="row">
+          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-100));"></div>
+          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-200));"></div>
+          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-300)); border:0.5px solid hsl(var(--border-300)/15%);"></div>
+          <div style="width:54px; height:54px; border-radius:.6rem; background:hsl(var(--pictogram-400)); border:0.5px solid hsl(var(--border-300)/15%);"></div>
+          <span style="font-family:var(--font-mono); font-size:.68rem; color:hsl(var(--text-400));">pictogram-100 → 400</span>
+        </div></div>
+
+        <h3>官網 SVG 資產（assets/marketing/，116 個）</h3>
+        <p style="font-size:.9rem;">93 個 UI 圖示（20×20 為主；含 30 個 claude.com 跨頁共用圖示）、12 個產品 pictogram（56–96 viewBox）、5 個 500×500 星芒插圖、Claude Code 字標組合（573×125）、4 個社群圖示（X/YouTube/LinkedIn/Instagram）。清單見 <code>assets/marketing/_manifest.json</code>。</p>
+        <div class="info-box"><strong>claude.com 跨頁共用圖示</strong>：官網圖示多為 <code>currentColor</code> 單色 SVG，可跟隨區段主題變色；已收錄 globe／briefcase／gear／download／shield-check／code／people／copy／external-link 等共用圖示。單頁第三方品牌商標不納入 Claude 設計系統圖示範圍。</div>
         <h3>claude.com 品牌資產使用模式</h3>
         <div class="table-wrap"><table>
           <tr><th>訊號</th><th>出現方式</th><th>規格含義</th></tr>
@@ -1474,7 +1549,7 @@ ol.fixed.right-0.top-0.z-toast              ← App 通知在右上</div>
             <summary>INDEX.md — Claude Design System — 文件目錄</summary>
             <div class="doc-mirror-body">
 <h3>Claude Design System — 文件目錄</h3>
-<blockquote><p><strong>版本</strong>：v3.3 | <strong>最後更新</strong>：2026-06-15</p><p>範圍：claude.ai App 的 token、shell、composer、設定與功能頁；claude.com marketing/docs 的色彩、排印、元件、頁型與品牌資產；production CSS 存檔作為穩定性對照。</p></blockquote>
+<blockquote><p><strong>版本</strong>：v3.6 | <strong>最後更新</strong>：2026-06-15</p><p>範圍：claude.ai App 的 token、shell、composer、設定與功能頁；claude.com marketing/docs 的色彩、排印、元件、頁型與品牌資產；production CSS 存檔作為穩定性對照。</p></blockquote>
 <hr>
 <h4>文件結構</h4>
 <div class="table-wrap"><table>

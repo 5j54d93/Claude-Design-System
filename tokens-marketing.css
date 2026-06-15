@@ -135,16 +135,115 @@
   --theme--border-primary: var(--swatch--gray-400);
   --theme--border-secondary: var(--swatch--gray-300);
   --theme--border-tertiary: var(--swatch--gray-200);
+  --theme--button-secondary--background: var(--swatch--gray-200);
+  --theme--button-secondary--text: var(--swatch--gray-650);
+  --theme--white: var(--swatch--gray-000);
   --theme--accent: var(--swatch--clay);
   background: var(--theme--background-primary);
   color: var(--theme--foreground-primary);
 }
-.u-theme-white { --theme--background-primary: var(--swatch--gray-000); --theme--foreground-primary: var(--swatch--gray-950); --theme--accent: var(--swatch--clay); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
-.u-theme-neutral-1 { --theme--background-primary: var(--swatch--gray-150); --theme--foreground-primary: var(--swatch--gray-950); --theme--accent: var(--swatch--clay); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
-.u-theme-neutral-2 { --theme--background-primary: var(--swatch--gray-200); --theme--foreground-primary: var(--swatch--gray-1000); --theme--accent: var(--swatch--gray-050); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
-.u-theme-dark-1 { --theme--background-primary: var(--swatch--gray-800); --theme--foreground-primary: var(--swatch--gray-050); --theme--accent: var(--swatch--gray-050); background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
-.u-theme-dark-2 { --theme--background-primary: var(--swatch--gray-850); --theme--foreground-primary: var(--swatch--gray-050); --theme--accent: #c46849; background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
-.u-theme-dark-3 { --theme--background-primary: var(--swatch--gray-950); --theme--foreground-primary: var(--swatch--gray-050); --theme--accent: #c46849; background: var(--theme--background-primary); color: var(--theme--foreground-primary); }
+.u-theme-white {
+  --theme--background-primary: var(--swatch--gray-000);
+  --theme--background-secondary: var(--swatch--gray-050);
+  --theme--background-tertiary: var(--swatch--gray-100);
+  --theme--foreground-primary: var(--swatch--gray-950);
+  --theme--foreground-secondary: var(--swatch--gray-750);
+  --theme--foreground-tertiary: var(--swatch--gray-600);
+  --theme--border-primary: var(--swatch--gray-400);
+  --theme--border-secondary: var(--swatch--gray-300);
+  --theme--border-tertiary: var(--swatch--gray-200);
+  --theme--button-secondary--background: var(--swatch--gray-200);
+  --theme--button-secondary--text: var(--swatch--gray-650);
+  --theme--white: var(--swatch--gray-000);
+  --theme--accent: var(--swatch--clay);
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
+.u-theme-neutral-1 {
+  --theme--background-primary: var(--swatch--gray-150);
+  --theme--background-secondary: var(--swatch--gray-100);
+  --theme--background-tertiary: var(--swatch--gray-200);
+  --theme--foreground-primary: var(--swatch--gray-950);
+  --theme--foreground-secondary: var(--swatch--gray-750);
+  --theme--foreground-tertiary: var(--swatch--gray-600);
+  --theme--border-primary: var(--swatch--gray-450);
+  --theme--border-secondary: var(--swatch--gray-350);
+  --theme--border-tertiary: var(--swatch--gray-300);
+  --theme--button-secondary--background: var(--swatch--gray-200);
+  --theme--button-secondary--text: var(--swatch--gray-650);
+  --theme--white: var(--swatch--gray-000);
+  --theme--accent: var(--swatch--clay);
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
+.u-theme-neutral-2 {
+  --theme--background-primary: var(--swatch--gray-200);
+  --theme--background-secondary: var(--swatch--gray-150);
+  --theme--background-tertiary: var(--swatch--gray-250);
+  --theme--foreground-primary: var(--swatch--gray-1000);
+  --theme--foreground-secondary: var(--swatch--gray-750);
+  --theme--foreground-tertiary: var(--swatch--gray-650);
+  --theme--border-primary: var(--swatch--gray-500);
+  --theme--border-secondary: var(--swatch--gray-400);
+  --theme--border-tertiary: var(--swatch--gray-350);
+  --theme--button-secondary--background: var(--swatch--gray-250);
+  --theme--button-secondary--text: var(--swatch--gray-700);
+  --theme--white: var(--swatch--gray-000);
+  --theme--accent: var(--swatch--gray-050);
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
+.u-theme-dark-1 {
+  --theme--background-primary: var(--swatch--gray-800);
+  --theme--background-secondary: var(--swatch--gray-850);
+  --theme--background-tertiary: var(--swatch--gray-750);
+  --theme--foreground-primary: var(--swatch--gray-050);
+  --theme--foreground-secondary: var(--swatch--gray-200);
+  --theme--foreground-tertiary: var(--swatch--gray-400);
+  --theme--border-primary: var(--swatch--gray-500);
+  --theme--border-secondary: var(--swatch--gray-650);
+  --theme--border-tertiary: var(--swatch--gray-700);
+  --theme--button-secondary--background: var(--swatch--gray-750);
+  --theme--button-secondary--text: var(--swatch--gray-100);
+  --theme--white: var(--swatch--gray-750);
+  --theme--accent: var(--swatch--gray-050);
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
+.u-theme-dark-2 {
+  --theme--background-primary: var(--swatch--gray-850);
+  --theme--background-secondary: var(--swatch--gray-900);
+  --theme--background-tertiary: var(--swatch--gray-800);
+  --theme--foreground-primary: var(--swatch--gray-050);
+  --theme--foreground-secondary: var(--swatch--gray-200);
+  --theme--foreground-tertiary: var(--swatch--gray-400);
+  --theme--border-primary: var(--swatch--gray-550);
+  --theme--border-secondary: var(--swatch--gray-650);
+  --theme--border-tertiary: var(--swatch--gray-750);
+  --theme--button-secondary--background: var(--swatch--gray-750);
+  --theme--button-secondary--text: var(--swatch--gray-100);
+  --theme--white: var(--swatch--gray-800);
+  --theme--accent: #c46849;
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
+.u-theme-dark-3 {
+  --theme--background-primary: var(--swatch--gray-950);
+  --theme--background-secondary: var(--swatch--gray-900);
+  --theme--background-tertiary: var(--swatch--gray-850);
+  --theme--foreground-primary: var(--swatch--gray-050);
+  --theme--foreground-secondary: var(--swatch--gray-200);
+  --theme--foreground-tertiary: var(--swatch--gray-400);
+  --theme--border-primary: var(--swatch--gray-550);
+  --theme--border-secondary: var(--swatch--gray-700);
+  --theme--border-tertiary: var(--swatch--gray-800);
+  --theme--button-secondary--background: var(--swatch--gray-800);
+  --theme--button-secondary--text: var(--swatch--gray-100);
+  --theme--white: var(--swatch--gray-850);
+  --theme--accent: #c46849;
+  background: var(--theme--background-primary);
+  color: var(--theme--foreground-primary);
+}
 
 /* 文字選取：clay 50%（與 App 的藍底不同！） */
 .u-theme-marketing ::selection,
