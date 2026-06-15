@@ -50,7 +50,7 @@
 --inset-well:  inset 0 1px 4px 2px hsl(var(--always-black) / 12%);   /* 內凹 */
 --hairline-b:  0px 1px 0px 0px hsl(var(--border-300) / 0.15);        /* 底部髮絲分隔 */
 
-/* App 浮層 elevation（2026-06-15 live 實測） */
+/* App 浮層 elevation */
 --shadow-menu:     0 0 0 1px hsl(var(--border-100) / 10%),
                    0 8px 24px hsl(var(--always-black) / 12%),
                    0 2px 6px hsl(var(--always-black) / 8%);   /* 選單/下拉 popover；搭配 radius 12px、bg-000 */
@@ -64,7 +64,7 @@
 
 ### 5.4 官網形狀與焦點規格（claude.com）
 
-`9ce205edd` shared CSS 補確認官網有自己的 shape token，與 App 的 `0.5px` 髮絲線系統不同：
+官網有自己的 shape token，與 App 的 `0.5px` 髮絲線系統不同：
 
 | 類型 | Token / 值 | 用途 |
 |---|---|---|

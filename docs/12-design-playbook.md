@@ -125,9 +125,9 @@ Claude-style UI 的核心不是某個固定外觀，而是一組穩定決策：*
 | Typography | slide 標題與章節標題用 serif；控制項、表格、label 用 sans/mono |
 | Motion | slide 切換、hover、press 都在 100–350ms；沒有裝飾性長動畫 |
 | Controls | Appearance segmented control、topbar icon buttons、A2 expand/collapse 都要有 focus-visible / keyboard 可用性 |
-| Searchability | 文字版新增內容必須同步到 A2 全文鏡像，讓瀏覽器搜尋可找到 |
+| Searchability | 章節標題、元件名稱與關鍵 token 保留可搜尋文字，不只靠截圖或圖示 |
 
-若文件新增了設計規則，而 demo 自己違反，優先修 demo；只有在 demo 是為了展示「反例」時才允許偏離，且必須明確標註。
+若 demo 呈現某個設計規則，它本身也必須遵守同一規則；只有在 demo 是為了展示「反例」時才允許偏離，且必須明確標註。
 
 ### 12.10 表面高程階梯與雙模式推導
 

@@ -4,9 +4,9 @@
 
 ---
 
-### 7.0 ⚡ 2026-06 live 實測更新
+### 7.0 ⚡ 2026-06 App 元件規格
 
-| 元件 | 實測規格 |
+| 元件 | 規格 |
 |---|---|
 | **Composer（聊天輸入卡）** | `border-radius: 20px`、`bg-000` 白底；外框不是實線 border，而是 `0 0 0 .5px hsl(border/30%)` 髮絲 ring + `0 4px 20px hsl(black/3.5%)` 柔陰影；內含 ＋鈕（Add files, connectors, and more）、模型＋思考強度選擇器（`Sonnet 4.6 · Low ⌄`）、麥克風（press-and-hold）與語音模式鈕。詳見 §7.18 |
 | **App shell（側欄）** | 寬 `288px`、底色 `bg-100`（與主內容欄同底，靠髮絲線分隔）、右側 `0.5px hsl(border/15%)`；導覽項 `h-32 / 6×16px / radius 9px / 12px`；含 **Products 區（Code、Design）**。詳見 §7.17 |
@@ -104,7 +104,7 @@ disabled:cursor-not-allowed disabled:opacity-50
 }
 ```
 
-> 2026-06 起 `--accent-secondary-*` 已更名為 `--accent-*`（見 §2.0；live 站 `getComputedStyle` 確認舊名已空）。focus ring 與 §7.11 文字選取在 live 實際引用 `--accent-000/100`；本專案 `tokens.css` 保留舊名別名，故兩種寫法皆可。
+> 2026-06 起 `--accent-secondary-*` 已更名為 `--accent-*`（見 §2.0）。focus ring 與 §7.11 文字選取使用 `--accent-000/100`；本專案 `tokens.css` 保留舊名別名，故兩種寫法皆可。
 
 ### 7.4 Card（卡片 — pricing / 內容卡）
 
@@ -178,7 +178,7 @@ role="status" + <span class="sr-only">Loading...</span>
 
 ### 7.12 Segmented Selector / Toggle Group（分段選擇，如 Individual / Team & Enterprise）
 
-來源：`claude.com/pricing`。截圖中的 **Individual / Team and Enterprise**（live HTML 目前文案為 **Team & Enterprise**）不是 native `<select>`，而是 Webflow tabs：
+來源：`claude.com/pricing`。截圖中的 **Individual / Team and Enterprise**（目前文案為 **Team & Enterprise**）不是 native `<select>`，而是 Webflow tabs：
 
 ```html
 <div data-tabs="menu" role="tablist" class="tab_menu_inner">
@@ -189,7 +189,7 @@ role="status" + <span class="sr-only">Loading...</span>
 
 **官網大尺寸 selector（pricing tabs）**：
 
-| 部位 | 實測值 |
+| 部位 | 規格 |
 |---|---|
 | 外層 | `display:flex`、`padding:.25rem`、`border-radius:var(--radius--large)` = `1rem` |
 | 外層底色 | `theme--background-tertiary` = `gray-150 #f0eee6` |
@@ -247,7 +247,7 @@ claude.com 的 UI 由少數穩定元件與頁型重複組合而成。多語系�
 
 ### 7.15 claude.com docs（/docs）元件補充
 
-`/docs/*` 路徑採 Next/Tailwind，不吃 `claude-brand.shared` Webflow CSS，但同屬 `claude.com` sitemap。掃描到的穩定模式：
+`/docs/*` 路徑採 Next/Tailwind，不吃 `claude-brand.shared` Webflow CSS；穩定模式如下：
 
 - **Docs shell**：左側導覽 + 主內容欄，常見 class `flex`、`items-center`、`min-w-0`、`relative`、`w-full`、`group`；active item 透過 `data-active` / `data-state`。
 - **Tabs**：`role=tablist` + `role=tab` + `role=tabpanel`，用於多種 connector/cowork docs 範例切換。
@@ -255,24 +255,24 @@ claude.com 的 UI 由少數穩定元件與頁型重複組合而成。多語系�
 - **Tables**：`data-table-wrapper` 包住表格，確保小螢幕橫向捲動。
 - **Callouts**：`data-callout-type` 標示提示類型；與正文同欄寬，不用浮動卡片。
 
-### 7.16 覆蓋判定
+### 7.16 文件涵蓋範圍
 
-本文件的 claude.com UI 規格不把 1,520 個 canonical URL 逐頁列成元件，因為大部分是同模板內容變體；覆蓋方式是：
+claude.com UI 規格不把每個 URL 逐頁列成元件，因為大部分是同模板內容變體；設計系統的涵蓋方式是：
 
-1. **站點 inventory** 放在 §10.3：確認所有 sitemap route group 與頁型。
-2. **元件規格** 放在 §7.12–7.15：從全站 HTML class / `data-*` / role 訊號與最新 shared CSS 萃取。
+1. **頁型** 放在 §10.3：以 route group 描述 directory、detail、pricing、docs、event、form 等版面骨架。
+2. **元件** 放在 §7.12–7.15：以 class / `data-*` / role pattern 定義 tabs、cards、forms、filters、accordion、docs shell。
 3. **tokens** 放在 `tokens-marketing.css` / `tokens.json`：提供可重用的參考 class，例如 `.mkt-card-link`、`.mkt-filter`、`.mkt-prompt`、`.mkt-docs-shell`。
-4. **網頁版 demo** 放在 `index.html` 第 7、10 章，另有「全文鏡像」章節讓 Markdown 文字版內容可在網頁中直接閱讀與搜尋。
+4. **demo** 放在 `index.html` 第 7、10 章：用同一套 token 呈現代表性元件與頁型。
 
 ---
 
-> §7.17–7.19 為 **2026-06-15 claude.ai 登入狀態 live 實測**（Chrome DOM `getComputedStyle`）補錄的 App shell 元件，所有色彩 token 與 §2.0 live 值一致。
+> §7.17–7.19 定義 App shell、composer 與模型選擇器；色彩 token 與 §2.0 的 App 色彩架構一致。
 
-### 7.17 App shell（側欄）— 2026-06-15 live
+### 7.17 App shell（側欄）
 
 claude.ai 的版面是「側欄 + 主內容欄」單層 shell，**側欄與主內容同底色**，僅靠髮絲線分隔（不靠變色製造層級）：
 
-| 部位 | 實測值 |
+| 部位 | 規格 |
 |---|---|
 | 側欄寬 | `288px`（18rem） |
 | 側欄底色 | `bg-100` = `#f8f8f6`（與頁面、主內容同底） |
@@ -280,19 +280,19 @@ claude.ai 的版面是「側欄 + 主內容欄」單層 shell，**側欄與主�
 | 導覽項 | `height 32px`、`padding 6px 16px`、`border-radius 9px`、`font-size 12px`、icon(20px) + label、hover 升一階底色 |
 | 主內容欄 | 透明底（透出 `bg-100`），內容置中、`max-width` 限制行長 |
 
-**側欄結構（由上而下，2026-06）**：
+**側欄結構（由上而下）**：
 
 1. 頂部：`Claude` 字標（連 `/new`）＋ Search 鈕＋ Close sidebar（收合）鈕
 2. New chat（`+`）
 3. 主導覽：Chats（`/recents`）、Projects、Artifacts、Customize
-4. **Products 區**：Code（`/code`）、Design（`/design`）— 2026-06 新增的產品入口（小標題 `Products`）
+4. **Products 區**：Code（`/code`）、Design（`/design`）產品入口（小標題 `Products`）
 5. Recents：對話清單，附「Group by」分組控制
 6. 底部：帳號鈕（`<團隊名>, Settings`）＋「Get apps and extensions」
 7. 右上角浮動：**Use incognito**（暫時對話／不留存，星芒鬼魂 icon）
 
-### 7.18 Composer（聊天輸入卡）詳規 — 2026-06-15 live
+### 7.18 Composer（聊天輸入卡）詳規
 
-| 部位 | 實測值 |
+| 部位 | 規格 |
 |---|---|
 | 表面 | `bg-000` 白底、`border-radius: 20px` |
 | 外框 | **非實線 border**，而是 ring + 柔陰影：`box-shadow: 0 0 0 .5px hsl(var(--border-300) / 30%), 0 4px 20px hsl(var(--always-black) / 3.5%)` |
@@ -302,24 +302,24 @@ claude.ai 的版面是「側欄 + 主內容欄」單層 shell，**側欄與主�
 | 麥克風 / 語音 | press-and-hold 錄音鈕 + 語音模式鈕，皆 `32×32 / radius 8` icon button |
 | 風格 chips（卡片下方） | `height 32px`、`padding 0 12px`、`radius 8px`、`font 14px`、透明底 + `1px` ring(`border/10%`)；內容 Code / Write / Learn / Life stuff / Claude's choice |
 
-### 7.19 模型選擇器與彈出選單（popover menu）— 2026-06-15 live
+### 7.19 模型選擇器與彈出選單（popover menu）
 
 點 composer 的模型 pill 展開 popover menu，此 elevation 是 App 全站選單/下拉的通用樣式：
 
-| 部位 | 實測值 |
+| 部位 | 規格 |
 |---|---|
 | popover 容器 | `bg-000`、`border-radius: 12px`、寬約 `270px`、`padding 0` |
 | popover 陰影（signature） | `0 0 0 1px hsl(var(--border-100) / 10%), 0 8px 24px hsl(var(--always-black) / 12%), 0 2px 6px hsl(var(--always-black) / 8%)` |
 | 選項（`role=menuitem`） | `height 32px`、`padding 6px 10px`、`radius 8px`、`font 14px`、`gap 8px`；主行模型名 + 次行說明，選中右側顯示 ✓ |
 | 子選單 | item 右側 chevron `>`：**Effort**（思考強度，當前 Low；取代舊「Max」字樣）、**More models** |
 
-**模型清單（2026-06-15 實測）**：Fable 5（最強，當時標 *Currently unavailable*）、Opus 4.8（複雜任務）、Sonnet 4.6（日常高效，**預設選中**）、Haiku 4.5（最快）。此 popover 的 `12px` radius + 三層陰影即 §5.3 的 `--shadow-menu`。
+**模型清單**：Fable 5（最強，狀態可能暫不可用）、Opus 4.8（複雜任務）、Sonnet 4.6（日常高效，**預設選中**）、Haiku 4.5（最快）。此 popover 的 `12px` radius + 三層陰影即 §5.3 的 `--shadow-menu`。
 
-### 7.20 設定（Settings）modal — 2026-06-15 live
+### 7.20 設定（Settings）modal
 
 設定不是獨立頁，而是 **置中 modal overlay**（`#settings/*` hash 路由，背景頁面變暗）：
 
-| 部位 | 實測值 |
+| 部位 | 規格 |
 |---|---|
 | Modal 容器 | `bg-000`、`border-radius: 12px`、`960 × 720px`、`padding 0`；右上 `×` 關閉鈕 |
 | Modal 陰影 | `0 0 0 1px hsl(border/10%), 0 1px 2px hsl(black/6%), 0 2px 8px hsl(black/8%)`（dialog elevation，比 menu 更收斂） |

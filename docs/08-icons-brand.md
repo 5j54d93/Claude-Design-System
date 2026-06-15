@@ -4,9 +4,9 @@
 
 ---
 
-### 8.0 ⚡ 2026-06 live 圖示庫（assets/icons/，28 個去重實品）
+### 8.0 ⚡ App SVG 圖示庫（assets/icons/，28 個）
 
-從 live 站（/new、選單、設定、對話頁）蒐集去重後的實際 SVG，全部 `currentColor`：
+App 內嵌 SVG 圖示全部使用 `currentColor`，可隨文字色階與主題變化：
 
 | 類別 | 圖示 |
 |---|---|
@@ -18,22 +18,22 @@
 
 > 兩套尺寸體系並存：**Phosphor Icons**（`0 0 256 256`，風格 chips 等）與**自製 20×20 線性組**（UI 操作）。`assets/icons/_manifest.json` 有完整清單。
 
-### 8.0.1 ⚡ 2026-06-15 重大發現：UI 圖示主要改用「可變圖示字型 Anthropicons-Variable」
+### 8.0.1 ⚡ UI 圖示主要使用「可變圖示字型 Anthropicons-Variable」
 
-2026-06-15 live 觀察（設定 modal、側欄、各功能頁）顯示：claude.ai 目前**絕大多數 UI chrome 圖示不再是內嵌 SVG，而是透過可變圖示字型 `Anthropicons-Variable` 的字符（glyph）渲染**。
+claude.ai 的多數 UI chrome 圖示不再是內嵌 SVG，而是透過可變圖示字型 `Anthropicons-Variable` 的字符（glyph）渲染。
 
-| 項目 | 實測 |
+| 項目 | 結論 |
 |---|---|
 | 字型 | `Anthropicons-Variable`（variable，weight `400 700`），woff2 經 `assets-proxy.anthropic.com/...woff2` 載入 |
 | 元件 | 設計系統 `<span data-cds="Icon">`，`20px`、`currentColor`、`flex-shrink:0` |
 | 字符 | Unicode 私用區（PUA，`U+E001`–`U+E100` 一帶）；單一設定/聊天頁就用到 27 個以上不同 glyph |
-| 覆蓋率（/new + 設定頁實測） | 頁面上 `66/66` 個 `data-cds="Icon"` 全為字型 glyph；整份文件僅 `13` 個內嵌 `<svg>` |
+| 覆蓋模式 | `data-cds="Icon"` 主要渲染為字型 glyph；內嵌 `<svg>` 只保留在少數品牌、語音與特殊圖示 |
 | 仍為內嵌 SVG 者 | 字標 `wordmark`、星芒 `spark-greeting`、語音音波 `voice-mode`、風格 chips（Phosphor `0 0 256 256`）、`incognito`、`cursor` |
 
 **對本 repo 的意涵**：
 
 - `assets/icons/` 的 `28` 個是**可被 DOM 擷取的內嵌-SVG 子集**（字標、星芒、Phosphor chips、語音、incognito 等），仍正確。
-- 設定分頁（General / Account / Privacy / Billing / Usage / Capabilities / Connectors / Claude Code / Claude in Chrome）、側欄功能項（Projects / Artifacts / Customize / Design）、Appearance（系統/淺/深）等**這次新看到的圖示是字型 glyph，無法用 DOM 抓成 SVG 檔**；要逐一「收錄」需另下載 `Anthropicons-Variable.woff2` 並建立 codepoint→名稱對照（屬資產下載任務，與 UI 規格 crawl 分開）。
+- 設定分頁（General / Account / Privacy / Billing / Usage / Capabilities / Connectors / Claude Code / Claude in Chrome）、側欄功能項（Projects / Artifacts / Customize / Design）、Appearance（系統/淺/深）等 UI chrome 圖示屬字型 glyph；若需要獨立資產檔，需以 `Anthropicons-Variable.woff2` 與 codepoint 對照表建立。
 - 設計含義：取用 Claude 風格 UI icon 的官方做法已是「圖示字型 + currentColor」，可像文字一樣繼承顏色、字重與大小；自製時以 `20px`、`currentColor`、`flex-shrink:0` 的 inline icon 容器即與此對齊。
 
 

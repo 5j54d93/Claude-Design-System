@@ -4,7 +4,7 @@
 
 ---
 
-### 2.0 ⚡ 2026-06 架構改版：Primitive 色板層（live 實測）
+### 2.0 ⚡ 2026-06 App 色彩架構：Primitive 色板層
 
 claude.ai 已將色彩系統重構為**兩層架構**，並改了部分命名：
 
@@ -25,7 +25,7 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 | `--accent-secondary-*`（藍） | **`--accent-*`** |
 | 字體 `anthropicSans` / `anthropicSerif` / `jetbrains` | **`"Anthropic Sans"` / `"Anthropic Serif"` / `"Anthropic Mono"`** |
 
-**語意層映射與實測值（live 2026-06）**：
+**語意層映射（2026-06）**：
 
 | Token | Light（引用 / HSL / HEX） | Dark |
 |---|---|---|
@@ -50,7 +50,7 @@ Primitive 層（--_*，317 個）        語意層（45 個 / 模式）
 
 > 注意視覺走向：亮模式底色由米白 `#faf9f5` 微調為更中性的 `#f8f8f6`；**暗模式整體加深**（頁面底 `#262624`→`#1f1f1e`、最深階到 `#0a0a0a`）；藍色 accent 加深（`#1b67b2`→`#184e95`）；success 由純綠改**黃綠**（`#578a00`）。完整 317 個 primitive 與全部語意映射見 `tokens.css` / `tokens.json`。
 
-**官方具名品牌色（`--cds-*` 命名空間，live 抓取）**：
+**官方具名品牌色（`--cds-*` 命名空間）**：
 
 | 名稱 | HEX | 名稱 | HEX |
 |---|---|---|---|

@@ -71,7 +71,7 @@
 @keyframes toast-slide { to { transform: translateX(100%) } }
 ```
 
-### 6.35 ⚡ 2026-06 新增：`cds-*` 動畫命名空間（live 抓取）
+### 6.35 ⚡ `cds-*` 動畫命名空間
 
 ```css
 @keyframes cds-shimmer { 0% { transform: translate(-100%) } 100% { transform: translate(100%) } }

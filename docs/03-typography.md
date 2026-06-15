@@ -4,11 +4,11 @@
 
 ---
 
-### 3.0 ⚡ 2026-06 更新（live 實測）
+### 3.0 ⚡ 2026-06 現行排印
 
 - 字體正名：**`"Anthropic Sans"` / `"Anthropic Serif"` / `"Anthropic Mono"`**（等寬字不再是 JetBrains Mono！）
 - serif 後備鏈加入完整 CJK 字串：`Georgia, "Arial Hebrew", …, "Hiragino Sans", "Yu Gothic", "PingFang TC", "Microsoft JhengHei", "PingFang SC", "Microsoft YaHei", "Apple SD Gothic Neo", serif`
-- 實測：body 16px Anthropic Sans；Claude 回覆 **Anthropic Serif 16px / 24px / w400**（`.font-claude-response leading-[1.65rem]`）；使用者訊息 `.font-large !font-user-message`（sans）
+- App body 使用 16px Anthropic Sans；Claude 回覆為 **Anthropic Serif 16px / 24px / w400**（`.font-claude-response leading-[1.65rem]`）；使用者訊息為 `.font-large !font-user-message`（sans）
 
 ### 3.1 字族（2026-01 存檔）
 

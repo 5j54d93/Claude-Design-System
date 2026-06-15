@@ -37,16 +37,16 @@ One design language, two implementations — both fully documented and merged ch
 - **44+ semantic color tokens** per theme with light／dark／console variants — every HEX verified against production
 - **Anthropic Sans／Serif／Mono** typography system, including the dark-mode font-weight compensation trick（bold 600 → 530）
 - **17 keyframes + signature easings**：`scale(0.985)` button press, clip-path nav curtain, shimmer "thinking" text…
-- **114 production SVGs**：28 app icons, 86 marketing assets, pictograms, the Claude spark & wordmark
-- Component specs measured live：composer（20px radius）, user bubble（12px／`#efeeeb`）, sidebar（3.05rem rail ↔ 18rem pinned）, pricing segmented selector, buttons, cards, forms, filters, nav, docs shell, toasts…
-- A **Design Playbook** for UI not explicitly covered by the component catalogue：surface selection, layout recipes, unknown-component anatomy, state matrix, Do／Don’t, and a demo-site self-audit checklist
+- **144 SVG assets**：28 app icons and 116 marketing assets, including pictograms, the Claude spark, wordmark and product lockups
+- Component specs：composer（20px radius）, user bubble（12px／`#efeeeb`）, sidebar（3.05rem rail ↔ 18rem pinned）, pricing segmented selector, buttons, cards, forms, filters, nav, docs shell, toasts…
+- A **Design Playbook** for UI not explicitly covered by the component catalogue：surface selection, layout recipes, unknown-component anatomy, state matrix, Do／Don’t, and a demo-site checklist
 
 ## The Documentation Site
 
 Open [**index.html**](index.html) directly in a browser（fully static, zero dependencies）. The site's layout follows the claude.ai app shell — hairline-bordered collapsible sidebar, floating top-right toolbar, and a documentation column that expands from 48rem up to 72rem on wide screens（84rem in presentation mode）— so the documentation **is** the demo.
 
 - **12 chapters + appendix + full-text mirror**：theme architecture, colors, typography, layout, shape & elevation, motion, components, icons & brand, content styles, page patterns, implementation guide, design playbook
-- **Interactive**：click swatches to copy HEX, replay animations, live-rendered components（not screenshots）
+- **Interactive**：click swatches to copy HEX, replay animations, rendered components（not screenshots）
 - **Appearance segmented control** — system／light／dark modes update every token instantly
 - **Presentation mode**：▶ fullscreen slides; navigate with ←／→, toggle dark with D
 - **Deep-linkable**：`?slide=7&mode=dark`
@@ -63,8 +63,8 @@ Open [**index.html**](index.html) directly in a browser（fully static, zero dep
 | [`tokens.json`](tokens.json) | Machine-readable tokens（HSL + HEX）for Style Dictionary／Figma Tokens |
 | [`docs/`](docs/INDEX.md) | Per-chapter Markdown — the source of truth（in Traditional Chinese）, including the new UI design playbook |
 | [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) | The full spec as a single file, readable right on GitHub |
-| [`assets/`](assets/) | SVGs：spark, wordmark, 28 app icons, 86 marketing assets（each with a manifest） |
-| [`raw/`](raw/) | Evidence：original production CSS and live-captured token dumps |
+| [`assets/`](assets/) | SVGs：spark, wordmark, 28 app icons, 116 marketing assets（each with a manifest） |
+| [`raw/`](raw/) | Reference files：original production CSS and token dumps |
 | [`CLAUDE.md`](CLAUDE.md) | Maintenance guide（sync rules between docs／site／tokens） |
 
 ## Quick Start
@@ -104,9 +104,9 @@ For UI that is not already listed as a component, start from [docs/12-design-pla
 9. Code blocks are always a One Dark island — even in light mode
 10. Dropdowns／modals enter with `fade + zoom(.95)`; marketing nav uses a clip-path curtain
 
-## How It Was Made
+## Design Coverage
 
-Specs were captured from production sites：logged-in claude.ai on **2026-06-12** via browser automation and **re-verified live on 2026-06-15** (reading the running app's `:root` variables — colors, typography and the rest matched exactly, and the App shell / composer / model-selector components were measured and added), and claude.com via a **2026-06-15 full-site inventory**：3,125 public sitemap URLs inventoried, 1,520 canonical marketing pages + 75 docs pages fetched（1595/1595 HTTP 200）, and the latest `claude-brand.shared.9ce205edd.min.css` parsed. Values are cross-checked against archived production bundles from 2025-11 ~ 2026-03. The documentation site renders the extracted tokens and component patterns live — if the tokens were wrong, the site would look wrong.
+The spec covers two related surfaces：the claude.ai App（tokens, shell, composer, settings, feature pages and conversation UI）and claude.com（marketing sections, docs shell, route groups, shared components, brand assets and motion patterns）. Production CSS bundles from 2025-11 through 2026-06 are used as stability references, while the documentation site renders the extracted tokens and component patterns directly.
 
 ## License：MIT
 

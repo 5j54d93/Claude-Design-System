@@ -42,12 +42,12 @@ body.bg-bg-100.text-text-100.font-ui.min-h-screen
 ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「右上」
 ```
 
-**版面要點（皆有 DOM/CSS 證據）：**
+**版面要點：**
 
-- 側欄與主區**同底色**，分界只靠 `border-r-0.5` 髮絲線（live 實測 `0.5px hsl(border-300/15%)`）
-- ⚡ live 實測：**收合 = 3.05rem（49px）icon rail**（不再是 width:0）、**展開 = 18rem（288px）**；設定頁已改為 **modal**（`#settings/general` hash 路由）；App 通知 toast 容器在右上
+- 側欄與主區**同底色**，分界只靠 `border-r-0.5` 髮絲線（`0.5px hsl(border-300/15%)`）
+- **收合 = 3.05rem（49px）icon rail**、**展開 = 18rem（288px）**；設定頁為 **modal**（`#settings/general` hash 路由）；App 通知 toast 容器在右上
 - 側欄 `fixed` + `lg:sticky`，收合時 `width:0`；展開動畫：內容物 `opacity-0 -translate-x-0.5 transition-all duration-200` 滑入
-- 側欄寬度（live 驗證）：rail `3.05rem` ↔ 釘選展開 `18rem`（inline style 切換、transition duration-200）
+- 側欄寬度：rail `3.05rem` ↔ 釘選展開 `18rem`（inline style 切換、transition duration-200）
 - 側欄項目一律 ghost 按鈕（hover `bg-300`、active/展開 `bg-300` + `text-100`），列間距 `gap-px`
 - 主區 `w-full relative min-w-0`；右上工具列浮動（`absolute top-3 right-3 z-header gap-3.5`），非整條 top bar
 - 對話欄 `max-w-3xl`（48rem）置中；使用者訊息 sans + `bg-bg-300` 圓角泡泡，Claude 回覆 serif 直排無泡泡
@@ -55,7 +55,7 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 - Composer：`rounded-2xl bg-bg-000 border-0.5` + 陰影（登入後渲染，此項依 CSS 類推定）
 - App 通知 toast 容器在**右上**；landing 的 cookie toast 才在右下
 
-**App 功能頁版面（非聊天頁；2026-06-15 live 實測）**：claude.ai 的非聊天頁（Projects、Artifacts、Chats…）共用同一套 list/collection 骨架，掛在 App shell 主內容欄內：
+**App 功能頁版面（非聊天頁）**：claude.ai 的非聊天頁（Projects、Artifacts、Chats…）共用同一套 list/collection 骨架，掛在 App shell 主內容欄內：
 
 | 區塊 | 規格 |
 |---|---|
@@ -73,12 +73,12 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 > 行銷內容已從 claude.ai 遷至 claude.com（Webflow）；§10.1 的 claude.ai landing 為 2026-01 歷史存檔。
 
 - 上方橫排 nav（`nav_desktop_layout`），下拉 `300/600ms` + `ease-expo-out`
-- 產品線（nav 實測）：Claude / **Claude Code**（+Enterprise）/ **Claude Cowork** / **Claude Security** / Claude for Chrome・Slack・M365 / Skills；模型頁 Opus・Sonnet・Haiku
+- 產品線：Claude / **Claude Code**（+Enterprise）/ **Claude Cowork** / **Claude Security** / Claude for Chrome・Slack・M365 / Skills；模型頁 Opus・Sonnet・Haiku
 - 站點規模：`1,520` 個 canonical marketing pages、`75` 個 docs pages，另有 `/de` `/fr` `/ja` `/ko` 多語系模板變體
 - 核心品牌/產品頁：`/product/*`、`/platform/*`、`/solutions/*`、`/partners/*`、`/pricing`、`/download`、`/skills`、`/plugins`、`/connectors`；多語系 `/de` `/fr` `/ja` `/ko`。
 - 版面：區段堆疊 + `.u-theme-*` 換膚；hero 用 serif display 流式大字；技術棧 Webflow + Swiper
 
-**Route group inventory（canonical + localized 全量）**：
+**Route groups（canonical + localized）**：
 
 | Route group | 全 sitemap URLs | canonical URLs | 主要版面 / UI |
 |---|---:|---:|---|
@@ -120,5 +120,5 @@ ol.fixed.right-0.top-0.z-toast.flex.flex-col.gap-4.p-4    ← App 通知在「�
 **覆蓋結論**：
 
 - claude.com 的 UI 不以「每個 URL 一套設計」存在，而是以 route group + Webflow component variants 重複組合；route group 的 page pattern 見 §10，共用元件與互動規格見 §7。
-- 多語系頁只改文字長度與 locale path，未發現獨立 UI 系統；文件仍需在實作時注意較長德文/法文標籤的 wrapping。
+- 多語系頁只改文字長度與 locale path，不使用獨立 UI 系統；實作時需保留較長德文/法文標籤的 wrapping。
 - `/docs/*` 與 Webflow marketing 使用不同技術棧，已獨立列入 §7.15 與本章 docs 頁型。
