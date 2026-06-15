@@ -1,6 +1,6 @@
 # Claude Design System — 文件目錄
 
-> **版本**：v3.6 | **最後更新**：2026-06-15
+> **版本**：v3.7 | **最後更新**：2026-06-15
 > 範圍：claude.ai App 的 token、shell、composer、設定與功能頁；claude.com marketing/docs 的色彩、排印、元件、頁型與品牌資產；production CSS 存檔作為穩定性對照。
 
 ---
